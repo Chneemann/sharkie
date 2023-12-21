@@ -1,6 +1,7 @@
 let canvas;
 let ctx;
-let character = new MovableObject();
+let character = new Character();
+let enemies = [new PufferFish(), new PufferFish(), new PufferFish()];
 
 function init() {
   canvas = document.getElementById("canvas");
