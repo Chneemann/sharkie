@@ -1,6 +1,1 @@
-class PufferFish {
-  x;
-  y;
-
-  moveLeft() {}
-}
+class PufferFish extends MovableObject {}
