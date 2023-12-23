@@ -17,19 +17,19 @@ class World {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     this.addToMap(this.character);
-
-    this.enemies.forEach((enemy) => {
-      this.addToMap(enemy);
-    });
-
-    this.backgroundObjects.forEach((background) => {
-      this.addToMap(background);
-    });
+    this.addObjectsToMap(this.enemies);
+    this.addObjectsToMap(this.backgroundObjects);
 
     // Draw() wird immer weder aufgerufen
     let self = this;
     requestAnimationFrame(function () {
       self.draw();
+    });
+  }
+
+  addObjectsToMap(objects) {
+    objects.forEach((o) => {
+      this.addToMap(o);
     });
   }
 
