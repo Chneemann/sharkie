@@ -1,6 +1,9 @@
 class World {
   character = new Character();
   enemies = [new PufferFish(), new PufferFish(), new PufferFish()];
+  backgroundObjects = [
+    new BackgroundObject("img/3. Background/Layers/2. Floor/D1.png"),
+  ];
   canvas;
   ctx;
 
@@ -12,21 +15,15 @@ class World {
 
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    this.ctx.drawImage(
-      this.character.img,
-      this.character.x,
-      this.character.y,
-      this.character.width,
-      this.character.height
-    );
+
+    this.addToMap(this.character);
+
     this.enemies.forEach((enemy) => {
-      this.ctx.drawImage(
-        enemy.img,
-        enemy.x,
-        enemy.y,
-        enemy.width,
-        enemy.height
-      );
+      this.addToMap(enemy);
+    });
+
+    this.backgroundObjects.forEach((background) => {
+      this.addToMap(background);
     });
 
     // Draw() wird immer weder aufgerufen
@@ -34,5 +31,9 @@ class World {
     requestAnimationFrame(function () {
       self.draw();
     });
+  }
+
+  addToMap(mo) {
+    this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
   }
 }
