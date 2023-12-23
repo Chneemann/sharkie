@@ -2,7 +2,9 @@ class World {
   character = new Character();
   enemies = [new PufferFish(), new PufferFish(), new PufferFish()];
   backgroundObjects = [
-    new BackgroundObject("img/3. Background/Layers/2. Floor/D1.png"),
+    new BackgroundObject("img/3. Background/Layers/3.Fondo 1/D1.png", 0),
+    new BackgroundObject("img/3. Background/Layers/2. Floor/D1.png", 0),
+    new BackgroundObject("img/3. Background/Legacy/Layers/1. Light/2.png", 0),
   ];
   canvas;
   ctx;
