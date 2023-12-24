@@ -15,6 +15,7 @@ class World {
     this.ctx = canvas.getContext("2d");
     this.canvas = canvas;
     this.draw();
+    this.backgroundObjects[0].animateBackground();
   }
 
   draw() {

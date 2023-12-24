@@ -7,17 +7,12 @@ class PufferFish extends MovableObject {
     this.y = 20 + Math.random() * 400;
     this.height = 50;
     this.width = 60;
-    this.moveLeft();
+    this.animateEnemiesToLeft();
   }
 
-  moveLeft() {
-    const speed = 1;
-    const interval = 50;
-
-    const move = () => {
-      this.x -= speed;
-    };
-
-    const movementInterval = setInterval(move, interval);
+  animateEnemiesToLeft() {
+    setInterval(() => {
+      this.x -= 1;
+    }, 30);
   }
 }
