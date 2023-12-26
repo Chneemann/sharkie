@@ -25,7 +25,6 @@ class Character extends MovableObject {
   constructor() {
     super().loadImage("./img/1.Sharkie/1.IDLE/1.png");
     this.loadImages(this.IMAGES_IDLE);
-    this.registerEventListeners();
     this.animate();
   }
 
@@ -36,22 +35,5 @@ class Character extends MovableObject {
       this.img = this.imageCache[path];
       this.currentImage++;
     }, 150);
-  }
-
-  registerEventListeners() {
-    document.addEventListener("keydown", (event) => {
-      if (event.keyCode === 39) {
-        this.moveRight();
-      }
-      if (event.keyCode === 37) {
-        this.moveLeft();
-      }
-      if (event.keyCode === 38) {
-        this.moveUp();
-      }
-      if (event.keyCode === 40) {
-        this.moveDown();
-      }
-    });
   }
 }
