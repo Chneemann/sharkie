@@ -21,19 +21,36 @@ class Character extends MovableObject {
     "img/1.Sharkie/1.IDLE/17.png",
     "img/1.Sharkie/1.IDLE/18.png",
   ];
+  IMAGES_MOVE = [
+    "img/1.Sharkie/3.Swim/1.png",
+    "img/1.Sharkie/3.Swim/2.png",
+    "img/1.Sharkie/3.Swim/3.png",
+    "img/1.Sharkie/3.Swim/4.png",
+    "img/1.Sharkie/3.Swim/5.png",
+    "img/1.Sharkie/3.Swim/6.png",
+  ];
+  world;
 
   constructor() {
     super().loadImage("./img/1.Sharkie/1.IDLE/1.png");
     this.loadImages(this.IMAGES_IDLE);
+    this.loadImages(this.IMAGES_MOVE);
     this.animate();
   }
 
   animate() {
     setInterval(() => {
-      let i = this.currentImage % this.IMAGES_IDLE.length;
-      let path = this.IMAGES_IDLE[i];
-      this.img = this.imageCache[path];
-      this.currentImage++;
+      if (!this.world.keyboard.MOVE) {
+        let i = this.currentImage % this.IMAGES_IDLE.length;
+        let path = this.IMAGES_IDLE[i];
+        this.img = this.imageCache[path];
+        this.currentImage++;
+      } else {
+        let i = this.currentImage % this.IMAGES_MOVE.length;
+        let path = this.IMAGES_MOVE[i];
+        this.img = this.imageCache[path];
+        this.currentImage++;
+      }
     }, 150);
   }
 }
