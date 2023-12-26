@@ -54,20 +54,4 @@ class Character extends MovableObject {
       }
     });
   }
-
-  moveRight() {
-    this.x += 20;
-  }
-
-  moveLeft() {
-    this.x -= 20;
-  }
-
-  moveUp() {
-    this.y -= 20;
-  }
-
-  moveDown() {
-    this.y += 20;
-  }
 }

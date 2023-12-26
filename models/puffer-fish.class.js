@@ -15,23 +15,19 @@ class PufferFish extends MovableObject {
     this.y = 20 + Math.random() * 400;
     this.height = 50;
     this.width = 60;
-    this.animateEnemiesToLeft();
+    this.speed = 0.3 + Math.random() * 0.3;
     this.loadImages(this.IMAGES_SWIM);
     this.animate();
   }
 
   animate() {
+    this.moveLeft();
+
     setInterval(() => {
       let i = this.currentImage % this.IMAGES_SWIM.length;
       let path = this.IMAGES_SWIM[i];
       this.img = this.imageCache[path];
       this.currentImage++;
     }, 150);
-  }
-
-  animateEnemiesToLeft() {
-    setInterval(() => {
-      this.x -= 1;
-    }, 20);
   }
 }
