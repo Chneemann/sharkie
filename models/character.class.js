@@ -40,6 +40,21 @@ class Character extends MovableObject {
 
   animate() {
     setInterval(() => {
+      if (this.world.keyboard.RIGHT) {
+        this.x += 3;
+      }
+      if (this.world.keyboard.LEFT) {
+        this.x -= 3;
+      }
+      if (this.world.keyboard.UP) {
+        this.y -= 3;
+      }
+      if (this.world.keyboard.DOWN) {
+        this.y += 3;
+      }
+    }, 1000 / 60);
+
+    setInterval(() => {
       if (!this.world.keyboard.MOVE) {
         let i = this.currentImage % this.IMAGES_IDLE.length;
         let path = this.IMAGES_IDLE[i];
