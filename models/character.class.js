@@ -45,7 +45,7 @@ class Character extends MovableObject {
         this.otherDirection = false;
       }
       if (this.world.keyboard.LEFT) {
-        if (this.x >= -40) {
+        if (this.x >= 0) {
           this.x -= 3;
           this.otherDirection = true;
         }
@@ -60,6 +60,7 @@ class Character extends MovableObject {
           this.y += 3;
         }
       }
+      this.world.camera_x = -this.x;
     }, 1000 / 60);
 
     setInterval(() => {
