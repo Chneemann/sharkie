@@ -1,4 +1,6 @@
 class Endboss extends MovableObject {
+  height = 480;
+  width = 500;
   IMAGES_SPAWN = [
     "./img/2.Enemy/3 Final Enemy/1.Introduce/1.png",
     "./img/2.Enemy/3 Final Enemy/1.Introduce/2.png",
@@ -31,8 +33,6 @@ class Endboss extends MovableObject {
     super().loadImage("./img/2.Enemy/3 Final Enemy/2.floating/1.png");
     this.x = 500;
     this.y = 0;
-    this.height = 480;
-    this.width = 500;
     this.loadImages(this.IMAGES_SPAWN);
     this.loadImages(this.IMAGES_IDLE);
     this.animate();
