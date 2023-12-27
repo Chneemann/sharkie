@@ -40,7 +40,7 @@ class Character extends MovableObject {
 
   animate() {
     setInterval(() => {
-      if (this.world.keyboard.RIGHT && this.x <= 710 * 3) {
+      if (this.world.keyboard.RIGHT && this.x <= this.world.level.level_end_x) {
         this.x += 3;
         this.otherDirection = false;
       }
