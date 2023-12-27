@@ -8,6 +8,7 @@ class MovableObject {
   currentImage = 0;
   speed = 0.2;
   otherDirection = false;
+  canvasCollision = false;
 
   loadImage(path) {
     this.img = new Image();

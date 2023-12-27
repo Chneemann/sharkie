@@ -45,14 +45,20 @@ class Character extends MovableObject {
         this.otherDirection = false;
       }
       if (this.world.keyboard.LEFT) {
-        this.x -= 3;
-        this.otherDirection = true;
+        if (this.x >= -40) {
+          this.x -= 3;
+          this.otherDirection = true;
+        }
       }
       if (this.world.keyboard.UP) {
-        this.y -= 3;
+        if (this.y >= -90) {
+          this.y -= 3;
+        }
       }
       if (this.world.keyboard.DOWN) {
-        this.y += 3;
+        if (this.y <= 320) {
+          this.y += 3;
+        }
       }
     }, 1000 / 60);
 
