@@ -1,12 +1,10 @@
 class Level {
   enemies;
-  endboss;
   backgroundObjects;
   level_end_x = 715 * 3;
 
-  constructor(enemies, endboss, backgroundObjects) {
+  constructor(enemies, backgroundObjects) {
     this.enemies = enemies;
-    this.endboss = endboss;
     this.backgroundObjects = backgroundObjects;
 
     this.backgroundObjects[0].animateBackground();
