@@ -28,14 +28,24 @@ class Endboss extends MovableObject {
     "./img/2.Enemy/3 Final Enemy/2.floating/12.png",
     "./img/2.Enemy/3 Final Enemy/2.floating/13.png",
   ];
+  world;
 
   constructor() {
-    super().loadImage("./img/2.Enemy/3 Final Enemy/2.floating/1.png");
-    this.x = 500;
+    super().loadImage("");
+    this.x = 2300;
     this.y = 0;
-    this.loadImages(this.IMAGES_SPAWN);
-    this.loadImages(this.IMAGES_IDLE);
-    this.animate();
+    this.spawnEndboss();
+  }
+
+  spawnEndboss() {
+    const intervalId = setInterval(() => {
+      if (world.character.x >= world.level.level_end_x - 450) {
+        this.loadImages(this.IMAGES_SPAWN);
+        this.loadImages(this.IMAGES_IDLE);
+        this.animate();
+        clearInterval(intervalId);
+      }
+    }, 1000);
   }
 
   animate() {

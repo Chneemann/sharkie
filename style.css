@@ -9,8 +9,7 @@ body {
   align-items: center;
   background-image: url(./img/background.png);
   background-repeat: no-repeat;
-  background-position: top;
-  background-size: cover;
+  background-position: center top;
   font-family: "water-galon", Arial, Helvetica, sans-serif;
 }
 
