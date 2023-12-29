@@ -1,9 +1,9 @@
 const level1 = new Level(
   [new PufferFish(), new PufferFish(), new PufferFish(), new Endboss()],
   [
-    new LootableObject("img/4. Marcadores/1. Coins/1.png", 200, 200),
-    new LootableObject("img/4. Marcadores/1. Coins/1.png", 270, 200),
-    new LootableObject("img/4. Marcadores/1. Coins/1.png", 270, 130),
+    new LootableObject("img/4. Marcadores/1. Coins/1.png", 600, 220),
+    new LootableObject("img/4. Marcadores/1. Coins/1.png", 670, 220),
+    new LootableObject("img/4. Marcadores/1. Coins/1.png", 670, 150),
   ],
   [
     new BackgroundObject("img/3. Background/Layers/5. Water/D1.png", 0),
