@@ -2,6 +2,7 @@ class BackgroundObject extends MovableObject {
   width = 720;
   height = 480;
   isAnimating = false;
+  world;
 
   constructor(imagePath, x) {
     super().loadImage(imagePath);
@@ -14,8 +15,8 @@ class BackgroundObject extends MovableObject {
       this.isAnimating = true;
       setInterval(() => {
         this.x -= 1;
-        if (this.x <= -this.width) {
-          this.x = this.width;
+        if (this.x <= -world.level.level_end_x) {
+          this.x = world.level.level_end_x;
         }
       }, 70);
     }
