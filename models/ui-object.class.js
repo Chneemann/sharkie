@@ -1,0 +1,1 @@
+class UiObject extends MovableObject {}
