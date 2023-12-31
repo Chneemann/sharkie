@@ -1,7 +1,6 @@
 class World {
   character = new Character();
   level = level1;
-  ui = new UiObject();
   ctx;
   canvas;
   keyboard;
@@ -27,8 +26,8 @@ class World {
     this.addObjectsToMap(this.level.backgroundObjects);
     this.addObjectsToMap(this.level.enemies);
     this.addObjectsToMap(this.level.objects);
+    this.addObjectsToMap(this.level.uiElement);
     this.addToMap(this.character);
-    this.addToMap(this.ui);
 
     this.ctx.translate(-this.camera_x, 0);
 

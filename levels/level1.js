@@ -13,6 +13,11 @@ const level1 = new Level(
     ),
   ],
   [
+    new UiObject("./img/4. Marcadores/orange/100_  copia.png", 0),
+    new UiObject("img/4. Marcadores/orange/0_  copia 2.png", 50),
+    new UiObject("img/4. Marcadores/orange/0_ copia.png", 100),
+  ],
+  [
     new BackgroundObject("./img/3. Background/Layers/5. Water/D1.png", 0),
     new BackgroundObject("./img/3. Background/Layers/5. Water/D2.png", 719),
     new BackgroundObject("./img/3. Background/Layers/5. Water/D1.png", 719 * 2),
