@@ -11,6 +11,13 @@ const level1 = new Level(
       60,
       80
     ),
+    new LootableObject(
+      "./img/4. Marcadores/Posiขn/Dark - Right.png",
+      880,
+      370,
+      60,
+      80
+    ),
   ],
   [
     new UiObject("./img/4. Marcadores/orange/100_  copia.png", 0),
