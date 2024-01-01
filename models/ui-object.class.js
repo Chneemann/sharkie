@@ -1,4 +1,4 @@
-class UiObject extends MovableObject {
+class UiObject extends StaticObject {
   x = 50;
   height = 60;
   width = 220;
