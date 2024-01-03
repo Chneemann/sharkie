@@ -29,7 +29,18 @@ class Character extends MovableObject {
     "img/1.Sharkie/3.Swim/5.png",
     "img/1.Sharkie/3.Swim/6.png",
   ];
-  IMAGES_DEATH_MEELE = [
+  IMAGES_HURT_MEELE = [
+    "img/1.Sharkie/5.Hurt/1.Poisoned/1.png",
+    "img/1.Sharkie/5.Hurt/1.Poisoned/2.png",
+    "img/1.Sharkie/5.Hurt/1.Poisoned/3.png",
+    "img/1.Sharkie/5.Hurt/1.Poisoned/4.png",
+  ];
+  IMAGES_HURT_ELECTRO_SHOCK = [
+    "img/1.Sharkie/5.Hurt/2.Electric shock/1.png",
+    "img/1.Sharkie/5.Hurt/2.Electric shock/2.png",
+    "img/1.Sharkie/5.Hurt/2.Electric shock/3.png",
+  ];
+  IMAGES_DEAD_MEELE = [
     "img/1.Sharkie/6.dead/1.Poisoned/1.png",
     "img/1.Sharkie/6.dead/1.Poisoned/2.png",
     "img/1.Sharkie/6.dead/1.Poisoned/3.png",
@@ -43,7 +54,7 @@ class Character extends MovableObject {
     "img/1.Sharkie/6.dead/1.Poisoned/11.png",
     "img/1.Sharkie/6.dead/1.Poisoned/12.png",
   ];
-  IMAGES_DEATH_ELECTRO_SHOCK = [
+  IMAGES_DEAD_ELECTRO_SHOCK = [
     "img/1.Sharkie/6.dead/2.Electro_shock/1.png",
     "img/1.Sharkie/6.dead/2.Electro_shock/2.png",
     "img/1.Sharkie/6.dead/2.Electro_shock/3.png",
@@ -61,8 +72,8 @@ class Character extends MovableObject {
     super().loadImage("./img/1.Sharkie/1.IDLE/1.png");
     this.loadImages(this.IMAGES_IDLE);
     this.loadImages(this.IMAGES_MOVE);
-    this.loadImages(this.IMAGES_DEATH_MEELE);
-    this.loadImages(this.IMAGES_DEATH_ELECTRO_SHOCK);
+    this.loadImages(this.IMAGES_DEAD_MEELE);
+    this.loadImages(this.IMAGES_DEAD_ELECTRO_SHOCK);
     this.animate();
   }
 
