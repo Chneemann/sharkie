@@ -72,6 +72,8 @@ class Character extends MovableObject {
     super().loadImage("./img/1.Sharkie/1.IDLE/1.png");
     this.loadImages(this.IMAGES_IDLE);
     this.loadImages(this.IMAGES_MOVE);
+    this.loadImages(this.IMAGES_HURT_MEELE);
+    this.loadImages(this.IMAGES_HURT_ELECTRO_SHOCK);
     this.loadImages(this.IMAGES_DEAD_MEELE);
     this.loadImages(this.IMAGES_DEAD_ELECTRO_SHOCK);
     this.animate();
