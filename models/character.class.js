@@ -29,6 +29,32 @@ class Character extends MovableObject {
     "img/1.Sharkie/3.Swim/5.png",
     "img/1.Sharkie/3.Swim/6.png",
   ];
+  IMAGES_DEATH_MEELE = [
+    "img/1.Sharkie/6.dead/1.Poisoned/1.png",
+    "img/1.Sharkie/6.dead/1.Poisoned/2.png",
+    "img/1.Sharkie/6.dead/1.Poisoned/3.png",
+    "img/1.Sharkie/6.dead/1.Poisoned/4.png",
+    "img/1.Sharkie/6.dead/1.Poisoned/5.png",
+    "img/1.Sharkie/6.dead/1.Poisoned/6.png",
+    "img/1.Sharkie/6.dead/1.Poisoned/7.png",
+    "img/1.Sharkie/6.dead/1.Poisoned/8.png",
+    "img/1.Sharkie/6.dead/1.Poisoned/9.png",
+    "img/1.Sharkie/6.dead/1.Poisoned/10.png",
+    "img/1.Sharkie/6.dead/1.Poisoned/11.png",
+    "img/1.Sharkie/6.dead/1.Poisoned/12.png",
+  ];
+  IMAGES_DEATH_ELECTRO_SHOCK = [
+    "img/1.Sharkie/6.dead/2.Electro_shock/1.png",
+    "img/1.Sharkie/6.dead/2.Electro_shock/2.png",
+    "img/1.Sharkie/6.dead/2.Electro_shock/3.png",
+    "img/1.Sharkie/6.dead/2.Electro_shock/4.png",
+    "img/1.Sharkie/6.dead/2.Electro_shock/5.png",
+    "img/1.Sharkie/6.dead/2.Electro_shock/6.png",
+    "img/1.Sharkie/6.dead/2.Electro_shock/7.png",
+    "img/1.Sharkie/6.dead/2.Electro_shock/8.png",
+    "img/1.Sharkie/6.dead/2.Electro_shock/9.png",
+    "img/1.Sharkie/6.dead/2.Electro_shock/10.png",
+  ];
   world;
 
   constructor() {
