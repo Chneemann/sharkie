@@ -29,7 +29,7 @@ class Character extends MovableObject {
     "img/1.Sharkie/3.Swim/5.png",
     "img/1.Sharkie/3.Swim/6.png",
   ];
-  IMAGES_ATACK_MEELE = [
+  IMAGES_ATTACK_MEELE = [
     "img/1.Sharkie/4.Attack/Fin slap/1.png",
     "img/1.Sharkie/4.Attack/Fin slap/2.png",
     "img/1.Sharkie/4.Attack/Fin slap/3.png",
@@ -39,7 +39,7 @@ class Character extends MovableObject {
     "img/1.Sharkie/4.Attack/Fin slap/7.png",
     "img/1.Sharkie/4.Attack/Fin slap/8.png",
   ];
-  IMAGES_ATACK_RANGE = [
+  IMAGES_ATTACK_RANGE = [
     "img/1.Sharkie/4.Attack/Bubble trap/For Whale/1.png",
     "img/1.Sharkie/4.Attack/Bubble trap/For Whale/2.png",
     "img/1.Sharkie/4.Attack/Bubble trap/For Whale/3.png",
