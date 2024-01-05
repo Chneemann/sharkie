@@ -1,4 +1,4 @@
-class Coin extends StaticObject {
+class Coin extends MovableObject {
   width = 30;
   height = 30;
 

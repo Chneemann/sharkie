@@ -1,4 +1,4 @@
-class Poison extends StaticObject {
+class Poison extends MovableObject {
   width = 60;
   height = 80;
 
