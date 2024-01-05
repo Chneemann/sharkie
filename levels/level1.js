@@ -1,44 +1,14 @@
 const level1 = new Level(
   [new PufferFish(), new PufferFish(), new PufferFish(), new Endboss()],
   [
-    new LootableObject("./img/4. Marcadores/1. Coins/1.png", 600, 220, 30, 30),
-    new LootableObject("./img/4. Marcadores/1. Coins/1.png", 670, 220, 30, 30),
-    new LootableObject("./img/4. Marcadores/1. Coins/1.png", 670, 150, 30, 30),
-    new LootableObject(
-      "./img/4. Marcadores/Posiขn/Dark - Left.png",
-      630,
-      350,
-      60,
-      80
-    ),
-    new LootableObject(
-      "./img/4. Marcadores/Posiขn/Dark - Right.png",
-      880,
-      370,
-      60,
-      80
-    ),
-    new LootableObject(
-      "./img/4. Marcadores/Posiขn/Dark - Left.png",
-      1300,
-      380,
-      60,
-      80
-    ),
-    new LootableObject(
-      "./img/4. Marcadores/Posiขn/Dark - Right.png",
-      1550,
-      380,
-      60,
-      80
-    ),
-    new LootableObject(
-      "./img/4. Marcadores/Posiขn/Dark - Left.png",
-      1660,
-      340,
-      60,
-      80
-    ),
+    new Coin("./img/4. Marcadores/1. Coins/1.png", 600, 220),
+    new Coin("./img/4. Marcadores/1. Coins/1.png", 670, 220),
+    new Coin("./img/4. Marcadores/1. Coins/1.png", 670, 150),
+    new Poison("./img/4. Marcadores/Posiขn/Dark - Left.png", 630, 350),
+    new Poison("./img/4. Marcadores/Posiขn/Dark - Right.png", 880, 370),
+    new Poison("./img/4. Marcadores/Posiขn/Dark - Left.png", 1300, 380),
+    new Poison("./img/4. Marcadores/Posiขn/Dark - Right.png", 1550, 380),
+    new Poison("./img/4. Marcadores/Posiขn/Dark - Left.png", 1660, 340),
   ],
   [
     new UiObject("./img/4. Marcadores/orange/100_  copia.png", 0),
