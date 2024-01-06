@@ -32,7 +32,11 @@ class MovableObject {
       ctx.beginPath();
       ctx.lineWidth = "3";
       ctx.strokeStyle = "blue";
-      ctx.rect(this.x, this.y, this.width, this.height);
+      if (this instanceof PufferFish) {
+        ctx.rect(this.x, this.y, this.width, this.height - 10);
+      } else if (this instanceof Character) {
+        ctx.rect(this.x + 45, this.y + 95, this.width - 90, this.height - 140);
+      }
       ctx.stroke();
     }
   }
