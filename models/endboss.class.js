@@ -1,6 +1,11 @@
 class Endboss extends MovableObject {
   height = 480;
   width = 500;
+  enemyOffsetX = 30;
+  enemyOffsetY = 220;
+  enemyOffsetWidth = 60;
+  enemyOffsetHeight = 300;
+
   IMAGES_SPAWN = [
     "./img/2.Enemy/3 Final Enemy/1.Introduce/1.png",
     "./img/2.Enemy/3 Final Enemy/1.Introduce/2.png",

@@ -28,11 +28,15 @@ class MovableObject {
   }
 
   drawFrame(ctx) {
-    if (this instanceof Character || this instanceof PufferFish) {
+    if (
+      this instanceof Character ||
+      this instanceof PufferFish ||
+      this instanceof Endboss
+    ) {
       ctx.beginPath();
       ctx.lineWidth = "3";
       ctx.strokeStyle = "blue";
-      if (this instanceof PufferFish) {
+      if (this instanceof PufferFish || this instanceof Endboss) {
         ctx.rect(
           this.x + this.enemyOffsetX,
           this.y + this.enemyOffsetY,
@@ -67,15 +71,16 @@ class MovableObject {
   isColliding(obj) {
     return (
       this.x + this.characterOffsetX + this.width - this.characterOffsetWidth >=
-        obj.x &&
-      this.x + this.characterOffsetX <= obj.x + obj.width &&
+        obj.x + obj.enemyOffsetX &&
+      this.x + this.characterOffsetX <=
+        obj.x + obj.enemyOffsetX + obj.width - obj.enemyOffsetWidth &&
       this.y +
         this.characterOffsetY +
         this.height -
         this.characterOffsetHeight >=
-        obj.y &&
+        obj.y + obj.enemyOffsetY &&
       this.y + this.characterOffsetY <=
-        obj.y + obj.height - obj.enemyOffsetHeight
+        obj.y + obj.enemyOffsetY + obj.height - obj.enemyOffsetHeight
     );
   }
 }
