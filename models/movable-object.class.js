@@ -9,7 +9,10 @@ class MovableObject {
   speed = 0.2;
   otherDirection = false;
   canvasCollision = false;
-  offsetY = 0;
+  offsetX = 45;
+  offsetY = 95;
+  offsetWidth = 90;
+  offsetHeight = 140;
 
   loadImage(path) {
     this.img = new Image();
@@ -36,7 +39,12 @@ class MovableObject {
       if (this instanceof PufferFish) {
         ctx.rect(this.x, this.y, this.width, this.height - 10);
       } else if (this instanceof Character) {
-        ctx.rect(this.x + 45, this.y + 95, this.width - 90, this.height - 140);
+        ctx.rect(
+          this.x + this.offsetX,
+          this.y + this.offsetY,
+          this.width - this.offsetWidth,
+          this.height - this.offsetHeight
+        );
       }
       ctx.stroke();
     }
@@ -57,9 +65,9 @@ class MovableObject {
 
   isColliding(obj) {
     return (
-      this.x + this.width >= obj.x &&
-      this.x <= obj.x + obj.width &&
-      this.y + this.offsetY + this.height >= obj.y &&
+      this.x + this.offsetX + this.width - this.offsetWidth >= obj.x &&
+      this.x + this.offsetX <= obj.x + obj.width &&
+      this.y + this.offsetY + this.height - this.offsetHeight >= obj.y &&
       this.y + this.offsetY <= obj.y + obj.height
     );
   }
