@@ -9,10 +9,6 @@ class MovableObject {
   speed = 0.2;
   otherDirection = false;
   canvasCollision = false;
-  characterOffsetX = 45;
-  characterOffsetY = 95;
-  characterOffsetWidth = 90;
-  characterOffsetHeight = 140;
 
   loadImage(path) {
     this.img = new Image();
@@ -37,7 +33,12 @@ class MovableObject {
       ctx.lineWidth = "3";
       ctx.strokeStyle = "blue";
       if (this instanceof PufferFish) {
-        ctx.rect(this.x, this.y, this.width, this.height - 10);
+        ctx.rect(
+          this.x + this.enemyOffsetX,
+          this.y + this.enemyOffsetY,
+          this.width - this.enemyOffsetWidth,
+          this.height - this.enemyOffsetHeight
+        );
       } else if (this instanceof Character) {
         ctx.rect(
           this.x + this.characterOffsetX,
@@ -73,7 +74,8 @@ class MovableObject {
         this.height -
         this.characterOffsetHeight >=
         obj.y &&
-      this.y + this.characterOffsetY <= obj.y + obj.height
+      this.y + this.characterOffsetY <=
+        obj.y + obj.height - obj.enemyOffsetHeight
     );
   }
 }

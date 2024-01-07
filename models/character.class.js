@@ -1,6 +1,11 @@
 class Character extends MovableObject {
   height = 200;
   width = 250;
+  characterOffsetX = 45;
+  characterOffsetY = 95;
+  characterOffsetWidth = 90;
+  characterOffsetHeight = 140;
+
   IMAGES_IDLE = [
     "img/1.Sharkie/1.IDLE/1.png",
     "img/1.Sharkie/1.IDLE/2.png",
