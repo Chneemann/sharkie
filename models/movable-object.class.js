@@ -9,10 +9,10 @@ class MovableObject {
   speed = 0.2;
   otherDirection = false;
   canvasCollision = false;
-  offsetX = 45;
-  offsetY = 95;
-  offsetWidth = 90;
-  offsetHeight = 140;
+  characterOffsetX = 45;
+  characterOffsetY = 95;
+  characterOffsetWidth = 90;
+  characterOffsetHeight = 140;
 
   loadImage(path) {
     this.img = new Image();
@@ -40,10 +40,10 @@ class MovableObject {
         ctx.rect(this.x, this.y, this.width, this.height - 10);
       } else if (this instanceof Character) {
         ctx.rect(
-          this.x + this.offsetX,
-          this.y + this.offsetY,
-          this.width - this.offsetWidth,
-          this.height - this.offsetHeight
+          this.x + this.characterOffsetX,
+          this.y + this.characterOffsetY,
+          this.width - this.characterOffsetWidth,
+          this.height - this.characterOffsetHeight
         );
       }
       ctx.stroke();
@@ -65,10 +65,15 @@ class MovableObject {
 
   isColliding(obj) {
     return (
-      this.x + this.offsetX + this.width - this.offsetWidth >= obj.x &&
-      this.x + this.offsetX <= obj.x + obj.width &&
-      this.y + this.offsetY + this.height - this.offsetHeight >= obj.y &&
-      this.y + this.offsetY <= obj.y + obj.height
+      this.x + this.characterOffsetX + this.width - this.characterOffsetWidth >=
+        obj.x &&
+      this.x + this.characterOffsetX <= obj.x + obj.width &&
+      this.y +
+        this.characterOffsetY +
+        this.height -
+        this.characterOffsetHeight >=
+        obj.y &&
+      this.y + this.characterOffsetY <= obj.y + obj.height
     );
   }
 }
