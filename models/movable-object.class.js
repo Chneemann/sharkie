@@ -9,6 +9,7 @@ class MovableObject {
   speed = 0.2;
   otherDirection = false;
   canvasCollision = false;
+  offsetY = 0;
 
   loadImage(path) {
     this.img = new Image();
@@ -52,5 +53,14 @@ class MovableObject {
     setInterval(() => {
       this.x -= this.speed;
     }, 20);
+  }
+
+  isColliding(obj) {
+    return (
+      this.x + this.width >= obj.x &&
+      this.x <= obj.x + obj.width &&
+      this.y + this.offsetY + this.height >= obj.y &&
+      this.y + this.offsetY <= obj.y + obj.height
+    );
   }
 }
