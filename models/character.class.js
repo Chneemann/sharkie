@@ -103,10 +103,12 @@ class Character extends MovableObject {
     this.loadImages(this.IMAGES_HURT_ELECTRO_SHOCK);
     this.loadImages(this.IMAGES_DEAD_MEELE);
     this.loadImages(this.IMAGES_DEAD_ELECTRO_SHOCK);
+    this.move();
     this.animate();
+    this.checkAlive();
   }
 
-  animate() {
+  move() {
     setInterval(() => {
       if (this.world.keyboard.RIGHT && this.x <= this.world.level.level_end_x) {
         this.x += 3;
@@ -124,13 +126,26 @@ class Character extends MovableObject {
       }
       this.world.camera_x = -this.x;
     }, 1000 / 60);
+  }
 
+  animate() {
     setInterval(() => {
-      if (!this.world.keyboard.MOVE) {
-        this.playAnimation(this.IMAGES_IDLE);
-      } else {
-        this.playAnimation(this.IMAGES_MOVE);
+      if (this.hp >= 0) {
+        if (!this.world.keyboard.MOVE) {
+          this.playAnimation(this.IMAGES_IDLE);
+        } else {
+          this.playAnimation(this.IMAGES_MOVE);
+        }
       }
     }, 150);
+  }
+
+  checkAlive() {
+    setInterval(() => {
+      console.log(this.hp);
+      if (this.hp <= 0) {
+        this.playAnimation(this.IMAGES_DEAD_MEELE);
+      }
+    }, 200);
   }
 }
