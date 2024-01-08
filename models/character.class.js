@@ -130,14 +130,14 @@ class Character extends MovableObject {
     }, 1000 / 60);
 
     setInterval(() => {
-      if (!this.world.keyboard.MOVE && !this.isDead()) {
-        this.playAnimation(this.IMAGES_IDLE);
-      } else {
-        this.playAnimation(this.IMAGES_MOVE);
-      }
-
       if (this.isDead()) {
         this.playAnimation(this.IMAGES_DEAD_MEELE);
+      } else if (this.isHurt()) {
+        this.playAnimation(this.IMAGES_HURT_MEELE);
+      } else if (this.world.keyboard.MOVE) {
+        this.playAnimation(this.IMAGES_MOVE);
+      } else if (!this.world.keyboard.MOVE) {
+        this.playAnimation(this.IMAGES_IDLE);
       }
     }, 150);
   }

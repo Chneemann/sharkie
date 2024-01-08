@@ -1,5 +1,6 @@
 class MovableObject {
   hp = 100;
+  lastHit = 0;
   x = 50;
   y = 200;
   img;
@@ -60,11 +61,19 @@ class MovableObject {
     this.hp -= 5;
     if (this.hp < 0) {
       this.hp = 0;
+    } else {
+      this.lastHit = new Date().getTime();
     }
   }
 
   isDead() {
     return this.hp == 0;
+  }
+
+  isHurt() {
+    let timepassed = new Date().getTime() - this.lastHit;
+    timepassed = timepassed / 1000;
+    return timepassed < 1;
   }
 
   playAnimation(images) {
