@@ -42,6 +42,11 @@ class World {
     this.addToMap(this.character);
 
     this.ctx.translate(-this.camera_x, 0);
+    // Space for fixed objects
+    this.addToMap(this.statusBar);
+    this.ctx.translate(this.camera_x, 0);
+
+    this.ctx.translate(-this.camera_x, 0);
 
     // Draw() wird immer weder aufgerufen
     let self = this;
