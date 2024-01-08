@@ -5,14 +5,6 @@ class MovableObject extends DrawableObject {
   otherDirection = false;
   canvasCollision = false;
 
-  loadImages(arr) {
-    arr.forEach((path) => {
-      let img = new Image();
-      img.src = path;
-      this.imageCache[path] = img;
-    });
-  }
-
   hit() {
     this.hp -= 5;
     if (this.hp < 0) {
