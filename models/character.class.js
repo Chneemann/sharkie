@@ -103,49 +103,42 @@ class Character extends MovableObject {
     this.loadImages(this.IMAGES_HURT_ELECTRO_SHOCK);
     this.loadImages(this.IMAGES_DEAD_MEELE);
     this.loadImages(this.IMAGES_DEAD_ELECTRO_SHOCK);
-    this.move();
     this.animate();
-    this.checkAlive();
-  }
-
-  move() {
-    setInterval(() => {
-      if (this.world.keyboard.RIGHT && this.x <= this.world.level.level_end_x) {
-        this.x += 3;
-        this.otherDirection = false;
-      }
-      if (this.world.keyboard.LEFT && this.x >= 0) {
-        this.x -= 3;
-        this.otherDirection = true;
-      }
-      if (this.world.keyboard.UP && this.y >= -90) {
-        this.y -= 3;
-      }
-      if (this.world.keyboard.DOWN && this.y <= 320) {
-        this.y += 3;
-      }
-      this.world.camera_x = -this.x;
-    }, 1000 / 60);
   }
 
   animate() {
     setInterval(() => {
-      if (this.hp >= 0) {
-        if (!this.world.keyboard.MOVE) {
-          this.playAnimation(this.IMAGES_IDLE);
-        } else {
-          this.playAnimation(this.IMAGES_MOVE);
-        }
+      if (
+        this.world.keyboard.RIGHT &&
+        this.x <= this.world.level.level_end_x &&
+        !this.isDead()
+      ) {
+        this.x += 3;
+        this.otherDirection = false;
       }
-    }, 150);
-  }
+      if (this.world.keyboard.LEFT && this.x >= 0 && !this.isDead()) {
+        this.x -= 3;
+        this.otherDirection = true;
+      }
+      if (this.world.keyboard.UP && this.y >= -90 && !this.isDead()) {
+        this.y -= 3;
+      }
+      if (this.world.keyboard.DOWN && this.y <= 320 && !this.isDead()) {
+        this.y += 3;
+      }
+      this.world.camera_x = -this.x;
+    }, 1000 / 60);
 
-  checkAlive() {
     setInterval(() => {
-      console.log(this.hp);
-      if (this.hp <= 0) {
+      if (!this.world.keyboard.MOVE && !this.isDead()) {
+        this.playAnimation(this.IMAGES_IDLE);
+      } else {
+        this.playAnimation(this.IMAGES_MOVE);
+      }
+
+      if (this.isDead()) {
         this.playAnimation(this.IMAGES_DEAD_MEELE);
       }
-    }, 200);
+    }, 150);
   }
 }

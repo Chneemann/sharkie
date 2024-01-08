@@ -58,6 +58,13 @@ class MovableObject {
 
   hit() {
     this.hp -= 5;
+    if (this.hp < 0) {
+      this.hp = 0;
+    }
+  }
+
+  isDead() {
+    return this.hp == 0;
   }
 
   playAnimation(images) {
