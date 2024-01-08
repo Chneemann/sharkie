@@ -1,21 +1,9 @@
-class MovableObject {
+class MovableObject extends DrawableObject {
   hp = 100;
   lastHit = 0;
-  x = 50;
-  y = 200;
-  img;
-  height = 150;
-  width = 200;
-  imageCache = {};
-  currentImage = 0;
   speed = 0.2;
   otherDirection = false;
   canvasCollision = false;
-
-  loadImage(path) {
-    this.img = new Image();
-    this.img.src = path;
-  }
 
   loadImages(arr) {
     arr.forEach((path) => {
@@ -23,10 +11,6 @@ class MovableObject {
       img.src = path;
       this.imageCache[path] = img;
     });
-  }
-
-  draw(ctx) {
-    ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 
   drawFrame(ctx) {
