@@ -24,14 +24,14 @@ class World {
     setInterval(() => {
       this.level.objects.forEach((object) => {
         if (this.character.isColliding(object)) {
-          console.log("Colliding");
+          obj.x = -100;
+          obj.y = -100;
         }
       });
       this.level.enemies.forEach((enemy) => {
         if (this.character.isColliding(enemy)) {
           this.character.hit();
           this.statusBar.setPercentage(this.character.hp);
-          console.log(this.character.hp);
         }
       });
     }, 200);
