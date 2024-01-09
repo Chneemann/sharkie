@@ -24,8 +24,7 @@ class World {
     setInterval(() => {
       this.level.objects.forEach((object) => {
         if (this.character.isColliding(object)) {
-          obj.x = -100;
-          obj.y = -100;
+          this.objectCollected(object);
         }
       });
       this.level.enemies.forEach((enemy) => {
@@ -89,5 +88,10 @@ class World {
   flipImageBack(mo) {
     mo.x = mo.x * -1;
     this.ctx.restore();
+  }
+
+  objectCollected(obj) {
+    obj.x = -100;
+    obj.y = -100;
   }
 }
