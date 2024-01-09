@@ -16,7 +16,7 @@ class StatusBar extends DrawableObject {
     "img/4. Marcadores/orange/100_ copia 2.png",
   ];
 
-  percentage = 100;
+  percentageHp = 100;
 
   constructor() {
     super();
@@ -26,25 +26,25 @@ class StatusBar extends DrawableObject {
     this.y = 0;
     this.width = 220;
     this.height = 60;
-    this.setPercentage(this.percentage);
+    this.setPercentage(this.percentageHp);
   }
 
-  setPercentage(percentage) {
-    this.percentage = percentage;
+  setPercentage(percentageHp) {
+    this.percentageHp = percentageHp;
     let path = this.IMAGES_HP[this.resolveImageIndex()];
     this.img = this.imageCache[path];
   }
 
   resolveImageIndex() {
-    if (this.percentage == 100) {
+    if (this.percentageHp == 100) {
       return 5;
-    } else if (this.percentage >= 80) {
+    } else if (this.percentageHp >= 80) {
       return 4;
-    } else if (this.percentage >= 60) {
+    } else if (this.percentageHp >= 60) {
       return 3;
-    } else if (this.percentage >= 40) {
+    } else if (this.percentageHp >= 40) {
       return 2;
-    } else if (this.percentage >= 20) {
+    } else if (this.percentageHp >= 20) {
       return 1;
     } else {
       return 0;
