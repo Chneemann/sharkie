@@ -32,7 +32,9 @@ class DrawableObject {
     if (
       this instanceof Character ||
       this instanceof PufferFish ||
-      this instanceof Endboss
+      this instanceof Endboss ||
+      this instanceof Coin ||
+      this instanceof Poison
     ) {
       ctx.beginPath();
       ctx.lineWidth = "3";
@@ -51,6 +53,8 @@ class DrawableObject {
           this.width - this.characterOffsetWidth,
           this.height - this.characterOffsetHeight
         );
+      } else {
+        ctx.rect(this.x, this.y, this.width, this.height);
       }
       ctx.stroke();
     }
