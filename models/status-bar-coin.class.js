@@ -1,4 +1,4 @@
-class StatusBar extends DrawableObject {
+class StatusBarCoin extends DrawableObject {
   IMAGES_COIN = [
     "img/4. Marcadores/orange/0_  copia 2.png",
     "img/4. Marcadores/orange/20_  copia.png",
@@ -12,7 +12,7 @@ class StatusBar extends DrawableObject {
   y = 50;
   width = 220;
   height = 60;
-  percentage = 100;
+  percentage = 0;
 
   constructor() {
     super();
