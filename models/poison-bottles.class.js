@@ -1,4 +1,4 @@
-class Poison extends MovableObject {
+class PoisonBottles extends MovableObject {
   width = 60;
   height = 80;
   enemyOffsetX = 0;
