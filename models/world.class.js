@@ -1,6 +1,6 @@
 class World {
   character = new Character();
-  statusBar = new StatusBar();
+  statusBarHp = new StatusBarHp();
   level = level1;
   ctx;
   canvas;
@@ -49,7 +49,7 @@ class World {
 
     this.ctx.translate(-this.camera_x, 0);
     // Space for fixed objects
-    this.addToMap(this.statusBar);
+    this.addToMap(this.statusBarHp);
     this.ctx.translate(this.camera_x, 0);
 
     this.ctx.translate(-this.camera_x, 0);
