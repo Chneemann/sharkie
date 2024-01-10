@@ -15,6 +15,14 @@ class StatusBar extends DrawableObject {
     "img/4. Marcadores/orange/80_  copia 2.png",
     "img/4. Marcadores/orange/100_ copia 2.png",
   ];
+  IMAGES_POISON = [
+    "img/4. Marcadores/orange/0_ copia.png",
+    "img/4. Marcadores/orange/20_ copia.png",
+    "img/4. Marcadores/orange/40_ copia.png",
+    "img/4. Marcadores/orange/60_ copia.png",
+    "img/4. Marcadores/orange/80_ copia.png",
+    "img/4. Marcadores/orange/100_ copia.png",
+  ];
 
   percentageHp = 100;
 
@@ -22,6 +30,7 @@ class StatusBar extends DrawableObject {
     super();
     this.loadImages(this.IMAGES_HP);
     this.loadImages(this.IMAGES_COIN);
+    this.loadImages(this.IMAGES_POISON);
     this.x = 20;
     this.y = 0;
     this.width = 220;
