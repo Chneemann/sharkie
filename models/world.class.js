@@ -27,6 +27,9 @@ class World {
       this.level.objects.forEach((object) => {
         if (this.character.isColliding(object)) {
           this.objectCollected(object);
+          if (object instanceof PoisonBottles) {
+            this.statusBarPoisonBottles.setPercentage();
+          }
         }
       });
       this.level.enemies.forEach((enemy) => {
