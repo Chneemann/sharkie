@@ -29,6 +29,8 @@ class World {
           this.objectCollected(object);
           if (object instanceof PoisonBottles) {
             this.statusBarPoisonBottles.setPercentage();
+          } else {
+            this.statusBarCoin.setPercentage();
           }
         }
       });
