@@ -3,6 +3,8 @@ const level1 = new Level(
     new PufferFish(600, 120),
     new PufferFish(700, 220),
     new PufferFish(800, 320),
+    new PufferFish(1100, 250),
+    new PufferFish(1000, 380),
     new Endboss(),
   ],
   [
