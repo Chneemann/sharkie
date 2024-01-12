@@ -1,5 +1,10 @@
 const level1 = new Level(
-  [new PufferFish(), new PufferFish(), new PufferFish(), new Endboss()],
+  [
+    new PufferFish(600, 120),
+    new PufferFish(700, 220),
+    new PufferFish(800, 320),
+    new Endboss(),
+  ],
   [
     new Coin("./img/4. Marcadores/1. Coins/1.png", 600, 220),
     new Coin("./img/4. Marcadores/1. Coins/1.png", 670, 220),
