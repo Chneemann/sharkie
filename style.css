@@ -26,10 +26,32 @@ canvas {
   border-radius: 10px;
 }
 
-img {
+.startscreen {
   display: none;
   position: absolute;
   top: 165px;
   width: 720px;
   height: 480px;
+}
+
+img {
+  position: absolute;
+  width: 720px;
+  height: 480px;
+}
+
+img:nth-child(2) {
+  position: absolute;
+  top: 350px;
+  right: 100px;
+  width: 240px;
+  height: 80px;
+}
+
+img:last-child {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 360px;
+  height: 240px;
 }
