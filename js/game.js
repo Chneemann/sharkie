@@ -7,6 +7,10 @@ function init() {
   world = new World(canvas, keyboard);
 }
 
+function initLevel() {
+  document.getElementById("startscreen").classList.add("d-none");
+}
+
 window.addEventListener("keydown", (e) => {
   if (e.code === "ArrowUp") {
     keyboard.UP = true;

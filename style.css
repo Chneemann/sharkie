@@ -26,8 +26,11 @@ canvas {
   border-radius: 10px;
 }
 
-.startscreen {
+.d-none {
   display: none;
+}
+
+.startscreen {
   position: absolute;
   top: 165px;
   width: 720px;
@@ -40,7 +43,11 @@ img {
   height: 480px;
 }
 
-img:nth-child(2) {
+button {
+  cursor: pointer;
+}
+
+button img {
   position: absolute;
   top: 350px;
   right: 100px;
@@ -48,7 +55,7 @@ img:nth-child(2) {
   height: 80px;
 }
 
-img:last-child {
+img:nth-child(2) {
   position: absolute;
   top: -20px;
   right: -20px;
