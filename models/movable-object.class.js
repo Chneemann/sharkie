@@ -38,11 +38,20 @@ class MovableObject extends DrawableObject {
   }
 
   moveUpAndDown() {
+    this.movingDown = true;
+    this.startY = this.y;
+
     setInterval(() => {
-      if (this.y >= 100) {
-        this.y -= this.speed;
-      } else {
+      if (this.movingDown) {
         this.y += this.speed;
+        if (this.y >= this.startY + this.motionRange) {
+          this.movingDown = false;
+        }
+      } else {
+        this.y -= this.speed;
+        if (this.y <= this.startY) {
+          this.movingDown = true;
+        }
       }
     }, 20);
   }

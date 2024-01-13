@@ -1,10 +1,11 @@
 class JellyFish extends MovableObject {
   height = 80;
   width = 60;
-  enemyOffsetX = 5;
+  enemyOffsetX = 3;
   enemyOffsetY = 5;
-  enemyOffsetWidth = 10;
+  enemyOffsetWidth = 8;
   enemyOffsetHeight = 15;
+  motionRange = 100;
 
   IMAGES_SWIM = [
     "img/2.Enemy/2 Jelly fish/Regular damage/Lila 1.png",
@@ -13,7 +14,7 @@ class JellyFish extends MovableObject {
     "img/2.Enemy/2 Jelly fish/Regular damage/Lila 4.png",
   ];
 
-  constructor(x, y) {
+  constructor(x, y, motionRange) {
     super().loadImage("img/2.Enemy/2 Jelly fish/Regular damage/Lila 1.png");
     this.x = x;
     this.y = y;
