@@ -23,7 +23,7 @@ class JellyFish extends MovableObject {
   }
 
   animate() {
-    this.moveLeft();
+    this.moveUpAndDown();
 
     setInterval(() => {
       this.playAnimation(this.IMAGES_SWIM);

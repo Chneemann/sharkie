@@ -37,6 +37,16 @@ class MovableObject extends DrawableObject {
     }, 20);
   }
 
+  moveUpAndDown() {
+    setInterval(() => {
+      if (this.y >= 100) {
+        this.y -= this.speed;
+      } else {
+        this.y += this.speed;
+      }
+    }, 20);
+  }
+
   isColliding(obj) {
     return (
       this.x + this.characterOffsetX + this.width - this.characterOffsetWidth >=
