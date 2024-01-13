@@ -1,10 +1,10 @@
 class JellyFish extends MovableObject {
-  height = 50;
+  height = 80;
   width = 60;
-  enemyOffsetX = 0;
-  enemyOffsetY = 0;
-  enemyOffsetWidth = 0;
-  enemyOffsetHeight = 10;
+  enemyOffsetX = 5;
+  enemyOffsetY = 5;
+  enemyOffsetWidth = 10;
+  enemyOffsetHeight = 15;
 
   IMAGES_SWIM = [
     "img/2.Enemy/2 Jelly fish/Regular damage/Lila 1.png",

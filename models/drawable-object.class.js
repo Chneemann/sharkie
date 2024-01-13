@@ -32,6 +32,7 @@ class DrawableObject {
     if (
       this instanceof Character ||
       this instanceof PufferFish ||
+      this instanceof JellyFish ||
       this instanceof Endboss ||
       this instanceof Coin ||
       this instanceof PoisonBottles
@@ -39,7 +40,11 @@ class DrawableObject {
       ctx.beginPath();
       ctx.lineWidth = "3";
       ctx.strokeStyle = "blue";
-      if (this instanceof PufferFish || this instanceof Endboss) {
+      if (
+        this instanceof PufferFish ||
+        this instanceof JellyFish ||
+        this instanceof Endboss
+      ) {
         ctx.rect(
           this.x + this.enemyOffsetX,
           this.y + this.enemyOffsetY,
