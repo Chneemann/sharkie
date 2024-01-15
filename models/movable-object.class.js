@@ -1,6 +1,7 @@
 class MovableObject extends DrawableObject {
   hp = 100;
   lastHit = 0;
+  lastAnimate = 0;
   speed = 0.2;
   otherDirection = false;
   canvasCollision = false;
@@ -22,6 +23,12 @@ class MovableObject extends DrawableObject {
     let timepassed = new Date().getTime() - this.lastHit;
     timepassed = timepassed / 1000;
     return timepassed < 1;
+  }
+
+  lastAnimation() {
+    let timepassed = new Date().getTime() - this.lastAnimate;
+    timepassed = timepassed / 1000;
+    return timepassed < 0.85;
   }
 
   playAnimation(images) {

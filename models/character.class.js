@@ -126,6 +126,9 @@ class Character extends MovableObject {
       if (this.world.keyboard.DOWN && this.y <= 320 && !this.isDead()) {
         this.y += 3;
       }
+      if (this.world.keyboard.SPACE && !this.isDead()) {
+        this.lastAnimate = new Date().getTime();
+      }
       this.world.camera_x = -this.x;
     }, 1000 / 60);
 
@@ -134,7 +137,7 @@ class Character extends MovableObject {
         this.playAnimation(this.IMAGES_DEAD_MEELE);
       } else if (this.isHurt()) {
         this.playAnimation(this.IMAGES_HURT_MEELE);
-      } else if (this.world.keyboard.SPACE) {
+      } else if (this.lastAnimation()) {
         this.playAnimation(this.IMAGES_ATTACK_RANGE);
       } else if (this.world.keyboard.MOVE) {
         this.playAnimation(this.IMAGES_MOVE);
