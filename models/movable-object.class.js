@@ -43,14 +43,16 @@ class MovableObject extends DrawableObject {
 
     setInterval(() => {
       if (this.movingRight) {
-        this.x += this.speed;
-        if (this.x >= this.startX + this.motionRange) {
+        this.x -= this.speed;
+        if (this.x <= this.startX - this.motionRange) {
           this.movingRight = false;
+          this.otherDirection = true;
         }
       } else {
-        this.x -= this.speed;
-        if (this.x <= this.startX) {
+        this.x += this.speed;
+        if (this.x >= this.startX) {
           this.movingRight = true;
+          this.otherDirection = false;
         }
       }
     }, 20);
