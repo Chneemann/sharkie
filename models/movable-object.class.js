@@ -37,6 +37,25 @@ class MovableObject extends DrawableObject {
     }, 20);
   }
 
+  moveLeftAndRight() {
+    this.movingRight = true;
+    this.startX = this.x;
+
+    setInterval(() => {
+      if (this.movingRight) {
+        this.x += this.speed;
+        if (this.x >= this.startX + this.motionRange) {
+          this.movingRight = false;
+        }
+      } else {
+        this.x -= this.speed;
+        if (this.x <= this.startX) {
+          this.movingRight = true;
+        }
+      }
+    }, 20);
+  }
+
   moveUpAndDown() {
     this.movingDown = true;
     this.startY = this.y;

@@ -5,6 +5,7 @@ class PufferFish extends MovableObject {
   enemyOffsetY = 0;
   enemyOffsetWidth = 0;
   enemyOffsetHeight = 10;
+  motionRange = 200;
 
   IMAGES_SWIM = [
     "img/2.Enemy/1.Puffer fish (3 color options)/1.Swim/1.swim1.png",
@@ -26,7 +27,7 @@ class PufferFish extends MovableObject {
   }
 
   animate() {
-    this.moveLeft();
+    this.moveLeftAndRight();
 
     setInterval(() => {
       this.playAnimation(this.IMAGES_SWIM);
