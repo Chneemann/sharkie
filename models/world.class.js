@@ -1,5 +1,6 @@
 class World {
   character = new Character();
+  attackBubble = new AttackBubble(this.character.x, this.character.y);
   statusBarHp = new StatusBarHp();
   statusBarCoin = new StatusBarCoin();
   statusBarPoisonBottles = new StatusBarPoisonBottles();
@@ -53,6 +54,9 @@ class World {
     this.addObjectsToMap(this.level.enemies);
 
     this.addToMap(this.character);
+    if (this.character.attack) {
+      this.addToMap(this.attackBubble);
+    }
 
     this.ctx.translate(-this.camera_x, 0);
     // Space for fixed objects

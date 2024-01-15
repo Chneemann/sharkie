@@ -1,25 +1,29 @@
 class AttackBubble extends MovableObject {
-  height = 200;
-  width = 250;
-  characterOffsetX = 45;
-  characterOffsetY = 95;
-  characterOffsetWidth = 90;
-  characterOffsetHeight = 140;
+  height = 40;
+  width = 40;
+  characterOffsetX = 0;
+  characterOffsetY = 0;
+  characterOffsetWidth = 0;
+  characterOffsetHeight = 0;
+  character;
 
   IMAGE = [
     "img/1.Sharkie/4.Attack/Bubble trap/Poisoned Bubble (for whale).png",
   ];
 
-  constructor() {
+  constructor(x, y) {
     super().loadImage(
       "./img/1.Sharkie/4.Attack/Bubble trap/Poisoned Bubble (for whale).png"
     );
     this.loadImages(this.IMAGE);
+    this.x = x + 180;
+    this.y = y + 100;
     this.animate();
   }
 
   animate() {
     this.moveRight();
+    console.log(this.character);
 
     setInterval(() => {
       this.playAnimation(this.IMAGE);

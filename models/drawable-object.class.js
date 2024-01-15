@@ -31,6 +31,7 @@ class DrawableObject {
   drawFrame(ctx) {
     if (
       this instanceof Character ||
+      this instanceof AttackBubble ||
       this instanceof PufferFish ||
       this instanceof JellyFish ||
       this instanceof Endboss ||
@@ -51,7 +52,7 @@ class DrawableObject {
           this.width - this.enemyOffsetWidth,
           this.height - this.enemyOffsetHeight
         );
-      } else if (this instanceof Character) {
+      } else if (this instanceof Character || this instanceof AttackBubble) {
         ctx.rect(
           this.x + this.characterOffsetX,
           this.y + this.characterOffsetY,
