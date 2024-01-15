@@ -17,11 +17,17 @@ class StatusBarPoisonBottles extends DrawableObject {
   constructor() {
     super();
     this.loadImages(this.IMAGES_POISON_BOTTLES);
-    this.setPercentage(this.percentageHp);
+    this.setPercentage(this.percentage);
   }
 
   setPercentage() {
     this.percentage++;
+    let path = this.IMAGES_POISON_BOTTLES[this.resolveImageIndex()];
+    this.img = this.imageCache[path];
+  }
+
+  removeBottle() {
+    this.percentage--;
     let path = this.IMAGES_POISON_BOTTLES[this.resolveImageIndex()];
     this.img = this.imageCache[path];
   }

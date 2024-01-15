@@ -31,13 +31,13 @@ class World {
   }
 
   checkBubbleObject() {
-    if (this.keyboard.SPACE) {
+    if (this.keyboard.SPACE && this.statusBarPoisonBottles.percentage >= 1) {
       let poisonAttackBubble = new AttackBubble(
         this.character.x,
         this.character.y
       );
       this.attackBubble.push(poisonAttackBubble);
-      console.log(this.attackBubble);
+      this.statusBarPoisonBottles.removeBottle();
     }
   }
 
