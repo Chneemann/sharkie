@@ -5,7 +5,6 @@ class AttackBubble extends MovableObject {
   characterOffsetY = 0;
   characterOffsetWidth = 0;
   characterOffsetHeight = 0;
-  character;
 
   IMAGE = [
     "img/1.Sharkie/4.Attack/Bubble trap/Poisoned Bubble (for whale).png",
@@ -16,7 +15,7 @@ class AttackBubble extends MovableObject {
       "./img/1.Sharkie/4.Attack/Bubble trap/Poisoned Bubble (for whale).png"
     );
     this.loadImages(this.IMAGE);
-    this.x = x + 180;
+    this.x = x + 210;
     this.y = y + 100;
     this.animate();
   }

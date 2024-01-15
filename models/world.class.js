@@ -1,6 +1,6 @@
 class World {
   character = new Character();
-  attackBubble = new AttackBubble(this.character.x, this.character.y);
+  attackBubble = [];
   statusBarHp = new StatusBarHp();
   statusBarCoin = new StatusBarCoin();
   statusBarPoisonBottles = new StatusBarPoisonBottles();
@@ -16,32 +16,48 @@ class World {
     this.keyboard = keyboard;
     this.draw();
     this.setWorld();
-    this.checkCollisions();
+    this.run();
   }
 
   setWorld() {
     this.character.world = this;
   }
 
-  checkCollisions() {
+  run() {
     setInterval(() => {
-      this.level.objects.forEach((object) => {
-        if (this.character.isColliding(object)) {
-          this.objectCollected(object);
-          if (object instanceof PoisonBottles) {
-            this.statusBarPoisonBottles.setPercentage();
-          } else {
-            this.statusBarCoin.setPercentage();
-          }
-        }
-      });
-      this.level.enemies.forEach((enemy) => {
-        if (this.character.isColliding(enemy)) {
-          this.character.hit();
-          this.statusBarHp.setPercentage(this.character.hp);
-        }
-      });
+      this.checkBubbleObject();
+      this.checkCollisions();
     }, 200);
+  }
+
+  checkBubbleObject() {
+    if (this.keyboard.SPACE) {
+      let poisonAttackBubble = new AttackBubble(
+        this.character.x,
+        this.character.y
+      );
+      this.attackBubble.push(poisonAttackBubble);
+      console.log(this.attackBubble);
+    }
+  }
+
+  checkCollisions() {
+    this.level.objects.forEach((object) => {
+      if (this.character.isColliding(object)) {
+        this.objectCollected(object);
+        if (object instanceof PoisonBottles) {
+          this.statusBarPoisonBottles.setPercentage();
+        } else {
+          this.statusBarCoin.setPercentage();
+        }
+      }
+    });
+    this.level.enemies.forEach((enemy) => {
+      if (this.character.isColliding(enemy)) {
+        this.character.hit();
+        this.statusBarHp.setPercentage(this.character.hp);
+      }
+    });
   }
 
   draw() {
@@ -52,11 +68,9 @@ class World {
     this.addObjectsToMap(this.level.backgroundObjects);
     this.addObjectsToMap(this.level.objects);
     this.addObjectsToMap(this.level.enemies);
+    this.addObjectsToMap(this.attackBubble);
 
     this.addToMap(this.character);
-    if (this.character.attack) {
-      this.addToMap(this.attackBubble);
-    }
 
     this.ctx.translate(-this.camera_x, 0);
     // Space for fixed objects
