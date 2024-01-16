@@ -37,7 +37,7 @@ class World {
         this.character.y
       );
       this.attackBubble.push(poisonAttackBubble);
-      this.statusBarPoisonBottles.removeBottle();
+      this.statusBarPoisonBottles.removeBubble();
     }
   }
 

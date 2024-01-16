@@ -26,7 +26,7 @@ class StatusBarPoisonBottles extends DrawableObject {
     this.img = this.imageCache[path];
   }
 
-  removeBottle() {
+  removeBubble() {
     this.percentage--;
     let path = this.IMAGES_POISON_BOTTLES[this.resolveImageIndex()];
     this.img = this.imageCache[path];
