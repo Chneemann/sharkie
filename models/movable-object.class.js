@@ -25,10 +25,10 @@ class MovableObject extends DrawableObject {
     return timepassed < 1;
   }
 
-  lastAnimation() {
+  lastAnimation(time) {
     let timepassed = new Date().getTime() - this.lastAnimate;
     timepassed = timepassed / 1000;
-    return timepassed < 0.85;
+    return timepassed < time;
   }
 
   playAnimation(images) {
@@ -55,13 +55,13 @@ class MovableObject extends DrawableObject {
     this.startX = this.x;
 
     setInterval(() => {
-      if (this.movingRight) {
+      if (this.movingRight && this.isAlive()) {
         this.x -= this.speed;
         if (this.x <= this.startX - this.motionRange) {
           this.movingRight = false;
           this.otherDirection = true;
         }
-      } else {
+      } else if (this.isAlive()) {
         this.x += this.speed;
         if (this.x >= this.startX) {
           this.movingRight = true;

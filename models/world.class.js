@@ -60,7 +60,8 @@ class World {
       for (let i = 0; i < this.attackBubble.length; i++) {
         if (this.attackBubble[i].isColliding(enemy)) {
           this.objectCollected(this.attackBubble[i]);
-          this.objectCollected(enemy);
+          // this.objectCollected(enemy);
+          enemy.dead = true;
         }
       }
     });

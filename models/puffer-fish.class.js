@@ -34,13 +34,22 @@ class PufferFish extends MovableObject {
     this.animate();
   }
 
+  isAlive() {
+    if (!this.dead) {
+      this.lastAnimate = new Date().getTime();
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   animate() {
     this.moveLeftAndRight();
 
     setInterval(() => {
-      if (this.dead) {
+      if (!this.isAlive() && this.lastAnimation(0.3)) {
         this.playAnimation(this.IMAGES_DEAD);
-      } else {
+      } else if (!this.isAlive()) {
         this.playAnimation(this.IMAGES_SWIM);
       }
     }, 150);

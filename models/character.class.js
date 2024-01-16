@@ -140,7 +140,7 @@ class Character extends MovableObject {
       } else if (this.isHurt()) {
         this.playAnimation(this.IMAGES_HURT_MEELE);
       } else if (
-        this.lastAnimation() &&
+        this.lastAnimation(0.85) &&
         this.world.statusBarPoisonBottles.percentage >= 1
       ) {
         this.playAnimation(this.IMAGES_ATTACK_RANGE);
