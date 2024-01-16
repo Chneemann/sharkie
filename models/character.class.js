@@ -139,7 +139,10 @@ class Character extends MovableObject {
         this.playAnimation(this.IMAGES_DEAD_MEELE);
       } else if (this.isHurt()) {
         this.playAnimation(this.IMAGES_HURT_MEELE);
-      } else if (this.lastAnimation()) {
+      } else if (
+        this.lastAnimation() &&
+        this.world.statusBarPoisonBottles.percentage >= 1
+      ) {
         this.playAnimation(this.IMAGES_ATTACK_RANGE);
       } else if (this.world.keyboard.MOVE) {
         this.playAnimation(this.IMAGES_MOVE);
