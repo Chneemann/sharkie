@@ -53,7 +53,7 @@ class MovableObject extends DrawableObject {
   moveUp() {
     setInterval(() => {
       this.y -= this.speed;
-    }, 1);
+    }, 2);
   }
 
   moveLeftAndRight() {

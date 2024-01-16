@@ -6,6 +6,7 @@ class JellyFish extends MovableObject {
   enemyOffsetWidth = 8;
   enemyOffsetHeight = 15;
   motionRange = 100;
+  dead = false;
 
   IMAGES_SWIM = [
     "img/2.Enemy/2 Jelly fish/Regular damage/Lila 1.png",
@@ -14,20 +15,42 @@ class JellyFish extends MovableObject {
     "img/2.Enemy/2 Jelly fish/Regular damage/Lila 4.png",
   ];
 
+  IMAGES_DEAD = [
+    "img/2.Enemy/2 Jelly fish/Dead/Lila/L1.png",
+    "img/2.Enemy/2 Jelly fish/Dead/Lila/L2.png",
+    "img/2.Enemy/2 Jelly fish/Dead/Lila/L3.png",
+    "img/2.Enemy/2 Jelly fish/Dead/Lila/L4.png",
+  ];
+
   constructor(x, y) {
     super().loadImage("img/2.Enemy/2 Jelly fish/Regular damage/Lila 1.png");
     this.x = x;
     this.y = y;
     this.speed = 0.3 + Math.random() * 0.3;
     this.loadImages(this.IMAGES_SWIM);
+    this.loadImages(this.IMAGES_DEAD);
     this.animate();
   }
 
+  isAlive() {
+    if (!this.dead) {
+      this.lastAnimate = new Date().getTime();
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   animate() {
-    this.moveUpAndDown();
+    this.moveLeftAndRight();
 
     setInterval(() => {
-      this.playAnimation(this.IMAGES_SWIM);
+      if (!this.isAlive()) {
+        this.playAnimation(this.IMAGES_DEAD);
+        this.moveUp();
+      } else if (this.isAlive()) {
+        this.playAnimation(this.IMAGES_SWIM);
+      }
     }, 150);
   }
 }
