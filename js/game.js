@@ -30,7 +30,6 @@ window.addEventListener("keydown", (e) => {
   }
   if (e.code === "Space") {
     keyboard.SPACE = true;
-    keyboard.MOVE = true;
   }
 });
 
@@ -53,6 +52,5 @@ window.addEventListener("keyup", (e) => {
   }
   if (e.code === "Space") {
     keyboard.SPACE = false;
-    keyboard.MOVE = false;
   }
 });
