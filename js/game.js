@@ -11,8 +11,14 @@ function initLevel() {
   document.getElementById("startscreen").classList.add("d-none");
 }
 
+function gameEndWin() {
+  document.getElementById("endscreen").classList.remove("d-none");
+  document.getElementById("endscreen-win").classList.remove("d-none");
+}
+
 function gameEndLost() {
   document.getElementById("endscreen").classList.remove("d-none");
+  document.getElementById("endscreen-lost").classList.remove("d-none");
 }
 
 window.addEventListener("keydown", (e) => {

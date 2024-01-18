@@ -35,7 +35,8 @@ canvas {
   position: absolute;
   top: 165px;
   width: 720px;
-  height: 480px;
+  height: 317px;
+  background-color: #000;
 }
 
 .startscreen img {
@@ -44,12 +45,19 @@ canvas {
   height: 480px;
 }
 
-.endscreen img {
+#endscreen-lost img {
   position: absolute;
-  top: 200px;
+  top: 50px;
   left: 50px;
   width: 600px;
-  height: 100px;
+  height: 80px;
+}
+
+#endscreen-win img {
+  position: absolute;
+  top: -164px;
+  width: 720px;
+  height: 481px;
 }
 
 button {
