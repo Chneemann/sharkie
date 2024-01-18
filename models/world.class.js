@@ -28,6 +28,7 @@ class World {
     setInterval(() => {
       this.checkBubbleObject();
       this.checkCollisions();
+      this.checkSpawnEndboss();
     }, 200);
   }
 
@@ -39,9 +40,6 @@ class World {
       );
       this.attackBubble.push(poisonAttackBubble);
       this.statusBarPoisonBottles.removeBubble();
-    }
-    if (this.character.x >= this.level.level_end_x - 700) {
-      this.statusBarEndboss.y = 0;
     }
   }
 
@@ -69,6 +67,12 @@ class World {
         }
       }
     });
+  }
+
+  checkSpawnEndboss() {
+    if (this.character.x >= this.level.level_end_x - 700) {
+      this.statusBarEndboss.y = 0;
+    }
   }
 
   draw() {
