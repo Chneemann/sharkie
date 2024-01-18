@@ -11,6 +11,10 @@ function initLevel() {
   document.getElementById("startscreen").classList.add("d-none");
 }
 
+function gameEndLoose() {
+  document.getElementById("endscreen").classList.remove("d-none");
+}
+
 window.addEventListener("keydown", (e) => {
   if (e.code === "ArrowUp") {
     keyboard.UP = true;

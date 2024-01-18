@@ -30,17 +30,26 @@ canvas {
   display: none;
 }
 
-.startscreen {
+.startscreen,
+.endscreen {
   position: absolute;
   top: 165px;
   width: 720px;
   height: 480px;
 }
 
-img {
+.startscreen img {
   position: absolute;
   width: 720px;
   height: 480px;
+}
+
+.endscreen img {
+  position: absolute;
+  top: 200px;
+  left: 50px;
+  width: 600px;
+  height: 100px;
 }
 
 button {

@@ -26,10 +26,17 @@ class World {
 
   run() {
     setInterval(() => {
+      this.checkGameEnd();
       this.checkBubbleObject();
       this.checkCollisions();
       this.checkSpawnEndboss();
     }, 200);
+  }
+
+  checkGameEnd() {
+    if (this.character.isDead()) {
+      gameEndLoose();
+    }
   }
 
   checkBubbleObject() {
