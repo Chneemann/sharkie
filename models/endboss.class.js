@@ -36,6 +36,13 @@ class Endboss extends MovableObject {
     "./img/2.Enemy/3 Final Enemy/2.floating/13.png",
   ];
 
+  IMAGES_HURT = [
+    "img/2.Enemy/3 Final Enemy/Hurt/1.png",
+    "img/2.Enemy/3 Final Enemy/Hurt/2.png",
+    "img/2.Enemy/3 Final Enemy/Hurt/3.png",
+    "img/2.Enemy/3 Final Enemy/Hurt/4.png",
+  ];
+
   IMAGES_DEAD = [
     "img/2.Enemy/3 Final Enemy/Dead/Mesa de trabajo 2 copia 6.png",
     "img/2.Enemy/3 Final Enemy/Dead/Mesa de trabajo 2 copia 7.png",
@@ -57,6 +64,7 @@ class Endboss extends MovableObject {
         this.loadImages(this.IMAGES_SPAWN);
         this.loadImages(this.IMAGES_IDLE);
         this.loadImages(this.IMAGES_DEAD);
+        this.loadImages(this.IMAGES_HURT);
         this.animate();
         clearInterval(intervalId);
       }
