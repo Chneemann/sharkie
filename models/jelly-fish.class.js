@@ -32,15 +32,6 @@ class JellyFish extends MovableObject {
     this.animate();
   }
 
-  isAlive() {
-    if (!this.dead) {
-      this.lastAnimate = new Date().getTime();
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   animate() {
     this.moveLeftAndRight();
 

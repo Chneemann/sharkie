@@ -19,6 +19,15 @@ class MovableObject extends DrawableObject {
     return this.hp == 0;
   }
 
+  isAlive() {
+    if (!this.dead) {
+      this.lastAnimate = new Date().getTime();
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   isHurt() {
     let timepassed = new Date().getTime() - this.lastHit;
     timepassed = timepassed / 1000;

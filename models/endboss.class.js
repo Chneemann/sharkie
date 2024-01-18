@@ -63,15 +63,6 @@ class Endboss extends MovableObject {
     }, 1000);
   }
 
-  isAlive() {
-    if (!this.dead) {
-      this.lastAnimate = new Date().getTime();
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   animate() {
     let idle = false;
     setInterval(() => {
