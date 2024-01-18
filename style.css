@@ -33,9 +33,9 @@ canvas {
 .startscreen,
 .endscreen {
   position: absolute;
-  top: 165px;
+  top: 166px;
   width: 720px;
-  height: 317px;
+  height: 481px;
   background-color: #000;
 }
 
@@ -47,7 +47,7 @@ canvas {
 
 #endscreen-lost img {
   position: absolute;
-  top: 50px;
+  top: 200px;
   left: 50px;
   width: 600px;
   height: 80px;
@@ -55,7 +55,6 @@ canvas {
 
 #endscreen-win img {
   position: absolute;
-  top: -164px;
   width: 720px;
   height: 481px;
 }
