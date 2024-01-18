@@ -40,6 +40,9 @@ class World {
       this.attackBubble.push(poisonAttackBubble);
       this.statusBarPoisonBottles.removeBubble();
     }
+    if (this.character.x >= this.level.level_end_x - 700) {
+      this.statusBarEndboss.y = 0;
+    }
   }
 
   checkCollisions() {
