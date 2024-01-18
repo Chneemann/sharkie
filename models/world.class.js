@@ -35,7 +35,7 @@ class World {
 
   checkGameEnd() {
     if (this.character.isDead()) {
-      gameEndLoose();
+      gameEndLost();
     }
   }
 
