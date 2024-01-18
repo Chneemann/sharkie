@@ -1,4 +1,5 @@
 class PufferFish extends MovableObject {
+  hp = 1;
   height = 50;
   width = 60;
   enemyOffsetX = 0;

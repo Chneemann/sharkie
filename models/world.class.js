@@ -61,9 +61,11 @@ class World {
       }
       for (let i = 0; i < this.attackBubble.length; i++) {
         if (this.attackBubble[i].isColliding(enemy)) {
+          enemy.hp--;
           this.objectCollected(this.attackBubble[i]);
-          // this.objectCollected(enemy);
-          enemy.dead = true;
+          if (enemy.hp == 0) {
+            enemy.dead = true;
+          }
         }
       }
     });
