@@ -36,7 +36,7 @@ class World {
   checkGameEnd() {
     if (this.character.isDead()) {
       gameEndLost();
-    } else if (this.level.enemies[9].hp == 0) {
+    } else if (this.level.enemies[this.level.enemies.length - 1].hp == 0) {
       gameEndWin();
     }
   }
