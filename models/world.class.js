@@ -30,7 +30,6 @@ class World {
       this.checkBubbleObject();
       this.checkCollisions();
       this.checkSpawnEndboss();
-      this.statusBarEndboss.setPercentage(this.statusBarEndboss.percentage);
     }, 200);
   }
 
