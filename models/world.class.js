@@ -30,6 +30,7 @@ class World {
       this.checkBubbleObject();
       this.checkCollisions();
       this.checkSpawnEndboss();
+      this.statusBarEndboss.setPercentage(this.statusBarEndboss.percentage);
     }, 200);
   }
 
@@ -71,6 +72,9 @@ class World {
       for (let i = 0; i < this.attackBubble.length; i++) {
         if (this.attackBubble[i].isColliding(enemy)) {
           enemy.hp--;
+          if (enemy == this.level.enemies[9]) {
+            this.statusBarEndboss.percentage--;
+          }
           this.objectCollected(this.attackBubble[i]);
           if (enemy.hp == 0) {
             enemy.dead = true;

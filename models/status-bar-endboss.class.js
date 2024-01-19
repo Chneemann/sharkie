@@ -10,7 +10,7 @@ class StatusBarEndboss extends DrawableObject {
   y = -100;
   width = 220;
   height = 60;
-  percentage = 100;
+  percentage = 3;
 
   constructor() {
     super();
@@ -25,11 +25,11 @@ class StatusBarEndboss extends DrawableObject {
   }
 
   resolveImageIndex() {
-    if (this.percentage == 100) {
+    if (this.percentage == 3) {
       return 3;
-    } else if (this.percentage >= 60) {
+    } else if (this.percentage == 2) {
       return 2;
-    } else if (this.percentage >= 20) {
+    } else if (this.percentage == 1) {
       return 1;
     } else {
       return 0;
