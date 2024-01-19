@@ -72,9 +72,7 @@ class World {
       for (let i = 0; i < this.attackBubble.length; i++) {
         if (this.attackBubble[i].isColliding(enemy)) {
           enemy.hp--;
-          if (enemy == this.level.enemies[9]) {
-            this.statusBarEndboss.percentage--;
-          }
+          this.checkEndbossHp(enemy);
           this.objectCollected(this.attackBubble[i]);
           if (enemy.hp == 0) {
             enemy.dead = true;
@@ -87,6 +85,13 @@ class World {
   checkSpawnEndboss() {
     if (this.character.x >= this.level.level_end_x - 700) {
       this.statusBarEndboss.y = 0;
+    }
+  }
+
+  checkEndbossHp(enemy) {
+    if (enemy == this.level.enemies[this.level.enemies.length - 1]) {
+      this.statusBarEndboss.percentage--;
+      this.statusBarEndboss.setPercentage(this.statusBarEndboss.percentage);
     }
   }
 
