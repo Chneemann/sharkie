@@ -26,14 +26,14 @@ class World {
 
   run() {
     setInterval(() => {
-      this.checkGameEnd();
+      this.isGameEnd();
       this.checkBubbleObject();
       this.checkCollisions();
       this.checkSpawnEndboss();
     }, 200);
   }
 
-  checkGameEnd() {
+  isGameEnd() {
     if (this.character.isDead()) {
       gameEndLost();
     } else if (this.level.enemies[this.level.enemies.length - 1].hp == 0) {
