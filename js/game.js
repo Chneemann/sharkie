@@ -12,13 +12,17 @@ function initLevel() {
 }
 
 function gameEndWin() {
-  document.getElementById("endscreen").classList.remove("d-none");
-  document.getElementById("endscreen-win").classList.remove("d-none");
+  setTimeout(() => {
+    document.getElementById("endscreen").classList.remove("d-none");
+    document.getElementById("endscreen-win").classList.remove("d-none");
+  }, 2000);
 }
 
 function gameEndLost() {
-  document.getElementById("endscreen").classList.remove("d-none");
-  document.getElementById("endscreen-lost").classList.remove("d-none");
+  setTimeout(() => {
+    document.getElementById("endscreen").classList.remove("d-none");
+    document.getElementById("endscreen-lost").classList.remove("d-none");
+  }, 1500);
 }
 
 window.addEventListener("keydown", (e) => {
