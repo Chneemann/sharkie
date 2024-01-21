@@ -134,12 +134,14 @@ class Character extends MovableObject {
     }, 1000 / 60);
 
     setInterval(() => {
-      if (this.isDead()) {
+      if (this.isDead() && this.lastHitMeele < this.lastHitElectricShock) {
+        this.playAnimation(this.IMAGES_DEAD_ELECTRIC_SHOCK);
+      } else if (this.isDead()) {
         this.playAnimation(this.IMAGES_DEAD_MEELE);
       } else if (this.isHurt("lastHitMeele")) {
         this.playAnimation(this.IMAGES_HURT_MEELE);
-      } else if (this.isHurt("lastHitShock")) {
-        this.playAnimation(this.IMAGES_HURT_ELECTRO_SHOCK);
+      } else if (this.isHurt("lastHitElectricShock")) {
+        this.playAnimation(this.IMAGES_HURT_ELECTRIC_SHOCK);
       } else if (
         this.lastAnimation(0.85) &&
         this.world.statusBarPoisonBottles.percentage >= 1
