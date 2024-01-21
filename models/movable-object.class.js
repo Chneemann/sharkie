@@ -1,17 +1,22 @@
 class MovableObject extends DrawableObject {
   hp = 100;
-  lastHit = 0;
+  lastHitMeele = 0;
+  lastHitShock = 0;
   lastAnimate = 0;
   speed = 0.2;
   otherDirection = false;
   canvasCollision = false;
 
-  hit() {
+  hit(hit) {
     this.hp -= 5;
     if (this.hp < 0) {
       this.hp = 0;
     } else {
-      this.lastHit = new Date().getTime();
+      if (hit == "meele") {
+        this.lastHitMeele = new Date().getTime();
+      } else {
+        this.lastHitShock = new Date().getTime();
+      }
     }
   }
 
@@ -28,9 +33,10 @@ class MovableObject extends DrawableObject {
     }
   }
 
-  isHurt() {
-    let timepassed = new Date().getTime() - this.lastHit;
-    timepassed = timepassed / 1000;
+  isHurt(lastHit) {
+    let lastHitTime = this[lastHit];
+    let timepassed = new Date().getTime() - lastHitTime;
+    timepassed /= 1000;
     return timepassed < 1;
   }
 

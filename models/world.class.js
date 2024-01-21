@@ -65,7 +65,11 @@ class World {
     });
     this.level.enemies.forEach((enemy) => {
       if (this.character.isColliding(enemy)) {
-        this.character.hit();
+        if (enemy instanceof JellyFish) {
+          this.character.hit("shock");
+        } else {
+          this.character.hit("meele");
+        }
         this.statusBarHp.setPercentage(this.character.hp);
       }
       for (let i = 0; i < this.attackBubble.length; i++) {

@@ -136,8 +136,10 @@ class Character extends MovableObject {
     setInterval(() => {
       if (this.isDead()) {
         this.playAnimation(this.IMAGES_DEAD_MEELE);
-      } else if (this.isHurt()) {
+      } else if (this.isHurt("lastHitMeele")) {
         this.playAnimation(this.IMAGES_HURT_MEELE);
+      } else if (this.isHurt("lastHitShock")) {
+        this.playAnimation(this.IMAGES_HURT_ELECTRO_SHOCK);
       } else if (
         this.lastAnimation(0.85) &&
         this.world.statusBarPoisonBottles.percentage >= 1
