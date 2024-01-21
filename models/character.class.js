@@ -61,7 +61,7 @@ class Character extends MovableObject {
     "img/1.Sharkie/5.Hurt/1.Poisoned/3.png",
     "img/1.Sharkie/5.Hurt/1.Poisoned/4.png",
   ];
-  IMAGES_HURT_ELECTRO_SHOCK = [
+  IMAGES_HURT_ELECTRIC_SHOCK = [
     "img/1.Sharkie/5.Hurt/2.Electric shock/1.png",
     "img/1.Sharkie/5.Hurt/2.Electric shock/2.png",
     "img/1.Sharkie/5.Hurt/2.Electric shock/3.png",
@@ -80,7 +80,7 @@ class Character extends MovableObject {
     "img/1.Sharkie/6.dead/1.Poisoned/11.png",
     "img/1.Sharkie/6.dead/1.Poisoned/12.png",
   ];
-  IMAGES_DEAD_ELECTRO_SHOCK = [
+  IMAGES_DEAD_ELECTRIC_SHOCK = [
     "img/1.Sharkie/6.dead/2.Electro_shock/1.png",
     "img/1.Sharkie/6.dead/2.Electro_shock/2.png",
     "img/1.Sharkie/6.dead/2.Electro_shock/3.png",
@@ -100,9 +100,9 @@ class Character extends MovableObject {
     this.loadImages(this.IMAGES_ATTACK_MEELE);
     this.loadImages(this.IMAGES_ATTACK_RANGE);
     this.loadImages(this.IMAGES_HURT_MEELE);
-    this.loadImages(this.IMAGES_HURT_ELECTRO_SHOCK);
+    this.loadImages(this.IMAGES_HURT_ELECTRIC_SHOCK);
     this.loadImages(this.IMAGES_DEAD_MEELE);
-    this.loadImages(this.IMAGES_DEAD_ELECTRO_SHOCK);
+    this.loadImages(this.IMAGES_DEAD_ELECTRIC_SHOCK);
     this.animate();
   }
 

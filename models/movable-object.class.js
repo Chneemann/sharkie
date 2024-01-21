@@ -1,7 +1,7 @@
 class MovableObject extends DrawableObject {
   hp = 100;
   lastHitMeele = 0;
-  lastHitShock = 0;
+  lastHitElectricShock = 0;
   lastAnimate = 0;
   speed = 0.2;
   otherDirection = false;
@@ -15,7 +15,7 @@ class MovableObject extends DrawableObject {
       if (hit == "meele") {
         this.lastHitMeele = new Date().getTime();
       } else {
-        this.lastHitShock = new Date().getTime();
+        this.lastHitElectricShock = new Date().getTime();
       }
     }
   }
