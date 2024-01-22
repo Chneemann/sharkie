@@ -30,7 +30,7 @@ class World {
       this.checkBubbleObject();
       this.checkCollisions();
       this.checkSpawnEndboss();
-    }, 200);
+    }, 100);
   }
 
   isGameEnd() {
@@ -49,6 +49,7 @@ class World {
       );
       this.attackBubble.push(poisonAttackBubble);
       this.statusBarPoisonBottles.removeBubble();
+      this.keyboard.SPACE = false;
     }
   }
 

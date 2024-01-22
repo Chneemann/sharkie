@@ -12,7 +12,7 @@ class StatusBarPoisonBottles extends DrawableObject {
   y = 100;
   width = 220;
   height = 60;
-  percentage = -1;
+  percentage = 1;
 
   constructor() {
     super();
