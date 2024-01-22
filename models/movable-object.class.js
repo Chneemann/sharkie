@@ -71,6 +71,12 @@ class MovableObject extends DrawableObject {
     }, 2);
   }
 
+  attackbubble() {
+    setInterval(() => {
+      this.x += 1;
+    }, 1);
+  }
+
   moveLeftAndRight() {
     this.movingRight = true;
     this.startX = this.x;

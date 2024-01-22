@@ -21,7 +21,7 @@ class AttackBubble extends MovableObject {
   }
 
   animate() {
-    this.moveRight();
+    this.attackbubble();
 
     setInterval(() => {
       this.playAnimation(this.IMAGE);
