@@ -2,12 +2,13 @@ class Level {
   enemies;
   objects;
   backgroundObjects;
-  level_end_x = 719 * 3;
+  level_end_x;
 
-  constructor(enemies, objects, backgroundObjects) {
+  constructor(enemies, objects, backgroundObjects, level_end_x) {
     this.enemies = enemies;
     this.objects = objects;
     this.backgroundObjects = backgroundObjects;
+    this.level_end_x = level_end_x;
 
     this.backgroundObjects[0].animateBackground();
     this.backgroundObjects[1].animateBackground();
