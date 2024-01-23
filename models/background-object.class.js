@@ -14,8 +14,8 @@ class BackgroundObject extends MovableObject {
       this.isAnimating = true;
       setInterval(() => {
         this.x -= 1;
-        if (this.x <= -world.level.level_end_x + 1438) {
-          this.x = world.level.level_end_x + 719;
+        if (this.x <= -(719 * 3) + 1438) {
+          this.x = 719 * 3 + 719;
         }
       }, 70);
     }
