@@ -28,6 +28,7 @@ const level1 = new Level(
     new PoisonBottles("./img/4. Marcadores/Posiขn/Dark - Left.png", 1300, 380),
     new PoisonBottles("./img/4. Marcadores/Posiขn/Dark - Right.png", 1550, 380),
     new PoisonBottles("./img/4. Marcadores/Posiขn/Dark - Left.png", 1660, 340),
+    new PoisonBottles("./img/4. Marcadores/Posiขn/Dark - Left.png", 2060, 360),
   ],
   [
     new BackgroundObject("./img/3. Background/Layers/5. Water/D1.png", 0),
