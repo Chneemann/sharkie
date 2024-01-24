@@ -56,11 +56,14 @@ class World {
   checkCollisions() {
     this.level.objects.forEach((object) => {
       if (this.character.isColliding(object)) {
-        this.objectCollected(object);
         if (object instanceof PoisonBottles) {
-          this.statusBarPoisonBottles.setPercentage();
+          if (this.statusBarPoisonBottles.percentage < 5) {
+            this.statusBarPoisonBottles.setPercentage();
+            this.objectCollected(object);
+          }
         } else {
           this.statusBarCoin.setPercentage();
+          this.objectCollected(object);
         }
       }
     });
