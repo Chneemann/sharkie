@@ -29,7 +29,7 @@ class World {
       this.isGameEnd();
       this.checkBubbleObject();
       this.checkCollisions();
-      this.checkSpawnEndboss();
+      this.addEndbossStatusbar();
     }, 100);
   }
 
@@ -89,7 +89,7 @@ class World {
     });
   }
 
-  checkSpawnEndboss() {
+  addEndbossStatusbar() {
     if (this.character.x >= this.level.level_end - 700) {
       this.statusBarEndboss.y = 0;
     }
