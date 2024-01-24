@@ -23,6 +23,7 @@ const level1 = new Level(
     new Coin("./img/4. Marcadores/1. Coins/1.png", 1370, 250),
     new Coin("./img/4. Marcadores/1. Coins/1.png", 1440, 180),
     new Coin("./img/4. Marcadores/1. Coins/1.png", 1510, 110),
+    new PoisonBottles("./img/4. Marcadores/Posiขn/Dark - Right.png", 115, 380),
     new PoisonBottles("./img/4. Marcadores/Posiขn/Dark - Left.png", 630, 350),
     new PoisonBottles("./img/4. Marcadores/Posiขn/Dark - Right.png", 880, 370),
     new PoisonBottles("./img/4. Marcadores/Posiขn/Dark - Left.png", 1300, 380),
