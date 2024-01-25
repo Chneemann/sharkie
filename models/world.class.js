@@ -27,7 +27,7 @@ class World {
   run() {
     setInterval(() => {
       this.isGameEnd();
-      this.checkBubbleObject();
+      this.checkBubbleSpawn();
       this.checkCollisions();
       this.checkEndbossSpawn();
     }, 100);
@@ -85,7 +85,7 @@ class World {
     });
   }
 
-  checkBubbleObject() {
+  checkBubbleSpawn() {
     if (this.keyboard.SPACE && this.statusBarPoisonBottles.percentage >= 1) {
       let poisonAttackBubble = new AttackBubble(
         this.character.x,
