@@ -55,17 +55,7 @@ class World {
 
   checkCollisions() {
     this.level.objects.forEach((object) => {
-      if (this.character.isColliding(object)) {
-        if (object instanceof PoisonBottles) {
-          if (this.statusBarPoisonBottles.percentage < 5) {
-            this.statusBarPoisonBottles.setPercentage();
-            this.objectCollected(object);
-          }
-        } else {
-          this.statusBarCoin.setPercentage();
-          this.objectCollected(object);
-        }
-      }
+      this.collectingObject(object);
     });
     this.level.enemies.forEach((enemy) => {
       if (this.character.isColliding(enemy)) {
@@ -87,6 +77,20 @@ class World {
         }
       }
     });
+  }
+
+  collectingObject(object) {
+    if (this.character.isColliding(object)) {
+      if (object instanceof PoisonBottles) {
+        if (this.statusBarPoisonBottles.percentage < 5) {
+          this.statusBarPoisonBottles.setPercentage();
+          this.objectCollected(object);
+        }
+      } else {
+        this.statusBarCoin.setPercentage();
+        this.objectCollected(object);
+      }
+    }
   }
 
   checkEndbossSpawn() {
