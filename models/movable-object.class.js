@@ -8,7 +8,7 @@ class MovableObject extends DrawableObject {
   canvasCollision = false;
 
   hit(hit) {
-    this.hp -= 2.5;
+    this.hp -= 2;
     if (this.hp < 0) {
       this.hp = 0;
     } else {
