@@ -54,9 +54,27 @@ class World {
   }
 
   checkCollisions() {
+    this.collectingObject();
+    this.collidingEnemy();
+  }
+
+  collectingObject() {
     this.level.objects.forEach((object) => {
-      this.collectingObject(object);
+      if (this.character.isColliding(object)) {
+        if (object instanceof PoisonBottles) {
+          if (this.statusBarPoisonBottles.percentage < 5) {
+            this.statusBarPoisonBottles.setPercentage();
+            this.objectCollected(object);
+          }
+        } else {
+          this.statusBarCoin.setPercentage();
+          this.objectCollected(object);
+        }
+      }
     });
+  }
+
+  collidingEnemy() {
     this.level.enemies.forEach((enemy) => {
       if (this.character.isColliding(enemy)) {
         if (enemy instanceof JellyFish) {
@@ -77,20 +95,6 @@ class World {
         }
       }
     });
-  }
-
-  collectingObject(object) {
-    if (this.character.isColliding(object)) {
-      if (object instanceof PoisonBottles) {
-        if (this.statusBarPoisonBottles.percentage < 5) {
-          this.statusBarPoisonBottles.setPercentage();
-          this.objectCollected(object);
-        }
-      } else {
-        this.statusBarCoin.setPercentage();
-        this.objectCollected(object);
-      }
-    }
   }
 
   checkEndbossSpawn() {
