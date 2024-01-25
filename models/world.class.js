@@ -36,20 +36,8 @@ class World {
   isGameEnd() {
     if (this.character.isDead()) {
       gameEndLost();
-    } else if (this.level.enemies[this.level.enemies.length - 1].hp == 0) {
+    } else if (this.isEndbossDead()) {
       gameEndWin();
-    }
-  }
-
-  checkBubbleObject() {
-    if (this.keyboard.SPACE && this.statusBarPoisonBottles.percentage >= 1) {
-      let poisonAttackBubble = new AttackBubble(
-        this.character.x,
-        this.character.y
-      );
-      this.attackBubble.push(poisonAttackBubble);
-      this.statusBarPoisonBottles.removeBubble();
-      this.keyboard.SPACE = false;
     }
   }
 
@@ -97,6 +85,18 @@ class World {
     });
   }
 
+  checkBubbleObject() {
+    if (this.keyboard.SPACE && this.statusBarPoisonBottles.percentage >= 1) {
+      let poisonAttackBubble = new AttackBubble(
+        this.character.x,
+        this.character.y
+      );
+      this.attackBubble.push(poisonAttackBubble);
+      this.statusBarPoisonBottles.removeBubble();
+      this.keyboard.SPACE = false;
+    }
+  }
+
   checkEndbossSpawn() {
     if (this.character.x >= this.level.level_end - 700) {
       this.statusBarEndboss.y = 0;
@@ -107,6 +107,12 @@ class World {
     if (enemy == this.level.enemies[this.level.enemies.length - 1]) {
       this.statusBarEndboss.percentage--;
       this.statusBarEndboss.setPercentage(this.statusBarEndboss.percentage);
+    }
+  }
+
+  isEndbossDead() {
+    if (this.level.enemies[this.level.enemies.length - 1].hp == 0) {
+      return true;
     }
   }
 
