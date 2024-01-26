@@ -134,10 +134,6 @@ class World {
     this.addToMap(this.statusBarCoin);
     this.addToMap(this.statusBarPoisonBottles);
     this.addToMap(this.statusBarEndboss);
-    this.ctx.translate(this.camera_x, 0);
-
-    this.ctx.translate(-this.camera_x, 0);
-
     this.addTextToMap(this.character.hp + "%", "20px", 190, 47);
     this.addTextToMap(this.statusBarCoin.percentage + " / 10", "20px", 180, 97);
     this.addTextToMap(
@@ -146,6 +142,9 @@ class World {
       190,
       147
     );
+    this.ctx.translate(this.camera_x, 0);
+
+    this.ctx.translate(-this.camera_x, 0);
 
     // Draw() wird immer weder aufgerufen
     let self = this;
