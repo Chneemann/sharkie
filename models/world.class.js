@@ -138,7 +138,7 @@ class World {
 
     this.ctx.translate(-this.camera_x, 0);
 
-    this.addTextToMap(this.character.hp, "20px water-galon", 200, 47, 5);
+    this.addTextToMap(this.character.hp + "%", "20px water-galon", 190, 47);
 
     // Draw() wird immer weder aufgerufen
     let self = this;
