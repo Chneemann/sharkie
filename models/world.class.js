@@ -138,11 +138,18 @@ class World {
 
     this.ctx.translate(-this.camera_x, 0);
 
+    this.addTextToMap(this.character.hp, "20px water-galon", 200, 47, 5);
+
     // Draw() wird immer weder aufgerufen
     let self = this;
     requestAnimationFrame(function () {
       self.draw();
     });
+  }
+
+  addTextToMap(text, size, x, y) {
+    this.ctx.font = size;
+    this.ctx.fillText(text, x, y);
   }
 
   addObjectsToMap(objects) {
