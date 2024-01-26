@@ -138,7 +138,14 @@ class World {
 
     this.ctx.translate(-this.camera_x, 0);
 
-    this.addTextToMap(this.character.hp + "%", "20px water-galon", 190, 47);
+    this.addTextToMap(this.character.hp + "%", "20px", 190, 47);
+    this.addTextToMap(this.statusBarCoin.percentage + " / 10", "20px", 180, 97);
+    this.addTextToMap(
+      this.statusBarPoisonBottles.percentage + " / 6",
+      "20px",
+      190,
+      147
+    );
 
     // Draw() wird immer weder aufgerufen
     let self = this;
@@ -148,7 +155,7 @@ class World {
   }
 
   addTextToMap(text, size, x, y) {
-    this.ctx.font = size;
+    this.ctx.font = size + " water-galon";
     this.ctx.fillText(text, x, y);
   }
 
