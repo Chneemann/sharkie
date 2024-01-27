@@ -53,13 +53,12 @@ class World {
         if (object instanceof PoisonBottles) {
           if (this.statusBarPoisonBottles.percentage < 5) {
             this.statusBarPoisonBottles.setPercentage();
-            this.objectCollected(object);
           }
         } else {
           this.statusBarCoin.setPercentage();
-          this.objectCollected(object);
-          object.sound.play();
         }
+        this.objectCollected(object);
+        object.sound.play();
       }
     });
   }
