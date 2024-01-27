@@ -5,6 +5,7 @@ class World {
   statusBarCoin = new StatusBarCoin();
   statusBarPoisonBottles = new StatusBarPoisonBottles();
   statusBarEndboss = new StatusBarEndboss();
+  statusBarEndbossTextY = -100;
   level = level1;
   ctx;
   canvas;
@@ -100,6 +101,7 @@ class World {
   checkEndbossSpawn() {
     if (this.character.x >= this.level.level_end - 700) {
       this.statusBarEndboss.y = 0;
+      this.statusBarEndbossTextY = 47;
     }
   }
 
@@ -142,7 +144,12 @@ class World {
       200,
       147
     );
-    this.addTextToMap(this.statusBarEndboss.percentage + "/3", "20px", 665, 47);
+    this.addTextToMap(
+      this.statusBarEndboss.percentage + "/3",
+      "20px",
+      665,
+      this.statusBarEndbossTextY
+    );
     this.ctx.translate(this.camera_x, 0);
 
     this.ctx.translate(-this.camera_x, 0);
