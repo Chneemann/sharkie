@@ -94,6 +94,7 @@ class World {
         this.character.x,
         this.character.y
       );
+      poisonAttackBubble.sound.play();
       this.attackBubble.push(poisonAttackBubble);
       this.statusBarPoisonBottles.removeBubble();
       this.keyboard.SPACE = false;
