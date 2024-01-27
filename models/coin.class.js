@@ -6,6 +6,8 @@ class Coin extends MovableObject {
   enemyOffsetWidth = 0;
   enemyOffsetHeight = 0;
 
+  sound = new Audio("./audio/coin.mp3");
+
   constructor(imagePath, x, y) {
     super().loadImage(imagePath);
     this.x = x;

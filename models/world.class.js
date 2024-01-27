@@ -58,6 +58,7 @@ class World {
         } else {
           this.statusBarCoin.setPercentage();
           this.objectCollected(object);
+          object.sound.play();
         }
       }
     });
