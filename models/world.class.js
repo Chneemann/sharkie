@@ -135,11 +135,11 @@ class World {
     this.addToMap(this.statusBarPoisonBottles);
     this.addToMap(this.statusBarEndboss);
     this.addTextToMap(this.character.hp + "%", "20px", 190, 47);
-    this.addTextToMap(this.statusBarCoin.percentage + " / 10", "20px", 180, 97);
+    this.addTextToMap(this.statusBarCoin.percentage + "/10", "20px", 195, 97);
     this.addTextToMap(
-      this.statusBarPoisonBottles.percentage + " / 6",
+      this.statusBarPoisonBottles.percentage + "/6",
       "20px",
-      190,
+      200,
       147
     );
     this.ctx.translate(this.camera_x, 0);
