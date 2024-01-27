@@ -53,12 +53,14 @@ class World {
         if (object instanceof PoisonBottles) {
           if (this.statusBarPoisonBottles.percentage < 5) {
             this.statusBarPoisonBottles.setPercentage();
+            this.objectCollected(object);
+            object.sound.play();
           }
         } else {
           this.statusBarCoin.setPercentage();
+          this.objectCollected(object);
+          object.sound.play();
         }
-        this.objectCollected(object);
-        object.sound.play();
       }
     });
   }
@@ -139,7 +141,7 @@ class World {
     this.addTextToMap(this.character.hp + "%", "20px", 190, 47);
     this.addTextToMap(this.statusBarCoin.percentage + "/10", "20px", 195, 97);
     this.addTextToMap(
-      this.statusBarPoisonBottles.percentage + "/6",
+      this.statusBarPoisonBottles.percentage + "/5",
       "20px",
       200,
       147
