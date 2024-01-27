@@ -142,6 +142,7 @@ class World {
       200,
       147
     );
+    this.addTextToMap(this.statusBarEndboss.percentage + "/3", "20px", 665, 47);
     this.ctx.translate(this.camera_x, 0);
 
     this.ctx.translate(-this.camera_x, 0);
