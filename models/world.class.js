@@ -73,6 +73,7 @@ class World {
           this.character.sound_shock.play();
         } else {
           this.character.hit("meele");
+          this.character.sound_meele.play();
         }
         this.statusBarHp.setPercentage(this.character.hp);
       }

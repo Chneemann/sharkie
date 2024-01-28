@@ -94,6 +94,7 @@ class Character extends MovableObject {
   ];
 
   sound_shock = new Audio("./audio/hit_shock.mp3");
+  sound_meele = new Audio("./audio/hit_meele.mp3");
 
   constructor() {
     super().loadImage("./img/1.Sharkie/1.IDLE/1.png");
