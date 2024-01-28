@@ -77,6 +77,7 @@ class World {
       }
       for (let i = 0; i < this.attackBubble.length; i++) {
         if (this.attackBubble[i].isColliding(enemy)) {
+          this.attackBubble[i].sound_impact.play();
           enemy.hp--;
           this.checkEndbossHp(enemy);
           this.objectCollected(this.attackBubble[i]);

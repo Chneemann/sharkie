@@ -7,6 +7,7 @@ class AttackBubble extends MovableObject {
   characterOffsetHeight = 0;
 
   sound = new Audio("./audio/attack_bubble.mp3");
+  sound_impact = new Audio("./audio/impact.mp3");
 
   IMAGE = [
     "img/1.Sharkie/4.Attack/Bubble trap/Poisoned Bubble (for whale).png",
