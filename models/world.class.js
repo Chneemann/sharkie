@@ -70,6 +70,7 @@ class World {
       if (this.character.isColliding(enemy)) {
         if (enemy instanceof JellyFish) {
           this.character.hit("shock");
+          this.character.sound_shock.play();
         } else {
           this.character.hit("meele");
         }
