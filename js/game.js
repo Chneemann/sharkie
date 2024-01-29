@@ -8,12 +8,12 @@ let sound_win = new Audio("./audio/win.mp3");
 function init() {
   canvas = document.getElementById("canvas");
   world = new World(canvas, keyboard);
-  sound_background.play();
-  sound_background.volume = 0.2;
 }
 
 function initLevel() {
   document.getElementById("startscreen").classList.add("d-none");
+  sound_background.play();
+  sound_background.volume = 0.2;
 }
 
 function gameEndWin() {
