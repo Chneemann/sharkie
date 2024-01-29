@@ -106,6 +106,8 @@ class Character extends MovableObject {
     this.loadImages(this.IMAGES_HURT_ELECTRIC_SHOCK);
     this.loadImages(this.IMAGES_DEAD_MEELE);
     this.loadImages(this.IMAGES_DEAD_ELECTRIC_SHOCK);
+    this.sound_shock.volume = 0.3;
+    this.sound_meele.volume = 0.3;
     this.animate();
   }
 

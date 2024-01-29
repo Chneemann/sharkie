@@ -20,6 +20,8 @@ class AttackBubble extends MovableObject {
     this.loadImages(this.IMAGE);
     this.x = x + 210;
     this.y = y + 100;
+    this.sound.volume = 0.3;
+    this.sound_impact.volume = 0.3;
     this.animate();
   }
 

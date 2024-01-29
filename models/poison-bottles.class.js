@@ -12,5 +12,6 @@ class PoisonBottles extends MovableObject {
     super().loadImage(imagePath);
     this.x = x;
     this.y = y;
+    this.sound.volume = 0.3;
   }
 }
