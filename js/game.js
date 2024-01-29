@@ -1,6 +1,8 @@
 let canvas;
 let world;
 let keyboard = new Keyboard();
+let sound_lost = new Audio("./audio/lost.mp3");
+let sound_win = new Audio("./audio/win.mp3");
 
 function init() {
   canvas = document.getElementById("canvas");
@@ -13,6 +15,7 @@ function initLevel() {
 
 function gameEndWin() {
   setTimeout(() => {
+    sound_win.play();
     document.getElementById("endscreen").classList.remove("d-none");
     document.getElementById("endscreen-win").classList.remove("d-none");
   }, 2000);
@@ -20,6 +23,7 @@ function gameEndWin() {
 
 function gameEndLost() {
   setTimeout(() => {
+    sound_lost.play();
     document.getElementById("endscreen").classList.remove("d-none");
     document.getElementById("endscreen-lost").classList.remove("d-none");
   }, 1500);
