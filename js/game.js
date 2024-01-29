@@ -13,6 +13,7 @@ function init() {
 function initLevel() {
   document.getElementById("startscreen").classList.add("d-none");
   sound_background.play();
+  sound_background.loop = true;
   sound_background.volume = 0.2;
 }
 
