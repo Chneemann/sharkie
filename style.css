@@ -80,6 +80,14 @@ canvas {
   height: 80px;
 }
 
+#endscreen-lost button img {
+  position: absolute;
+  top: 350px;
+  left: 250px;
+  width: 240px;
+  height: 80px;
+}
+
 img:nth-child(2) {
   position: absolute;
   top: -20px;
