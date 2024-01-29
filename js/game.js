@@ -17,6 +17,10 @@ function initLevel() {
   sound_background.volume = 0.2;
 }
 
+function restartGame() {
+  location.reload();
+}
+
 function gameEndWin() {
   setTimeout(() => {
     sound_win.play();

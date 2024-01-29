@@ -59,7 +59,8 @@ canvas {
   height: 481px;
 }
 
-.startscreen button {
+.startscreen button,
+.endscreen button {
   cursor: pointer;
 }
 
@@ -67,6 +68,14 @@ canvas {
   position: absolute;
   top: 350px;
   right: 100px;
+  width: 240px;
+  height: 80px;
+}
+
+#endscreen-win button img {
+  position: absolute;
+  top: 350px;
+  right: 220px;
   width: 240px;
   height: 80px;
 }
