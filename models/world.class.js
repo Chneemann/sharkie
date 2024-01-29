@@ -27,18 +27,25 @@ class World {
 
   run() {
     setInterval(() => {
-      this.isGameEnd();
-      this.checkBubbleSpawn();
-      this.checkCollisions();
-      this.checkEndbossSpawn();
+      if (!this.isGameEnd()) {
+        this.isGameEnd();
+        this.checkBubbleSpawn();
+        this.checkCollisions();
+        this.checkEndbossSpawn();
+        console.log("1");
+      }
     }, 100);
   }
 
   isGameEnd() {
     if (this.character.isDead()) {
       gameEndLost();
+      return true;
     } else if (this.isEndbossDead()) {
       gameEndWin();
+      return true;
+    } else {
+      return false;
     }
   }
 
