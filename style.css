@@ -59,11 +59,11 @@ canvas {
   height: 481px;
 }
 
-button {
+.startscreen button {
   cursor: pointer;
 }
 
-button img {
+.startscreen button img {
   position: absolute;
   top: 350px;
   right: 100px;
