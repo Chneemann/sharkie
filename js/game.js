@@ -24,6 +24,7 @@ function restartGame() {
 function gameEndWin() {
   setTimeout(() => {
     sound_win.play();
+    sound_win = 0.3;
     document.getElementById("endscreen").classList.remove("d-none");
     document.getElementById("endscreen-win").classList.remove("d-none");
   }, 2000);
@@ -32,6 +33,7 @@ function gameEndWin() {
 function gameEndLost() {
   setTimeout(() => {
     sound_lost.play();
+    sound_lost = 0.3;
     document.getElementById("endscreen").classList.remove("d-none");
     document.getElementById("endscreen-lost").classList.remove("d-none");
   }, 1500);
