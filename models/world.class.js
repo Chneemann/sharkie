@@ -7,6 +7,7 @@ class World {
   statusBarEndboss = new StatusBarEndboss();
   statusBarEndbossTextY = -100;
   level = level1;
+  isGameOver = false;
   ctx;
   canvas;
   keyboard;
@@ -27,23 +28,25 @@ class World {
 
   run() {
     setInterval(() => {
-      if (!this.isGameEnd()) {
+      if (!this.isGameOver) {
         this.isGameEnd();
         this.checkBubbleSpawn();
         this.checkCollisions();
         this.checkEndbossSpawn();
-        console.log("1");
       }
     }, 100);
   }
 
   isGameEnd() {
+    if (this.isGameOver) {
+      return;
+    }
     if (this.character.isDead()) {
       gameEndLost();
-      return true;
+      this.isGameOver = true;
     } else if (this.isEndbossDead()) {
       gameEndWin();
-      return true;
+      this.isGameOver = true;
     } else {
       return false;
     }
