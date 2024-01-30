@@ -19,14 +19,14 @@ class World {
     this.keyboard = keyboard;
     this.draw();
     this.setWorld();
-    this.run();
+    this.update();
   }
 
   setWorld() {
     this.character.world = this;
   }
 
-  run() {
+  update() {
     setInterval(() => {
       if (!this.isGameOver) {
         this.isGameEnd();
