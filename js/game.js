@@ -10,7 +10,7 @@ function init() {
   world = new World(canvas, keyboard);
 }
 
-function initLevel() {
+function startGame() {
   document.getElementById("startscreen").classList.add("d-none");
   sound_background.play();
   sound_background.loop = true;
