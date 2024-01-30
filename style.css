@@ -95,7 +95,7 @@ img:nth-child(2) {
   height: 240px;
 }
 
-#canvas-div img {
+#canvasdiv img {
   position: absolute;
   cursor: pointer;
   top: 670px;

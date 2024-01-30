@@ -12,6 +12,7 @@ function init() {
 
 function startGame() {
   document.getElementById("startscreen").classList.add("d-none");
+  document.getElementById("fullscreen").classList.remove("d-none");
   sound_background.play();
   sound_background.loop = true;
   sound_background.volume = 0.15;
