@@ -20,7 +20,7 @@ h1 {
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
-#canvas-div {
+#canvasdiv {
   background-color: #000;
   border: 10px black solid;
   border-radius: 10px;
