@@ -81,7 +81,7 @@ class World {
         if (enemy instanceof JellyFish) {
           this.character.hit("shock");
           this.character.sound_shock.play();
-        } else {
+        } else if (enemy instanceof PufferFish) {
           this.character.hit("meele");
           this.character.sound_meele.play();
         }
