@@ -125,7 +125,8 @@ class World {
     if (enemy == this.level.enemies[this.level.enemies.length - 1]) {
       this.statusBarEndboss.percentage--;
       this.statusBarEndboss.setPercentage(this.statusBarEndboss.percentage);
-      this.character.hit("endboss");
+      this.level.enemies[this.level.enemies.length - 1].lastHitEndboss =
+        new Date().getTime();
     }
   }
 

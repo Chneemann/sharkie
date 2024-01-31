@@ -17,8 +17,6 @@ class MovableObject extends DrawableObject {
         this.lastHitMeele = new Date().getTime();
       } else if (hit == "shock") {
         this.lastHitElectricShock = new Date().getTime();
-      } else if (hit == "endboss") {
-        this.lastHitEndboss = new Date().getTime();
       }
     }
   }
