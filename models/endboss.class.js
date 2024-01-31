@@ -75,9 +75,12 @@ class Endboss extends MovableObject {
   animate() {
     let idle = false;
     setInterval(() => {
+      console.log(this.isHurt("lastHitEndboss"));
       if (!this.isAlive()) {
         this.playAnimation(this.IMAGES_DEAD);
         this.moveUp();
+      } else if (this.isHurt("lastHitEndboss")) {
+        this.playAnimation(this.IMAGES_HURT);
       } else if (this.isAlive()) {
         let i = this.currentImage % this.IMAGES_IDLE.length;
         if (idle) {

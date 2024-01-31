@@ -2,6 +2,7 @@ class MovableObject extends DrawableObject {
   hp = 100;
   lastHitMeele = 0;
   lastHitElectricShock = 0;
+  lastHitEndboss = 0;
   lastAnimate = 0;
   speed = 0.2;
   otherDirection = false;
@@ -14,8 +15,10 @@ class MovableObject extends DrawableObject {
     } else {
       if (hit == "meele") {
         this.lastHitMeele = new Date().getTime();
-      } else {
+      } else if (hit == "shock") {
         this.lastHitElectricShock = new Date().getTime();
+      } else if (hit == "endboss") {
+        this.lastHitEndboss = new Date().getTime();
       }
     }
   }
@@ -42,7 +45,7 @@ class MovableObject extends DrawableObject {
 
   lastAnimation(time) {
     let timepassed = new Date().getTime() - this.lastAnimate;
-    timepassed = timepassed / 1000;
+    timepassed /= 1000;
     return timepassed < time;
   }
 
