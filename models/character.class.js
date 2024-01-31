@@ -34,17 +34,7 @@ class Character extends MovableObject {
     "img/1.Sharkie/3.Swim/5.png",
     "img/1.Sharkie/3.Swim/6.png",
   ];
-  IMAGES_ATTACK_MEELE = [
-    "img/1.Sharkie/4.Attack/Fin slap/1.png",
-    "img/1.Sharkie/4.Attack/Fin slap/2.png",
-    "img/1.Sharkie/4.Attack/Fin slap/3.png",
-    "img/1.Sharkie/4.Attack/Fin slap/4.png",
-    "img/1.Sharkie/4.Attack/Fin slap/5.png",
-    "img/1.Sharkie/4.Attack/Fin slap/6.png",
-    "img/1.Sharkie/4.Attack/Fin slap/7.png",
-    "img/1.Sharkie/4.Attack/Fin slap/8.png",
-  ];
-  IMAGES_ATTACK_RANGE = [
+  IMAGES_ATTACK = [
     "img/1.Sharkie/4.Attack/Bubble trap/For Whale/1.png",
     "img/1.Sharkie/4.Attack/Bubble trap/For Whale/2.png",
     "img/1.Sharkie/4.Attack/Bubble trap/For Whale/3.png",
@@ -99,8 +89,7 @@ class Character extends MovableObject {
     super().loadImage("./img/1.Sharkie/1.IDLE/1.png");
     this.loadImages(this.IMAGES_IDLE);
     this.loadImages(this.IMAGES_MOVE);
-    this.loadImages(this.IMAGES_ATTACK_MEELE);
-    this.loadImages(this.IMAGES_ATTACK_RANGE);
+    this.loadImages(this.IMAGES_ATTACK);
     this.loadImages(this.IMAGES_HURT_MEELE);
     this.loadImages(this.IMAGES_HURT_ELECTRIC_SHOCK);
     this.loadImages(this.IMAGES_DEAD_MEELE);
@@ -149,7 +138,7 @@ class Character extends MovableObject {
         this.lastAnimation(0.85) &&
         this.world.statusBarPoisonBottles.percentage >= 1
       ) {
-        this.playAnimation(this.IMAGES_ATTACK_RANGE);
+        this.playAnimation(this.IMAGES_ATTACK);
       } else if (this.world.keyboard.MOVE) {
         this.playAnimation(this.IMAGES_MOVE);
       } else if (!this.world.keyboard.MOVE) {
