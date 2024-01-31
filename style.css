@@ -7,10 +7,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url(./img/background.png);
-  background-repeat: no-repeat;
-  background-position: center top;
   font-family: "water-galon", Arial, Helvetica, sans-serif;
+  background: url(./img/background.png) no-repeat center center fixed;
+  background-size: cover;
 }
 
 h1 {
