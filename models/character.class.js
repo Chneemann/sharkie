@@ -5,7 +5,6 @@ class Character extends MovableObject {
   characterOffsetY = 95;
   characterOffsetWidth = 90;
   characterOffsetHeight = 140;
-  attack = false;
 
   IMAGES_IDLE = [
     "img/1.Sharkie/1.IDLE/1.png",
@@ -133,7 +132,6 @@ class Character extends MovableObject {
       }
       if (this.world.keyboard.SPACE && !this.isDead()) {
         this.lastAnimate = new Date().getTime();
-        this.attack = true;
       }
       this.world.camera_x = -this.x;
     }, 1000 / 60);
