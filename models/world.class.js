@@ -7,6 +7,7 @@ class World {
   statusBarEndboss = new StatusBarEndboss();
   statusBarEndbossTextY = -100;
   level = level1;
+  endboss = this.level.enemies[this.level.enemies.length - 1];
   isGameOver = false;
   ctx;
   canvas;
@@ -122,16 +123,15 @@ class World {
   }
 
   checkEndbossHp(enemy) {
-    if (enemy == this.level.enemies[this.level.enemies.length - 1]) {
+    if (enemy == this.endboss) {
       this.statusBarEndboss.percentage--;
       this.statusBarEndboss.setPercentage(this.statusBarEndboss.percentage);
-      this.level.enemies[this.level.enemies.length - 1].lastHitEndboss =
-        new Date().getTime();
+      this.endboss.lastHitEndboss = new Date().getTime();
     }
   }
 
   isEndbossDead() {
-    if (this.level.enemies[this.level.enemies.length - 1].hp == 0) {
+    if (this.endboss.hp == 0) {
       return true;
     }
   }
