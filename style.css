@@ -62,24 +62,34 @@ h1 {
   height: 481px;
 }
 
-.startscreen img {
+.startscreen img:nth-child(3) {
   position: absolute;
+  cursor: pointer;
   top: 350px;
   right: 100px;
   width: 240px;
   height: 80px;
 }
 
-#endscreen-win img {
+.startscreen img:nth-child(3):hover,
+#endscreen-lost img:nth-child(2):hover,
+#endscreen-win img:nth-child(2):hover,
+#canvasdiv img:hover {
+  filter: invert(100%);
+}
+
+#endscreen-win img:nth-child(2) {
   position: absolute;
+  cursor: pointer;
   top: 350px;
   right: 220px;
   width: 240px;
   height: 80px;
 }
 
-#endscreen-lost img {
+#endscreen-lost img:nth-child(2) {
   position: absolute;
+  cursor: pointer;
   top: 350px;
   left: 250px;
   width: 240px;
