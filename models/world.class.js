@@ -123,7 +123,7 @@ class World {
   }
 
   checkEndbossHp(enemy) {
-    if (enemy == this.endboss) {
+    if (enemy == this.endboss && this.endboss.isAlive()) {
       this.statusBarEndboss.percentage--;
       this.statusBarEndboss.setPercentage(this.statusBarEndboss.percentage);
       this.endboss.lastHitEndboss = new Date().getTime();
