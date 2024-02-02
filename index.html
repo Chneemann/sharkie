@@ -30,13 +30,11 @@
     <h1>Sharkie</h1>
     <div class="canvas">
       <canvas id="canvas" width="720px" height="480px"></canvas>
-      <img
+      <button
         onclick="enterFullscreen(canvas)"
         id="fullscreen"
         class="d-none"
-        src="img/6.Botones/Full Screen/Mesa de trabajo 7.png"
-        alt=""
-      />
+      ></button>
     </div>
     <div id="startscreen" class="startscreen">
       <img src="img/3. Background/Mesa de trabajo 1.png" alt="" />
@@ -46,19 +44,11 @@
     <div id="endscreen" class="endscreen d-none">
       <div id="endscreen-win" class="d-none">
         <img src="img/6.Botones/Tittles/You win/Mesa de trabajo 1.png" alt="" />
-        <img
-          onclick="restartGame()"
-          src="img/6.Botones/Try again/Recurso 17.png"
-          alt=""
-        />
+        <button onclick="restartGame()"></button>
       </div>
       <div id="endscreen-lost" class="d-none">
         <img src="img/6.Botones/Tittles/Game Over/Recurso 13.png" alt="" />
-        <img
-          onclick="restartGame()"
-          src="img/6.Botones/Try again/Recurso 17.png"
-          alt=""
-        />
+        <button onclick="restartGame()"></button>
       </div>
     </div>
   </body>

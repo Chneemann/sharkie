@@ -29,13 +29,21 @@ h1 {
   border-radius: 10px;
 }
 
-.canvas img {
+.canvas button {
+  background-image: url("img/6.Botones/Full Screen/Mesa de trabajo 7.png");
+  background-size: 100%;
   position: absolute;
   cursor: pointer;
+  border: 0px;
+  border-radius: 12px;
   top: 670px;
   left: 50%;
-  width: 180px;
-  height: 60px;
+  width: 195px;
+  height: 45px;
+}
+
+.canvas button:hover {
+  background-image: url("img/6.Botones/Full Screen/Mesa de trabajo 8.png");
 }
 
 .startscreen,
@@ -73,7 +81,7 @@ h1 {
   top: 350px;
   right: 100px;
   width: 240px;
-  height: 80px;
+  height: 78px;
 }
 
 .startscreen button:hover {
@@ -86,6 +94,29 @@ h1 {
   left: 50px;
   width: 600px;
   height: 80px;
+}
+
+#endscreen-lost button,
+#endscreen-win button {
+  background-image: url("img/6.Botones/Try again/Recurso 17.png");
+  background-size: 100%;
+  position: absolute;
+  cursor: pointer;
+  border: 0px;
+  border-radius: 15px;
+  top: 350px;
+  left: 250px;
+  width: 240px;
+  height: 57px;
+}
+
+#endscreen-win button {
+  right: 220px;
+}
+
+#endscreen-lost button:hover,
+#endscreen-win button:hover {
+  background-image: url("img/6.Botones/Try again/Recurso 16.png");
 }
 
 #endscreen-win img:first-child {
@@ -101,22 +132,4 @@ h1 {
 #endscreen-win img:nth-child(2):hover,
 #canvasdiv img:hover {
   filter: invert(100%);
-}
-
-#endscreen-win img:nth-child(2) {
-  position: absolute;
-  cursor: pointer;
-  top: 350px;
-  right: 220px;
-  width: 240px;
-  height: 80px;
-}
-
-#endscreen-lost img:nth-child(2) {
-  position: absolute;
-  cursor: pointer;
-  top: 350px;
-  left: 250px;
-  width: 240px;
-  height: 80px;
 }
