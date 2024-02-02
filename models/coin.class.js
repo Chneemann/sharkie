@@ -1,6 +1,6 @@
 class Coin extends MovableObject {
-  width = 30;
-  height = 30;
+  width = 35;
+  height = 35;
   enemyOffsetX = 0;
   enemyOffsetY = 0;
   enemyOffsetWidth = 0;
