@@ -19,11 +19,20 @@ function startGame() {
 }
 
 function restartGame() {
+  localStorage.setItem("restartGame", "true");
   location.reload();
 }
 
+window.addEventListener("load", () => {
+  if (localStorage.getItem("restartGame") === "true") {
+    startGame();
+    localStorage.removeItem("restartGame");
+  }
+});
+
 function gameEndWin() {
   setTimeout(() => {
+    exitFullscreen();
     sound_win.play();
     sound_win = 0.3;
     document.getElementById("endscreen").classList.remove("d-none");
@@ -33,6 +42,7 @@ function gameEndWin() {
 
 function gameEndLost() {
   setTimeout(() => {
+    exitFullscreen();
     sound_lost.play();
     sound_lost = 0.3;
     document.getElementById("endscreen").classList.remove("d-none");
