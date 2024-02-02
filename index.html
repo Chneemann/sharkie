@@ -28,7 +28,7 @@
   </head>
   <body onload="init()">
     <h1>Sharkie</h1>
-    <div id="canvasdiv">
+    <div class="canvas">
       <canvas id="canvas" width="720px" height="480px"></canvas>
       <img
         onclick="enterFullscreen(canvas)"
@@ -41,7 +41,7 @@
     <div id="startscreen" class="startscreen">
       <img src="img/3. Background/Mesa de trabajo 1.png" alt="" />
       <img src="img/6.Botones/Instructions 2.png" alt="" />
-      <img onclick="startGame()" src="img/6.Botones/Start/2.png" alt="" />
+      <button onclick="startGame()"></button>
     </div>
     <div id="endscreen" class="endscreen d-none">
       <div id="endscreen-win" class="d-none">
