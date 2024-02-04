@@ -137,14 +137,14 @@ h1 {
 
 /*--------- Smartphone ---------*/
 
-@media only screen and (max-width: 760px) {
-  canvas {
+@media only screen and (max-width: 740px) {
+  #canvas {
     width: 100%;
   }
 }
 
 @media only screen and (max-height: 480px) {
-  canvas {
+  #canvas {
     height: 100%;
   }
 }
