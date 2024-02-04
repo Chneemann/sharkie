@@ -27,6 +27,7 @@ h1 {
   background-color: #000;
   border: 10px black solid;
   border-radius: 10px;
+  display: block;
 }
 
 .canvas button {
@@ -132,4 +133,18 @@ h1 {
 #endscreen-win img:nth-child(2):hover,
 #canvasdiv img:hover {
   filter: invert(100%);
+}
+
+/*--------- Smartphone ---------*/
+
+@media only screen and (max-width: 760px) {
+  canvas {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-height: 480px) {
+  canvas {
+    height: 100%;
+  }
 }
