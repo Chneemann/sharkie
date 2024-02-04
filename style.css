@@ -128,13 +128,6 @@ h1 {
   height: 481px;
 }
 
-.startscreen img:nth-child(3):hover,
-#endscreen-lost img:nth-child(2):hover,
-#endscreen-win img:nth-child(2):hover,
-#canvasdiv img:hover {
-  filter: invert(100%);
-}
-
 /*--------- Smartphone ---------*/
 
 @media only screen and (max-width: 740px) {
