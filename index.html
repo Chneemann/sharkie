@@ -28,8 +28,21 @@
   </head>
   <body onload="init()">
     <h1>Sharkie</h1>
-    <div class="canvas">
+    <div class="maincontent">
       <canvas id="canvas" width="720px" height="480px"></canvas>
+      <div id="infocart">
+        <img
+          onclick="toggleVolume()"
+          src="img/others/volume_off.svg"
+          alt="Volume Off"
+        />
+        <img
+          onclick="toggleVolume()"
+          src="img/others/volume_up.svg"
+          alt="Volume On"
+          class="d-none"
+        />
+      </div>
       <button
         onclick="enterFullscreen(canvas)"
         id="fullscreen"

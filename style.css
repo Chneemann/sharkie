@@ -23,7 +23,7 @@ h1 {
   display: none;
 }
 
-.canvas {
+.maincontent {
   position: relative;
   background-color: #000;
   border: 10px black solid;
@@ -31,7 +31,7 @@ h1 {
   display: block;
 }
 
-.canvas button {
+.maincontent button {
   background-image: url("img/6.Botones/Full Screen/Mesa de trabajo 7.png");
   background-size: 100%;
   position: absolute;
@@ -44,8 +44,27 @@ h1 {
   height: 35px;
 }
 
-.canvas button:hover {
+.maincontent button:hover {
   background-image: url("img/6.Botones/Full Screen/Mesa de trabajo 8.png");
+}
+
+#infocart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  filter: invert(100%);
+  display: flex;
+}
+
+#infocart img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+#infocart img:hover {
+  width: 32px;
+  height: 32px;
 }
 
 .startscreen,

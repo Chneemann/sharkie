@@ -23,6 +23,8 @@ function restartGame() {
   location.reload();
 }
 
+function toggleVolume() {}
+
 window.addEventListener("load", () => {
   if (localStorage.getItem("restartGame") === "true") {
     startGame();
