@@ -24,6 +24,9 @@ class AttackBubble extends MovableObject {
     this.sound_impact.volume = 0.3;
     this.animate();
 
+    this.sound.muted = SoundManager.isMuted();
+    this.sound_impact.muted = SoundManager.isMuted();
+
     document.addEventListener("toggleMute", (e) => {
       this.sound.muted = e.detail;
       this.sound_impact.muted = e.detail;
