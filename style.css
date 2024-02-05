@@ -51,7 +51,7 @@ h1 {
 .startscreen,
 .endscreen {
   position: absolute;
-  top: 166px;
+  top: 0;
   width: 720px;
   height: 481px;
   background-color: #000;
@@ -60,7 +60,6 @@ h1 {
 .startscreen img:first-child {
   position: absolute;
   top: 0;
-  left: 0;
   width: 720px;
   height: 480px;
 }
