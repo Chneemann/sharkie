@@ -24,6 +24,7 @@ h1 {
 }
 
 .canvas {
+  position: relative;
   background-color: #000;
   border: 10px black solid;
   border-radius: 10px;
@@ -37,10 +38,10 @@ h1 {
   cursor: pointer;
   border: 0px;
   border-radius: 12px;
-  top: 670px;
-  left: 50%;
-  width: 195px;
-  height: 45px;
+  bottom: 8px;
+  right: 3px;
+  width: 151px;
+  height: 35px;
 }
 
 .canvas button:hover {
