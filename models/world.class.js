@@ -118,8 +118,8 @@ class World {
 
   checkEndbossSpawn() {
     if (this.character.x >= this.level.level_end - 700) {
-      this.statusBarEndboss.y = 0;
-      this.statusBarEndbossTextY = 47;
+      this.statusBarEndboss.y = 20;
+      this.statusBarEndbossTextY = 68;
     }
   }
 
