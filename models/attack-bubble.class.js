@@ -23,6 +23,11 @@ class AttackBubble extends MovableObject {
     this.sound.volume = 0.3;
     this.sound_impact.volume = 0.3;
     this.animate();
+
+    document.addEventListener("toggleMute", (e) => {
+      this.sound.muted = e.detail;
+      this.sound_impact.muted = e.detail;
+    });
   }
 
   animate() {

@@ -13,5 +13,9 @@ class PoisonBottles extends MovableObject {
     this.x = x;
     this.y = y;
     this.sound.volume = 0.3;
+
+    document.addEventListener("toggleMute", (e) => {
+      this.sound.muted = e.detail;
+    });
   }
 }

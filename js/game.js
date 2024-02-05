@@ -23,7 +23,11 @@ function restartGame() {
   location.reload();
 }
 
-function toggleVolume() {}
+document.addEventListener("toggleMute", (e) => {
+  sound_background.muted = e.detail;
+  sound_win.muted = e.detail;
+  sound_lost.muted = e.detail;
+});
 
 window.addEventListener("load", () => {
   if (localStorage.getItem("restartGame") === "true") {
