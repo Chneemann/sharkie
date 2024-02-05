@@ -5,7 +5,9 @@ class SoundManager {
 
   toggleMute() {
     this.muted = !this.muted;
-    // Benachrichtige alle Sound-Quellen über die Änderung
+    document.getElementById("volume_off").classList.toggle("d-none");
+    document.getElementById("volume_on").classList.toggle("d-none");
+
     document.dispatchEvent(
       new CustomEvent("toggleMute", { detail: this.muted })
     );
