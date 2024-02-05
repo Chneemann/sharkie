@@ -97,6 +97,11 @@ class Character extends MovableObject {
     this.sound_shock.volume = 0.3;
     this.sound_meele.volume = 0.3;
     this.animate();
+
+    document.addEventListener("toggleMute", (e) => {
+      this.sound_shock.muted = e.detail;
+      this.sound_meele.muted = e.detail;
+    });
   }
 
   animate() {

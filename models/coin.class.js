@@ -13,5 +13,10 @@ class Coin extends MovableObject {
     this.x = x;
     this.y = y;
     this.sound.volume = 0.3;
+
+    // Reagiere auf Stumm-Schaltungsereignisse
+    document.addEventListener("toggleMute", (e) => {
+      this.sound.muted = e.detail;
+    });
   }
 }

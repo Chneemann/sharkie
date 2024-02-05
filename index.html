@@ -24,6 +24,7 @@
     <script src="./models/keyboard.class.js"></script>
     <script src="./models/level.class.js"></script>
     <script src="./levels/level1.js"></script>
+    <script src="./models/soundManager.class.js"></script>
     <script src="./js/game.js"></script>
   </head>
   <body onload="init()">
@@ -32,7 +33,7 @@
       <canvas id="canvas" width="720px" height="480px"></canvas>
       <div id="infocart">
         <img
-          onclick="toggleVolume()"
+          onclick="SoundManager.toggleMute()"
           src="img/others/volume_off.svg"
           alt="Volume Off"
         />
