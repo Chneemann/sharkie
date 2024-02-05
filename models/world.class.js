@@ -6,6 +6,7 @@ class World {
   statusBarPoisonBottles = new StatusBarPoisonBottles();
   statusBarEndboss = new StatusBarEndboss();
   statusBarEndbossTextY = -100;
+  soundManager = new SoundManager();
   level = level1;
   endboss = this.level.enemies[this.level.enemies.length - 1];
   isGameOver = false;

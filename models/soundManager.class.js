@@ -1,7 +1,9 @@
 class SoundManager {
-  static muted = false;
+  constructor() {
+    this.muted = false;
+  }
 
-  static toggleMute() {
+  toggleMute() {
     this.muted = !this.muted;
     // Benachrichtige alle Sound-Quellen über die Änderung
     document.dispatchEvent(
@@ -9,7 +11,7 @@ class SoundManager {
     );
   }
 
-  static isMuted() {
+  isMuted() {
     return this.muted;
   }
 }
