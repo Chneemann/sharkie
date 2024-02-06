@@ -3,7 +3,7 @@ class World {
   attackBubble = [];
   statusBarHp = new StatusBarHp();
   statusBarCoin = new StatusBarCoin();
-  statusBarPoisonBottles = new StatusBarPoisonBottles();
+  statusBarPoisonBottle = new StatusBarPoisonBottle();
   statusBarEndboss = new StatusBarEndboss();
   statusBarEndbossTextY = -100;
   soundManager = new SoundManager();
@@ -62,9 +62,9 @@ class World {
   collectingObject() {
     this.level.objects.forEach((object) => {
       if (this.character.isColliding(object)) {
-        if (object instanceof PoisonBottles) {
-          if (this.statusBarPoisonBottles.percentage < 5) {
-            this.statusBarPoisonBottles.setPercentage();
+        if (object instanceof PoisonBottle) {
+          if (this.statusBarPoisonBottle.percentage < 5) {
+            this.statusBarPoisonBottle.setPercentage();
             this.objectCollected(object);
             object.sound.play();
           }
@@ -104,14 +104,14 @@ class World {
   }
 
   checkBubbleSpawn() {
-    if (this.keyboard.SPACE && this.statusBarPoisonBottles.percentage >= 1) {
+    if (this.keyboard.SPACE && this.statusBarPoisonBottle.percentage >= 1) {
       let poisonAttackBubble = new AttackBubble(
         this.character.x,
         this.character.y
       );
       poisonAttackBubble.sound.play();
       this.attackBubble.push(poisonAttackBubble);
-      this.statusBarPoisonBottles.removeBubble();
+      this.statusBarPoisonBottle.removeBubble();
       this.keyboard.SPACE = false;
     }
   }
@@ -153,12 +153,12 @@ class World {
     // Space for fixed objects
     this.addToMap(this.statusBarHp);
     this.addToMap(this.statusBarCoin);
-    this.addToMap(this.statusBarPoisonBottles);
+    this.addToMap(this.statusBarPoisonBottle);
     this.addToMap(this.statusBarEndboss);
     this.addTextToMap(this.character.hp + "%", "20px", 190, 47);
     this.addTextToMap(this.statusBarCoin.percentage + "/10", "20px", 195, 97);
     this.addTextToMap(
-      this.statusBarPoisonBottles.percentage + "/5",
+      this.statusBarPoisonBottle.percentage + "/5",
       "20px",
       200,
       147

@@ -1,4 +1,4 @@
-class StatusBarPoisonBottles extends DrawableObject {
+class StatusBarPoisonBottle extends DrawableObject {
   IMAGES_POISON_BOTTLES = [
     "img/4. Marcadores/orange/0_ copia.png",
     "img/4. Marcadores/orange/20_ copia.png",

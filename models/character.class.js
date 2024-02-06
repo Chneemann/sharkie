@@ -141,7 +141,7 @@ class Character extends MovableObject {
         this.playAnimation(this.IMAGES_HURT_ELECTRIC_SHOCK);
       } else if (
         this.lastAnimation(0.85) &&
-        this.world.statusBarPoisonBottles.percentage >= 1
+        this.world.statusBarPoisonBottle.percentage >= 1
       ) {
         this.playAnimation(this.IMAGES_ATTACK);
       } else if (this.world.keyboard.MOVE) {
