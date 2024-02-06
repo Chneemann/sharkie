@@ -6,7 +6,7 @@ class StatusBarEndboss extends DrawableObject {
     "img/4. Marcadores/orange/100_  copia.png",
   ];
 
-  x = 480;
+  x = 650;
   y = -100;
   width = 220;
   height = 60;
