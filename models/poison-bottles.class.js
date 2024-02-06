@@ -1,10 +1,10 @@
 class PoisonBottle extends MovableObject {
   width = 60;
   height = 80;
-  enemyOffsetX = 0;
-  enemyOffsetY = 0;
-  enemyOffsetWidth = 0;
-  enemyOffsetHeight = 0;
+  enemyOffsetX = 10;
+  enemyOffsetY = 35;
+  enemyOffsetWidth = 20;
+  enemyOffsetHeight = 37;
 
   IMAGES = [
     "img/4. Marcadores/Posiขn/Animada/1.png",

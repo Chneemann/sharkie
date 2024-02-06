@@ -40,7 +40,8 @@ class DrawableObject {
       if (
         this instanceof PufferFish ||
         this instanceof JellyFish ||
-        this instanceof Endboss
+        this instanceof Endboss ||
+        this instanceof PoisonBottle
       ) {
         ctx.rect(
           this.x + this.enemyOffsetX,
