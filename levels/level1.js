@@ -23,48 +23,49 @@ const level1 = new Level(
     new Coin("./img/4. Marcadores/1. Coins/1.png", 1370, 250),
     new Coin("./img/4. Marcadores/1. Coins/1.png", 1440, 180),
     new Coin("./img/4. Marcadores/1. Coins/1.png", 1510, 110),
-    new PoisonBottle(115, 380),
-    new PoisonBottle(630, 350),
-    new PoisonBottle(880, 370),
-    new PoisonBottle(1300, 380),
-    new PoisonBottle(1550, 380),
-    new PoisonBottle(1660, 340),
-    new PoisonBottle(2060, 360),
+    new PoisonBottle(160, 480),
+    new PoisonBottle(300, 440),
+    new PoisonBottle(730, 490),
+    new PoisonBottle(870, 495),
+    new PoisonBottle(1200, 430),
+    new PoisonBottle(1570, 500),
+    new PoisonBottle(1680, 470),
+    new PoisonBottle(2060, 480),
   ],
   [
     new BackgroundObject("./img/3. Background/Layers/5. Water/D1.png", 0),
-    new BackgroundObject("./img/3. Background/Layers/5. Water/D2.png", 719),
-    new BackgroundObject("./img/3. Background/Layers/5. Water/D1.png", 719 * 2),
-    new BackgroundObject("./img/3. Background/Layers/5. Water/D2.png", 719 * 3),
-    new BackgroundObject("./img/3. Background/Layers/5. Water/D1.png", 719 * 4),
+    new BackgroundObject("./img/3. Background/Layers/5. Water/D2.png", 900),
+    new BackgroundObject("./img/3. Background/Layers/5. Water/D1.png", 900 * 2),
+    new BackgroundObject("./img/3. Background/Layers/5. Water/D2.png", 900 * 3),
+    new BackgroundObject("./img/3. Background/Layers/5. Water/D1.png", 900 * 4),
     new BackgroundObject("./img/3. Background/Layers/4.Fondo 2/D1.png", 0),
-    new BackgroundObject("./img/3. Background/Layers/4.Fondo 2/D2.png", 719),
+    new BackgroundObject("./img/3. Background/Layers/4.Fondo 2/D2.png", 900),
     new BackgroundObject(
       "./img/3. Background/Layers/4.Fondo 2/D1.png",
-      719 * 2
+      900 * 2
     ),
     new BackgroundObject(
       "./img/3. Background/Layers/4.Fondo 2/D2.png",
-      719 * 3
+      900 * 3
     ),
     new BackgroundObject("./img/3. Background/Layers/3.Fondo 1/D1.png", 0),
-    new BackgroundObject("./img/3. Background/Layers/3.Fondo 1/D2.png", 719),
+    new BackgroundObject("./img/3. Background/Layers/3.Fondo 1/D2.png", 900),
     new BackgroundObject(
       "./img/3. Background/Layers/3.Fondo 1/D1.png",
-      719 * 2
+      900 * 2
     ),
     new BackgroundObject(
       "./img/3. Background/Layers/3.Fondo 1/D2.png",
-      719 * 3
+      900 * 3
     ),
     new BackgroundObject("./img/3. Background/Layers/2. Floor/D1.png", 0),
-    new BackgroundObject("./img/3. Background/Layers/2. Floor/D2.png", 719),
-    new BackgroundObject("./img/3. Background/Layers/2. Floor/D1.png", 719 * 2),
-    new BackgroundObject("./img/3. Background/Layers/2. Floor/D2.png", 719 * 3),
+    new BackgroundObject("./img/3. Background/Layers/2. Floor/D2.png", 900),
+    new BackgroundObject("./img/3. Background/Layers/2. Floor/D1.png", 900 * 2),
+    new BackgroundObject("./img/3. Background/Layers/2. Floor/D2.png", 900 * 3),
     new BackgroundObject("./img/3. Background/Layers/1. Light/1.png", 0),
-    new BackgroundObject("./img/3. Background/Layers/1. Light/2.png", 719),
-    new BackgroundObject("./img/3. Background/Layers/1. Light/1.png", 719 * 2),
-    new BackgroundObject("./img/3. Background/Layers/1. Light/2.png", 719 * 3),
+    new BackgroundObject("./img/3. Background/Layers/1. Light/2.png", 900),
+    new BackgroundObject("./img/3. Background/Layers/1. Light/1.png", 900 * 2),
+    new BackgroundObject("./img/3. Background/Layers/1. Light/2.png", 900 * 3),
   ],
-  [719 * 3]
+  [900 * 3]
 );

@@ -1,12 +1,12 @@
 class BackgroundObject extends MovableObject {
-  width = 720;
-  height = 480;
+  width = 900;
+  height = 600;
   isAnimating = false;
 
   constructor(imagePath, x) {
     super().loadImage(imagePath);
     this.x = x;
-    this.y = 480 - this.height;
+    this.y = 0;
   }
 
   animateBackground() {
@@ -14,8 +14,8 @@ class BackgroundObject extends MovableObject {
       this.isAnimating = true;
       setInterval(() => {
         this.x -= 1;
-        if (this.x <= -(719 * 3) + 1438) {
-          this.x = 719 * 3 + 719;
+        if (this.x <= -(this.width * 3) + this.width * 2) {
+          this.x = this.width * 3 + this.width;
         }
       }, 70);
     }

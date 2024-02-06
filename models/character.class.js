@@ -121,7 +121,7 @@ class Character extends MovableObject {
       if (this.world.keyboard.UP && this.y >= -90 && !this.isDead()) {
         this.y -= 3;
       }
-      if (this.world.keyboard.DOWN && this.y <= 320 && !this.isDead()) {
+      if (this.world.keyboard.DOWN && this.y <= 440 && !this.isDead()) {
         this.y += 3;
       }
       if (this.world.keyboard.SPACE && !this.isDead()) {
