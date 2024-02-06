@@ -83,7 +83,7 @@ class World {
         if (enemy instanceof JellyFish) {
           this.character.hit("shock");
           this.character.sound_shock.play();
-        } else if (enemy instanceof PufferFish) {
+        } else if (enemy instanceof PufferFish || enemy instanceof Endboss) {
           this.character.hit("meele");
           this.character.sound_meele.play();
         }
@@ -117,7 +117,7 @@ class World {
   }
 
   checkEndbossSpawn() {
-    if (this.character.x >= this.level.level_end - 700) {
+    if (this.character.x >= this.level.level_end - 900) {
       this.statusBarEndboss.y = 20;
       this.statusBarEndbossTextY = 68;
     }
