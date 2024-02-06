@@ -8,8 +8,8 @@ class Coin extends MovableObject {
 
   sound = new Audio("./audio/coin.mp3");
 
-  constructor(imagePath, x, y) {
-    super().loadImage(imagePath);
+  constructor(x, y) {
+    super().loadImage("./img/4. Marcadores/1. Coins/1.png");
     this.x = x;
     this.y = y;
     this.sound.volume = 0.3;
