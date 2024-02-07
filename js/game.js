@@ -79,19 +79,19 @@ function exitFullscreen() {
 }
 
 window.addEventListener("keydown", (e) => {
-  if (e.code === "ArrowUp") {
+  if (e.code === "ArrowUp" || e.code === "KeyW") {
     keyboard.UP = true;
     keyboard.MOVE = true;
   }
-  if (e.code === "ArrowDown") {
+  if (e.code === "ArrowDown" || e.code === "KeyS") {
     keyboard.DOWN = true;
     keyboard.MOVE = true;
   }
-  if (e.code === "ArrowRight") {
+  if (e.code === "ArrowRight" || e.code === "KeyD") {
     keyboard.RIGHT = true;
     keyboard.MOVE = true;
   }
-  if (e.code === "ArrowLeft") {
+  if (e.code === "ArrowLeft" || e.code === "KeyA") {
     keyboard.LEFT = true;
     keyboard.MOVE = true;
   }
@@ -101,19 +101,19 @@ window.addEventListener("keydown", (e) => {
 });
 
 window.addEventListener("keyup", (e) => {
-  if (e.code === "ArrowUp") {
+  if (e.code === "ArrowUp" || e.code === "KeyW") {
     keyboard.UP = false;
     keyboard.MOVE = false;
   }
-  if (e.code === "ArrowDown") {
+  if (e.code === "ArrowDown" || e.code === "KeyS") {
     keyboard.DOWN = false;
     keyboard.MOVE = false;
   }
-  if (e.code === "ArrowRight") {
+  if (e.code === "ArrowRight" || e.code === "KeyD") {
     keyboard.RIGHT = false;
     keyboard.MOVE = false;
   }
-  if (e.code === "ArrowLeft") {
+  if (e.code === "ArrowLeft" || e.code === "KeyA") {
     keyboard.LEFT = false;
     keyboard.MOVE = false;
   }
