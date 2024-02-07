@@ -43,6 +43,7 @@ function gameEndWin() {
     sound_win = 0.3;
     document.getElementById("endscreen").classList.remove("d-none");
     document.getElementById("endscreen-win").classList.remove("d-none");
+    document.getElementById("fullscreen").classList.add("d-none");
   }, 2000);
 }
 
@@ -53,6 +54,7 @@ function gameEndLost() {
     sound_lost = 0.3;
     document.getElementById("endscreen").classList.remove("d-none");
     document.getElementById("endscreen-lost").classList.remove("d-none");
+    document.getElementById("fullscreen").classList.add("d-none");
   }, 1500);
 }
 
