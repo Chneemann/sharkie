@@ -73,24 +73,24 @@ h1 {
 .endscreen {
   position: absolute;
   top: 0;
-  width: 720px;
-  height: 481px;
+  width: 900px;
+  height: 600px;
   background-color: #000;
 }
 
 .startscreen img:first-child {
   position: absolute;
   top: 0;
-  width: 720px;
-  height: 480px;
+  width: 900px;
+  height: 600px;
 }
 
 .startscreen img:nth-child(2) {
   position: absolute;
-  top: -15px;
-  right: -20px;
-  width: 400px;
-  height: 240px;
+  top: 340px;
+  right: 40px;
+  width: 500px;
+  height: 281px;
 }
 
 .startscreen button {
@@ -100,8 +100,8 @@ h1 {
   cursor: pointer;
   border: 0px;
   border-radius: 20px;
-  top: 350px;
-  right: 100px;
+  top: 100px;
+  right: 150px;
   width: 240px;
   height: 78px;
 }
