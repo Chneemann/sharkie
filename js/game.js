@@ -13,6 +13,10 @@ function init() {
   world = new World(canvas, keyboard);
 }
 
+/**
+ * Initiates the game by hiding the start screen, displaying the full screen button,
+ * and playing the background sound on a loop with reduced volume.
+ */
 function startGame() {
   document.getElementById("startscreen").classList.add("d-none");
   document.getElementById("fullscreen").classList.remove("d-none");
