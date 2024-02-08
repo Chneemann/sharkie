@@ -5,6 +5,9 @@ let sound_background = new Audio("./audio/background_music.mp3");
 let sound_lost = new Audio("./audio/lost.mp3");
 let sound_win = new Audio("./audio/win.mp3");
 
+/**
+ * Initialises the game
+ */
 function init() {
   canvas = document.getElementById("canvas");
   world = new World(canvas, keyboard);
@@ -18,17 +21,30 @@ function startGame() {
   sound_background.volume = 0.15;
 }
 
+/**
+ * Resets the game by setting a value in the LocalStorage and reloading the page.
+ */
 function restartGame() {
   localStorage.setItem("restartGame", "true");
   location.reload();
 }
 
+/**
+ * Adds an event listener for the "toggleMute" event on the document object.
+ * When the event is triggered, it mutes or unmutes background, win, and lost sounds
+ * based on the event's detail property, which should be a boolean value.
+ */
 document.addEventListener("toggleMute", (e) => {
   sound_background.muted = e.detail;
   sound_win.muted = e.detail;
   sound_lost.muted = e.detail;
 });
 
+/**
+ * Adds an event listener to the window object that triggers when the page is fully loaded.
+ * If the `localStorage` item "restartGame" is set to "true", it executes the `startGame` function
+ * to restart the game and then removes the "restartGame" item from `localStorage`.
+ */
 window.addEventListener("load", () => {
   if (localStorage.getItem("restartGame") === "true") {
     startGame();
