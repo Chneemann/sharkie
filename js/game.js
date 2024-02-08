@@ -52,6 +52,11 @@ window.addEventListener("load", () => {
   }
 });
 
+/**
+ * Ends the game with a win scenario. After a 2-second delay, exits fullscreen mode,
+ * plays the winning sound at 30% volume, and updates the DOM to display the winning end screen
+ * while hiding the fullscreen button.
+ */
 function gameEndWin() {
   setTimeout(() => {
     exitFullscreen();
@@ -63,6 +68,11 @@ function gameEndWin() {
   }, 2000);
 }
 
+/**
+ * Triggers actions when the game is lost. After a delay, it exits full screen mode,
+ * plays the loss sound at reduced volume, and updates the DOM to show the end screen
+ * specific to a loss scenario.
+ */
 function gameEndLost() {
   setTimeout(() => {
     exitFullscreen();
