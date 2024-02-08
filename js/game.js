@@ -84,6 +84,12 @@ function gameEndLost() {
   }, 1500);
 }
 
+/**
+ * Triggers fullscreen mode on the specified HTML element.
+ * Supports multiple browser-specific implementations.
+ *
+ * @param {Element} element - The DOM element to display in fullscreen mode.
+ */
 function enterFullscreen(element) {
   if (element.requestFullscreen) {
     element.requestFullscreen();
@@ -94,6 +100,9 @@ function enterFullscreen(element) {
   }
 }
 
+/**
+ * Exits fullscreen mode for the document.
+ */
 function exitFullscreen() {
   if (document.fullscreenElement || document.webkitFullscreenElement) {
     if (document.exitFullscreen) {
@@ -104,6 +113,9 @@ function exitFullscreen() {
   }
 }
 
+/**
+ * Adds event listeners for "keydown" events to handle keyboard inputs.
+ */
 window.addEventListener("keydown", (e) => {
   if (e.code === "ArrowUp" || e.code === "KeyW") {
     keyboard.UP = true;
@@ -126,6 +138,9 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
+/**
+ * Adds event listeners for "keyup" events to handle keyboard inputs.
+ */
 window.addEventListener("keyup", (e) => {
   if (e.code === "ArrowUp" || e.code === "KeyW") {
     keyboard.UP = false;
