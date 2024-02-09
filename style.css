@@ -33,23 +33,6 @@ h1 {
   height: 600px;
 }
 
-.maincontent button {
-  background-image: url("img/6.Botones/Full Screen/Mesa de trabajo 7.png");
-  background-size: 100%;
-  position: absolute;
-  cursor: pointer;
-  border: 0px;
-  border-radius: 12px;
-  bottom: -50px;
-  right: 3px;
-  width: 151px;
-  height: 35px;
-}
-
-.maincontent button:hover {
-  background-image: url("img/6.Botones/Full Screen/Mesa de trabajo 8.png");
-}
-
 #infocart {
   position: absolute;
   top: 10px;
@@ -172,8 +155,7 @@ h1 {
   .maincontent {
     height: 100vh;
   }
-  h1,
-  .maincontent button {
+  h1 {
     display: none;
   }
 }
