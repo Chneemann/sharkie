@@ -2,6 +2,7 @@ class Endboss extends MovableObject {
   hp = 3;
   height = 480;
   width = 500;
+  idle = false;
   enemyOffsetX = 30;
   enemyOffsetY = 220;
   enemyOffsetWidth = 60;
@@ -62,14 +63,14 @@ class Endboss extends MovableObject {
 
   constructor() {
     super().loadImage("");
-    this.x = 700;
+    this.x = 2700;
     this.y = 0;
     this.spawnEndboss();
   }
 
   spawnEndboss() {
     const intervalId = setInterval(() => {
-      if (world.character.x >= world.level.level_end - 2899) {
+      if (world.character.x >= world.level.level_end - 899) {
         this.loadImages(this.IMAGES_SPAWN);
         this.loadImages(this.IMAGES_IDLE);
         this.loadImages(this.IMAGES_DEAD);
@@ -84,21 +85,22 @@ class Endboss extends MovableObject {
 
   attackCharacter() {
     setInterval(() => {
-      if (world.character.x > this.x) {
-        this.x += this.speed;
-      } else {
-        this.x -= this.speed;
-      }
-      if (world.character.y > this.y + 200) {
-        this.y += this.speed;
-      } else {
-        this.y -= this.speed;
+      if (this.idle) {
+        if (world.character.x > this.x) {
+          this.x += this.speed;
+        } else {
+          this.x -= this.speed;
+        }
+        if (world.character.y > this.y + 200) {
+          this.y += this.speed;
+        } else {
+          this.y -= this.speed;
+        }
       }
     }, 1);
   }
 
   animate() {
-    let idle = false;
     let attackTimer = 0;
     let attackInterval = 3000;
     let lastAttack = Date.now();
@@ -119,15 +121,15 @@ class Endboss extends MovableObject {
           this.currentImage++;
           if (attackImageIndex === this.IMAGES_ATTACK.length - 1) {
             lastAttack = Date.now();
-            idle = true;
+            this.idle = true;
           }
-        } else if (idle) {
+        } else if (this.idle) {
           let pathIdle = this.IMAGES_IDLE[i];
           this.img = this.imageCache[pathIdle];
           this.currentImage++;
         } else {
           if (i >= this.IMAGES_SPAWN.length) {
-            idle = true;
+            this.idle = true;
           } else {
             let pathSpawn = this.IMAGES_SPAWN[i];
             this.img = this.imageCache[pathSpawn];
