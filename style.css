@@ -151,18 +151,20 @@ h1 {
 
 /*--------- Smartphone ---------*/
 
-@media only screen and (max-width: 1050px) {
-  #canvas {
+@media only screen and (max-width: 925px) {
+  #canvas,
+  .maincontent {
     width: 100%;
+    height: auto;
   }
 }
 
-@media only screen and (max-height: 480px) {
-  #canvas {
+@media only screen and (max-height: 650px) {
+  .maincontent {
     height: 100vh;
   }
   h1,
-  .canvas button {
+  .maincontent button {
     display: none;
   }
 }
