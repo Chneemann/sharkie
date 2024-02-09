@@ -101,6 +101,8 @@ function enterFullscreen(element) {
     element.msRequestFullscreen();
   } else if (element.webkitRequestFullscreen) {
     element.webkitRequestFullscreen();
+  } else {
+    document.querySelector("video").webkitEnterFullScreen();
   }
 }
 

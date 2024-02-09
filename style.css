@@ -151,9 +151,11 @@ h1 {
   }
 }
 
-@media only screen and (max-height: 650px) {
+@media only screen and (max-height: 600px) {
+  #canvas,
   .maincontent {
-    height: 100vh;
+    width: auto;
+    height: 90vh;
   }
   h1 {
     display: none;
