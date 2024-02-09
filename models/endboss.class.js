@@ -51,6 +51,15 @@ class Endboss extends MovableObject {
     "img/2.Enemy/3 Final Enemy/Dead/Mesa de trabajo 2 copia 10.png",
   ];
 
+  IMAGES_ATTACK = [
+    "img/2.Enemy/3 Final Enemy/Attack/1.png",
+    "img/2.Enemy/3 Final Enemy/Attack/2.png",
+    "img/2.Enemy/3 Final Enemy/Attack/3.png",
+    "img/2.Enemy/3 Final Enemy/Attack/4.png",
+    "img/2.Enemy/3 Final Enemy/Attack/5.png",
+    "img/2.Enemy/3 Final Enemy/Attack/6.png",
+  ];
+
   constructor() {
     super().loadImage("");
     this.x = 700;
@@ -65,6 +74,7 @@ class Endboss extends MovableObject {
         this.loadImages(this.IMAGES_IDLE);
         this.loadImages(this.IMAGES_DEAD);
         this.loadImages(this.IMAGES_HURT);
+        this.loadImages(this.IMAGES_ATTACK);
         this.animate();
         this.attackCharacter();
         clearInterval(intervalId);
