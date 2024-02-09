@@ -32,19 +32,28 @@
     <div class="maincontent">
       <canvas id="canvas" width="900px" height="600px"></canvas>
       <div id="infocart">
-        <img
-          id="volume_off"
-          onclick="world.soundManager.toggleMute()"
-          src="img/others/volume_off.svg"
-          alt="Volume Off"
-          class="d-none"
-        />
-        <img
-          id="volume_on"
-          onclick="world.soundManager.toggleMute()"
-          src="img/others/volume_up.svg"
-          alt="Volume On"
-        />
+        <div id="fullscreen">
+          <img
+            onclick="enterFullscreen(canvas)"
+            src="img/others/fullscreen.svg"
+            alt="Fullscreen"
+          />
+        </div>
+        <div id="volume">
+          <img
+            id="volume_off"
+            onclick="world.soundManager.toggleMute()"
+            src="img/others/volume_off.svg"
+            alt="Volume Off"
+            class="d-none"
+          />
+          <img
+            id="volume_on"
+            onclick="world.soundManager.toggleMute()"
+            src="img/others/volume_up.svg"
+            alt="Volume On"
+          />
+        </div>
       </div>
       <button
         onclick="enterFullscreen(canvas)"

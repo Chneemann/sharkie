@@ -56,6 +56,15 @@ h1 {
   right: 10px;
   filter: invert(100%);
   display: flex;
+  gap: 8px;
+}
+
+#infocart div {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #infocart img {
@@ -65,8 +74,8 @@ h1 {
 }
 
 #infocart img:hover {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
 }
 
 .startscreen,
