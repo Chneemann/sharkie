@@ -99,6 +99,10 @@ class Endboss extends MovableObject {
 
   animate() {
     let idle = false;
+    let attackTimer = 0;
+    let attackInterval = 3000;
+    let lastAttack = Date.now();
+
     setInterval(() => {
       if (!this.isAlive()) {
         this.playAnimation(this.IMAGES_DEAD);
@@ -106,19 +110,30 @@ class Endboss extends MovableObject {
       } else if (this.isHurt("lastHitEndboss")) {
         this.playAnimation(this.IMAGES_HURT);
       } else if (this.isAlive()) {
+        attackTimer = Date.now() - lastAttack;
         let i = this.currentImage % this.IMAGES_IDLE.length;
-        if (idle) {
+        if (attackTimer > attackInterval) {
+          let attackImageIndex = this.currentImage % this.IMAGES_ATTACK.length;
+          let pathAttack = this.IMAGES_ATTACK[attackImageIndex];
+          this.img = this.imageCache[pathAttack];
+          this.currentImage++;
+          if (attackImageIndex === this.IMAGES_ATTACK.length - 1) {
+            lastAttack = Date.now();
+            idle = true;
+          }
+        } else if (idle) {
           let pathIdle = this.IMAGES_IDLE[i];
           this.img = this.imageCache[pathIdle];
+          this.currentImage++;
         } else {
           if (i >= this.IMAGES_SPAWN.length) {
             idle = true;
           } else {
             let pathSpawn = this.IMAGES_SPAWN[i];
             this.img = this.imageCache[pathSpawn];
+            this.currentImage++;
           }
         }
-        this.currentImage++;
       }
     }, 150);
   }
