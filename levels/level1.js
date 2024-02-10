@@ -79,5 +79,6 @@ const level1 = new Level(
     new BackgroundObject("./img/3. Background/Layers/1. Light/2.png", 899 * 3),
     new BackgroundObject("./img/3. Background/Layers/1. Light/1.png", 899 * 4),
   ],
-  [899 * 4]
+  [new Barrier("./img/3. Background/Barrier/3.png", 899 * 4.15, 300, 630)],
+  [899 * 3.9]
 );
