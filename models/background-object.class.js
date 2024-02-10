@@ -15,7 +15,7 @@ class BackgroundObject extends MovableObject {
       setInterval(() => {
         this.x -= 1;
         if (this.x <= -(this.width * 3) + this.width * 2) {
-          this.x = this.width * 3 + this.width;
+          this.x = this.width * 3 + this.width - 1;
         }
       }, 70);
     }

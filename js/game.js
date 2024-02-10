@@ -11,11 +11,7 @@ let sound_win = new Audio("./audio/win.mp3");
 function init() {
   canvas = document.getElementById("canvas");
   world = new World(canvas, keyboard);
-  if (detectMobile) {
-    document.getElementById("playbuttons").classList.remove("d-none");
-  } else {
-    document.getElementById("playbuttons").classList.add("d-none");
-  }
+  togglePlayButtons();
 }
 
 /**
@@ -28,6 +24,19 @@ function startGame() {
   sound_background.play();
   sound_background.loop = true;
   sound_background.volume = 0.15;
+}
+
+/**
+ * Shows or hides the mobile buttons
+ */
+function togglePlayButtons() {
+  if (detectMobile()) {
+    document.getElementById("playbuttons").classList.remove("d-none");
+    console.log("mobile");
+  } else {
+    document.getElementById("playbuttons").classList.add("d-none");
+    console.log("pc");
+  }
 }
 
 /**
@@ -44,10 +53,7 @@ function detectMobile() {
     /BlackBerry/i,
     /Windows Phone/i,
   ];
-
-  return toMatch.some((toMatchItem) => {
-    return navigator.userAgent.match(toMatchItem);
-  });
+  return toMatch.some((toMatchItem) => navigator.userAgent.match(toMatchItem));
 }
 
 /**
