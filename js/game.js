@@ -11,6 +11,11 @@ let sound_win = new Audio("./audio/win.mp3");
 function init() {
   canvas = document.getElementById("canvas");
   world = new World(canvas, keyboard);
+  if (detectMobile) {
+    document.getElementById("playbuttons").classList.remove("d-none");
+  } else {
+    document.getElementById("playbuttons").classList.add("d-none");
+  }
 }
 
 /**
@@ -23,6 +28,26 @@ function startGame() {
   sound_background.play();
   sound_background.loop = true;
   sound_background.volume = 0.15;
+}
+
+/**
+ * Check whether the device is mobile
+ * @returns true or false
+ */
+function detectMobile() {
+  const toMatch = [
+    /Android/i,
+    /webOS/i,
+    /iPhone/i,
+    /iPad/i,
+    /iPod/i,
+    /BlackBerry/i,
+    /Windows Phone/i,
+  ];
+
+  return toMatch.some((toMatchItem) => {
+    return navigator.userAgent.match(toMatchItem);
+  });
 }
 
 /**
