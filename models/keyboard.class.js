@@ -8,7 +8,57 @@ class Keyboard {
 
   constructor() {
     document.addEventListener("DOMContentLoaded", () => {
-      this.btsPressEvents();
+      this.btnEvents();
+      this.btnPressEvents();
+    });
+  }
+
+  /**
+   * Adds event listeners for "keydown" & "keyup" events to handle keyboard inputs.
+   */
+  btnEvents() {
+    window.addEventListener("keydown", (e) => {
+      if (e.code === "ArrowUp" || e.code === "KeyW") {
+        this.UP = true;
+        this.MOVE = true;
+      }
+      if (e.code === "ArrowDown" || e.code === "KeyS") {
+        this.DOWN = true;
+        this.MOVE = true;
+      }
+      if (e.code === "ArrowRight" || e.code === "KeyD") {
+        this.RIGHT = true;
+        this.MOVE = true;
+      }
+      if (e.code === "ArrowLeft" || e.code === "KeyA") {
+        this.LEFT = true;
+        this.MOVE = true;
+      }
+      if (e.code === "Space") {
+        this.SPACE = true;
+      }
+    });
+
+    window.addEventListener("keyup", (e) => {
+      if (e.code === "ArrowUp" || e.code === "KeyW") {
+        this.UP = false;
+        this.MOVE = false;
+      }
+      if (e.code === "ArrowDown" || e.code === "KeyS") {
+        this.DOWN = false;
+        this.MOVE = false;
+      }
+      if (e.code === "ArrowRight" || e.code === "KeyD") {
+        this.RIGHT = false;
+        this.MOVE = false;
+      }
+      if (e.code === "ArrowLeft" || e.code === "KeyA") {
+        this.LEFT = false;
+        this.MOVE = false;
+      }
+      if (e.code === "Space") {
+        this.SPACE = false;
+      }
     });
   }
 
@@ -18,7 +68,7 @@ class Keyboard {
    * for game control through touch inputs. It also ensures that default actions are
    * prevented when the event is cancelable, avoiding unintended behaviors like scrolling.
    */
-  btsPressEvents() {
+  btnPressEvents() {
     const buttons = [
       {
         id: "btn-left",
