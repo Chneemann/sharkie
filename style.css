@@ -23,6 +23,10 @@ h1 {
   display: none;
 }
 
+.d-flex {
+  display: flex;
+}
+
 .maincontent {
   position: relative;
   background-color: #000;
@@ -67,7 +71,6 @@ h1 {
   left: 0;
   right: 0;
   filter: invert(100%);
-  display: flex;
   margin: 10px 20px;
   height: 5%;
 }

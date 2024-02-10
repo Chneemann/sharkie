@@ -32,10 +32,7 @@ function startGame() {
 function togglePlayButtons() {
   if (detectMobile()) {
     document.getElementById("playbuttons").classList.remove("d-none");
-    console.log("mobile");
-  } else {
-    document.getElementById("playbuttons").classList.add("d-none");
-    console.log("pc");
+    document.getElementById("playbuttons").classList.add("d-flex");
   }
 }
 
