@@ -78,7 +78,6 @@ class World {
 
   collidingEnemy() {
     const allEnemies = [...this.level.enemies, ...this.level.endboss];
-
     allEnemies.forEach((enemy) => {
       if (this.character.isColliding(enemy)) {
         if (enemy instanceof JellyFish) {
@@ -125,15 +124,15 @@ class World {
   }
 
   checkEndbossHp(enemy) {
-    if (enemy == this.level.endboss && this.level.endboss.isAlive()) {
+    if (enemy == this.level.endboss[0] && this.level.endboss[0].isAlive()) {
       this.statusBarEndboss.percentage--;
       this.statusBarEndboss.setPercentage(this.statusBarEndboss.percentage);
-      this.level.endboss.lastHitEndboss = new Date().getTime();
+      this.level.endboss[0].lastHitEndboss = new Date().getTime();
     }
   }
 
   isEndbossDead() {
-    if (this.level.endboss.hp == 0) {
+    if (this.level.endboss[0].hp == 0) {
       return true;
     }
   }

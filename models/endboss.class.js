@@ -65,7 +65,7 @@ class Endboss extends MovableObject {
 
   constructor() {
     super().loadImage("");
-    this.x = 2700;
+    this.x = 700;
     this.y = 0;
     this.spawnEndboss();
 
@@ -78,7 +78,7 @@ class Endboss extends MovableObject {
 
   spawnEndboss() {
     const intervalId = setInterval(() => {
-      if (world.character.x >= world.level.level_end - 899) {
+      if (world.character.x >= world.level.level_end - 2899) {
         this.loadImages(this.IMAGES_SPAWN);
         this.loadImages(this.IMAGES_IDLE);
         this.loadImages(this.IMAGES_DEAD);
@@ -95,12 +95,20 @@ class Endboss extends MovableObject {
   attackCharacter() {
     setInterval(() => {
       if (this.idle) {
-        if (world.character.x > this.x) {
+        if (
+          world.character.x >
+          this.x + (this.width - this.enemyOffsetWidth) / 2
+        ) {
           this.x += this.speed;
+          this.otherDirection = true;
         } else {
           this.x -= this.speed;
+          this.otherDirection = false;
         }
-        if (world.character.y > this.y + 200) {
+        if (
+          world.character.y >
+          this.y + (this.height - this.enemyOffsetHeight)
+        ) {
           this.y += this.speed;
         } else {
           this.y -= this.speed;
