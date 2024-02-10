@@ -40,4 +40,10 @@ class AttackBubble extends MovableObject {
       this.playAnimation(this.IMAGE);
     }, 150);
   }
+
+  attackbubble() {
+    setInterval(() => {
+      this.x += 1.75;
+    }, 1);
+  }
 }
