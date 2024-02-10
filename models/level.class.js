@@ -17,5 +17,6 @@ class Level {
     this.backgroundObjects[2].animateBackground();
     this.backgroundObjects[3].animateBackground();
     this.backgroundObjects[4].animateBackground();
+    this.backgroundObjects[5].animateBackground();
   }
 }

@@ -78,7 +78,7 @@ class Endboss extends MovableObject {
 
   spawnEndboss() {
     const intervalId = setInterval(() => {
-      if (world.character.x >= world.level.level_end - 899) {
+      if (world.character.x >= world.level.level_end - 1800) {
         this.loadImages(this.IMAGES_SPAWN);
         this.loadImages(this.IMAGES_IDLE);
         this.loadImages(this.IMAGES_DEAD);
