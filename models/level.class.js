@@ -1,11 +1,13 @@
 class Level {
   enemies;
+  endboss;
   objects;
   backgroundObjects;
   level_end;
 
-  constructor(enemies, objects, backgroundObjects, level_end) {
+  constructor(enemies, endboss, objects, backgroundObjects, level_end) {
     this.enemies = enemies;
+    this.endboss = endboss;
     this.objects = objects;
     this.backgroundObjects = backgroundObjects;
     this.level_end = level_end;

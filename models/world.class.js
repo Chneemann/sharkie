@@ -8,7 +8,6 @@ class World {
   statusBarEndbossTextY = -100;
   soundManager = new SoundManager();
   level = level1;
-  endboss = this.level.enemies[this.level.enemies.length - 1];
   isGameOver = false;
   ctx;
   canvas;
@@ -78,7 +77,9 @@ class World {
   }
 
   collidingEnemy() {
-    this.level.enemies.forEach((enemy) => {
+    const allEnemies = [...this.level.enemies, ...this.level.endboss];
+
+    allEnemies.forEach((enemy) => {
       if (this.character.isColliding(enemy)) {
         if (enemy instanceof JellyFish) {
           this.character.hit("shock");
@@ -124,15 +125,15 @@ class World {
   }
 
   checkEndbossHp(enemy) {
-    if (enemy == this.endboss && this.endboss.isAlive()) {
+    if (enemy == this.level.endboss && this.level.endboss.isAlive()) {
       this.statusBarEndboss.percentage--;
       this.statusBarEndboss.setPercentage(this.statusBarEndboss.percentage);
-      this.endboss.lastHitEndboss = new Date().getTime();
+      this.level.endboss.lastHitEndboss = new Date().getTime();
     }
   }
 
   isEndbossDead() {
-    if (this.endboss.hp == 0) {
+    if (this.level.endboss.hp == 0) {
       return true;
     }
   }
@@ -145,6 +146,7 @@ class World {
     this.addObjectsToMap(this.level.backgroundObjects);
     this.addObjectsToMap(this.level.objects);
     this.addObjectsToMap(this.level.enemies);
+    this.addObjectsToMap(this.level.endboss);
     this.addObjectsToMap(this.attackBubble);
 
     this.addToMap(this.character);
