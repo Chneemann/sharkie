@@ -61,6 +61,44 @@ h1 {
   height: 34px;
 }
 
+#playbuttons {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  filter: invert(100%);
+  display: flex;
+  margin: 10px 20px;
+}
+
+#btns-leftsite {
+  width: 50%;
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+}
+
+#btns-rightsite {
+  width: 50%;
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+}
+
+#playbuttons img {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  background-color: lightgray;
+  cursor: pointer;
+  padding: 5px;
+}
+
+#playbuttons img:hover,
+#playbuttons img:focus {
+  background-color: gray;
+}
+
 .startscreen,
 .endscreen {
   position: absolute;
