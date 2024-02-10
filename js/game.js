@@ -4,6 +4,7 @@ let keyboard = new Keyboard();
 let sound_background = new Audio("./audio/background_music.mp3");
 let sound_lost = new Audio("./audio/lost.mp3");
 let sound_win = new Audio("./audio/win.mp3");
+let intervalIds = [];
 
 /**
  * Initialises the game
@@ -24,6 +25,15 @@ function startGame() {
   sound_background.play();
   sound_background.loop = true;
   sound_background.volume = 0.15;
+}
+
+/**
+ * Stops all intervals
+ */
+function stopGame() {
+  for (let i = 0; i < 50; i++) {
+    clearInterval(i);
+  }
 }
 
 /**
@@ -97,6 +107,7 @@ function gameEndWin() {
     document.getElementById("endscreen").classList.remove("d-none");
     document.getElementById("endscreen-win").classList.remove("d-none");
     document.getElementById("fullscreen").classList.add("d-none");
+    stopGame();
   }, 2000);
 }
 
@@ -113,6 +124,7 @@ function gameEndLost() {
     document.getElementById("endscreen").classList.remove("d-none");
     document.getElementById("endscreen-lost").classList.remove("d-none");
     document.getElementById("fullscreen").classList.add("d-none");
+    stopGame();
   }, 1500);
 }
 
