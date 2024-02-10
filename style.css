@@ -154,8 +154,9 @@ h1 {
 @media only screen and (max-height: 600px) {
   #canvas,
   .maincontent {
+    max-width: 90vw;
     width: auto;
-    height: 90vh;
+    max-height: 90vh;
   }
   h1 {
     display: none;
