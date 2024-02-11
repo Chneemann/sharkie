@@ -95,6 +95,7 @@ class World {
           enemy.hp--;
           this.checkEndbossHp(enemy);
           this.objectCollected(this.attackBubble[i]);
+          this.attackBubble[i].intervalClearStatus = true;
           if (enemy.hp == 0) {
             enemy.dead = true;
           }

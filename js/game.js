@@ -36,6 +36,16 @@ function stopGame() {
   }
 }
 
+function stopInterval(status, id) {
+  if (status) {
+    clearInterval(id);
+    status = true;
+  }
+  setTimeout(() => {
+    status = false;
+  }, 10);
+}
+
 /**
  * Shows or hides the mobile buttons
  */

@@ -5,6 +5,7 @@ class AttackBubble extends MovableObject {
   characterOffsetY = 0;
   characterOffsetWidth = 0;
   characterOffsetHeight = 0;
+  intervalClearStatus = false;
 
   sound = new Audio("./audio/attack_bubble.mp3");
   sound_impact = new Audio("./audio/impact.mp3");
@@ -36,14 +37,17 @@ class AttackBubble extends MovableObject {
   animate() {
     this.attackbubble();
 
-    setInterval(() => {
+    const intervalId = setInterval(() => {
       this.playAnimation(this.IMAGE);
+      stopInterval(this.intervalClearStatus, intervalId);
     }, 150);
   }
 
   attackbubble() {
-    setInterval(() => {
+    const intervalId = setInterval(() => {
       this.x += 1.75;
+      console.log("2");
+      stopInterval(this.intervalClearStatus, intervalId);
     }, 1);
   }
 }
