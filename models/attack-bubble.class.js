@@ -36,13 +36,11 @@ class AttackBubble extends MovableObject {
   }
 
   animate() {
-    console.log(this.bubbleMoveTo);
     if (this.bubbleMoveTo == "right") {
       this.attackbubbleright();
     } else if (this.bubbleMoveTo == "left") {
       this.attackbubbleleft();
     }
-
     const intervalId = setInterval(() => {
       this.playAnimation(this.IMAGE);
       stopInterval(this.intervalClearStatus, intervalId);

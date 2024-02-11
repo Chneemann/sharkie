@@ -125,14 +125,11 @@ class World {
   checkBubbleSpawn() {
     let direction;
     let characterX;
-    if (
-      this.keyboard.SPACE &&
-      this.statusBarPoisonBottle.percentage >= 1 &&
-      (this.keyboard.RIGHT || this.keyboard.LEFT)
-    ) {
-      if (this.keyboard.RIGHT) {
+    if (this.keyboard.SPACE && this.statusBarPoisonBottle.percentage >= 1) {
+      if (this.keyboard.lastInput == "right") {
         direction = "right";
-      } else if (this.keyboard.LEFT) {
+        characterX = this.character.x;
+      } else if (this.keyboard.lastInput == "left") {
         direction = "left";
         characterX = this.character.x - this.character.width;
       }
