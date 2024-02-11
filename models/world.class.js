@@ -123,10 +123,23 @@ class World {
   }
 
   checkBubbleSpawn() {
-    if (this.keyboard.SPACE && this.statusBarPoisonBottle.percentage >= 1) {
+    let direction;
+    let characterX;
+    if (
+      this.keyboard.SPACE &&
+      this.statusBarPoisonBottle.percentage >= 1 &&
+      (this.keyboard.RIGHT || this.keyboard.LEFT)
+    ) {
+      if (this.keyboard.RIGHT) {
+        direction = "right";
+      } else if (this.keyboard.LEFT) {
+        direction = "left";
+        characterX = this.character.x - this.character.width;
+      }
       let poisonAttackBubble = new AttackBubble(
-        this.character.x,
-        this.character.y
+        characterX,
+        this.character.y,
+        direction
       );
       poisonAttackBubble.sound.play();
       this.attackBubble.push(poisonAttackBubble);
