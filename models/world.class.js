@@ -56,6 +56,7 @@ class World {
   checkCollisions() {
     this.collectingObject();
     this.collidingEnemy();
+    this.collidingBarrier();
   }
 
   collectingObject() {
@@ -99,6 +100,23 @@ class World {
           if (enemy.hp == 0) {
             enemy.dead = true;
           }
+        }
+      }
+    });
+  }
+
+  collidingBarrier() {
+    let isColliding = false;
+    this.level.barrier.forEach((barrier) => {
+      if (this.character.isColliding(barrier)) {
+        isColliding = true;
+      }
+      this.character.isCharacterStopped = isColliding;
+      for (let i = 0; i < this.attackBubble.length; i++) {
+        if (this.attackBubble[i].isColliding(barrier)) {
+          this.attackBubble[i].sound_impact.play();
+          this.objectCollected(this.attackBubble[i]);
+          this.attackBubble[i].intervalClearStatus = true;
         }
       }
     });

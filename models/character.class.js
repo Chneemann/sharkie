@@ -1,6 +1,7 @@
 class Character extends MovableObject {
   height = 200;
   width = 250;
+  isCharacterStopped = false;
   characterOffsetX = 45;
   characterOffsetY = 95;
   characterOffsetWidth = 90;
@@ -104,12 +105,17 @@ class Character extends MovableObject {
     });
   }
 
+  stopCharacter() {
+    return this.isCharacterStopped;
+  }
+
   animate() {
     setInterval(() => {
       if (
         this.world.keyboard.RIGHT &&
         this.x <= this.world.level.level_end &&
-        !this.isDead()
+        !this.isDead() &&
+        !this.stopCharacter()
       ) {
         this.x += 3;
         this.otherDirection = false;

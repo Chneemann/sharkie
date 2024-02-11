@@ -46,7 +46,6 @@ class AttackBubble extends MovableObject {
   attackbubble() {
     const intervalId = setInterval(() => {
       this.x += 1.75;
-      console.log("2");
       stopInterval(this.intervalClearStatus, intervalId);
     }, 1);
   }
