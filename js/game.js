@@ -43,6 +43,7 @@ function togglePlayButtons() {
   if (detectMobile()) {
     document.getElementById("playbuttons").classList.remove("d-none");
     document.getElementById("playbuttons").classList.add("d-flex");
+    document.getElementById("img_fullscreen").classList.add("d-none");
   }
 }
 
