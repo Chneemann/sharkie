@@ -117,18 +117,16 @@ h1 {
 }
 
 .startscreen img:first-child {
-  position: absolute;
-  top: 0;
-  width: 900px;
-  height: 600px;
+  width: 100%;
+  height: auto;
 }
 
 .startscreen img:nth-child(2) {
   position: absolute;
   top: 340px;
   right: 40px;
-  width: 500px;
-  height: 281px;
+  width: 50%;
+  height: auto;
 }
 
 .startscreen button {
@@ -140,8 +138,8 @@ h1 {
   border-radius: 20px;
   top: 100px;
   right: 150px;
-  width: 240px;
-  height: 78px;
+  width: 25%;
+  height: 14.5%;
 }
 
 .startscreen button:hover {
@@ -191,7 +189,8 @@ h1 {
 
 @media only screen and (max-width: 925px) {
   #canvas,
-  .maincontent {
+  .maincontent,
+  .startscreen {
     width: 100%;
     height: auto;
   }
