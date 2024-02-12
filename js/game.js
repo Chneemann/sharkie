@@ -75,7 +75,7 @@ function detectMobile() {
 }
 
 function help() {
-  document.getElementById("infoscreen").classList.toggle("d-none");
+  document.getElementById("helpscreen").classList.toggle("d-none");
 }
 
 /**

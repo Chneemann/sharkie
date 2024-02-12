@@ -110,23 +110,31 @@ h1 {
 
 .startscreen,
 .endscreen,
-.infoscreen {
+.helpscreen {
   position: absolute;
   top: 0;
   width: 900px;
   height: 600px;
 }
 
-.infoscreen {
+.helpscreen {
   backdrop-filter: blur(5px);
 }
 
-.infoscreen img:first-child {
+.helpscreen img:first-child {
   position: absolute;
   bottom: 50px;
   right: 50px;
   width: 80%;
   height: 70%;
+}
+
+.helpscreen img:nth-child(2) {
+  position: absolute;
+  top: 60%;
+  right: 8%;
+  width: 50%;
+  height: auto;
 }
 
 .startscreen img:first-child {
