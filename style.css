@@ -185,7 +185,7 @@ h1 {
   .maincontent,
   .startscreen,
   .endscreen {
-    width: calc(100vw - 3%);
+    width: calc(100vw - 30px);
     height: 100%;
   }
 }
