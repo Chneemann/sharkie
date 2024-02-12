@@ -123,18 +123,24 @@ h1 {
 
 .helpscreen img:first-child {
   position: absolute;
-  bottom: 50px;
-  right: 50px;
+  bottom: 0;
+  right: 0;
   width: 80%;
   height: 70%;
 }
 
 .helpscreen img:nth-child(2) {
   position: absolute;
-  top: 60%;
-  right: 8%;
-  width: 50%;
+  top: 42%;
+  right: 10%;
+  width: 5%;
   height: auto;
+  filter: invert();
+  cursor: pointer;
+}
+
+.helpscreen img:nth-child(2):hover {
+  filter: contrast(5%);
 }
 
 .startscreen img:first-child {
@@ -205,7 +211,8 @@ h1 {
   #canvas,
   .maincontent,
   .startscreen,
-  .endscreen {
+  .endscreen,
+  .helpscreen {
     width: calc(100vw - 30px);
     height: 100%;
   }
@@ -215,7 +222,8 @@ h1 {
   #canvas,
   .maincontent,
   .startscreen,
-  .endscreen {
+  .endscreen,
+  .helpscreen {
     max-width: 90vw;
     width: auto;
     max-height: 90vh;
