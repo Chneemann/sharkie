@@ -74,6 +74,10 @@ function detectMobile() {
   return toMatch.some((toMatchItem) => navigator.userAgent.match(toMatchItem));
 }
 
+function help() {
+  document.getElementById("infoscreen").classList.toggle("d-none");
+}
+
 /**
  * Resets the game by setting a value in the LocalStorage and reloading the page.
  */
