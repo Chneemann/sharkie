@@ -88,13 +88,21 @@ function restartGame() {
 
 /**
  * Adds an event listener for the "toggleMute" event on the document object.
- * When the event is triggered, it mutes or unmutes background, win, and lost sounds
- * based on the event's detail property, which should be a boolean value.
  */
 document.addEventListener("toggleMute", (e) => {
   sound_background.muted = e.detail;
   sound_win.muted = e.detail;
   sound_lost.muted = e.detail;
+});
+
+/**
+ * Sets the `draggable` attribute to `false` for all `<img>` elements in the document.
+ */
+document.addEventListener("DOMContentLoaded", function () {
+  const images = document.getElementsByTagName("img");
+  for (let i = 0; i < images.length; i++) {
+    images[i].setAttribute("draggable", false);
+  }
 });
 
 /**
