@@ -228,6 +228,9 @@ h1 {
     width: auto;
     max-height: 90vh;
   }
+  .helpscreen {
+    width: 100%;
+  }
   h1 {
     display: none;
   }
