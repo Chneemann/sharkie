@@ -66,12 +66,12 @@ class World {
           if (this.statusBarPoisonBottle.percentage < 5) {
             this.statusBarPoisonBottle.setPercentage();
             this.objectCollected(object);
-            object.sound.play();
+            soundCollectPoisonBottle.play();
           }
         } else {
           this.statusBarCoin.setPercentage();
           this.objectCollected(object);
-          object.sound.play();
+          soundCollectCoin.play();
         }
       }
     });
@@ -83,16 +83,14 @@ class World {
       if (this.character.isColliding(enemy)) {
         if (enemy instanceof JellyFish) {
           this.character.hit("shock");
-          this.character.sound_shock.play();
         } else if (enemy instanceof PufferFish || enemy instanceof Endboss) {
           this.character.hit("meele");
-          this.character.sound_meele.play();
         }
         this.statusBarHp.setPercentage(this.character.hp);
       }
       for (let i = 0; i < this.attackBubble.length; i++) {
         if (this.attackBubble[i].isColliding(enemy)) {
-          this.attackBubble[i].sound_impact.play();
+          soundAttackBubbleHit.play();
           enemy.hp--;
           this.checkEndbossHp(enemy);
           this.objectCollected(this.attackBubble[i]);
@@ -138,7 +136,7 @@ class World {
         this.character.y,
         direction
       );
-      poisonAttackBubble.sound.play();
+      soundAttackBubble.play();
       this.attackBubble.push(poisonAttackBubble);
       this.statusBarPoisonBottle.removeBubble();
       this.keyboard.SPACE = false;
@@ -174,6 +172,7 @@ class World {
     this.addObjectsToMap(this.level.barrier);
     this.addObjectsToMap(this.level.objects);
     this.addObjectsToMap(this.level.enemies);
+    this.addObjectsToMap(this.level.endboss);
     this.addObjectsToMap(this.attackBubble);
 
     this.addToMap(this.character);
@@ -184,7 +183,6 @@ class World {
     this.addToMap(this.statusBarCoin);
     this.addToMap(this.statusBarPoisonBottle);
     if (this.checkEndbossSpawn()) {
-      this.addObjectsToMap(this.level.endboss);
       this.addToMap(this.statusBarEndboss);
       this.addTextToMap(
         this.statusBarEndboss.percentage + "/3",

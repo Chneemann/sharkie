@@ -15,8 +15,10 @@ class MovableObject extends DrawableObject {
     } else {
       if (hit == "meele") {
         this.lastHitMeele = new Date().getTime();
+        soundCharacterHitMeele.play();
       } else if (hit == "shock") {
         this.lastHitElectricShock = new Date().getTime();
+        soundCharacterHitShock.play();
       }
     }
   }

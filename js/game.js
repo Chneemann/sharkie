@@ -1,9 +1,6 @@
 let canvas;
 let world;
 let keyboard = new Keyboard();
-let sound_background = new Audio("./audio/background_music.mp3");
-let sound_lost = new Audio("./audio/lost.mp3");
-let sound_win = new Audio("./audio/win.mp3");
 let intervalIds = [];
 
 /**
@@ -13,6 +10,7 @@ function init() {
   canvas = document.getElementById("canvas");
   world = new World(canvas, keyboard);
   togglePlayButtons();
+  adjustsAudioVolume();
 }
 
 /**
@@ -22,13 +20,12 @@ function init() {
 function startGame() {
   document.getElementById("startscreen").classList.add("d-none");
   document.getElementById("fullscreen").classList.remove("d-none");
-  sound_background.play();
-  sound_background.loop = true;
-  sound_background.volume = 0.15;
+  soundBackground.play();
+  soundBackground.loop = true;
 }
 
 /**
- * Stops all intervals
+ * Stops the Game
  */
 function stopGame() {
   for (let i = 0; i < 50; i++) {
@@ -36,6 +33,9 @@ function stopGame() {
   }
 }
 
+/**
+ * Stops all intervals
+ */
 function stopInterval(status, id) {
   if (status) {
     clearInterval(id);
@@ -87,15 +87,6 @@ function restartGame() {
 }
 
 /**
- * Adds an event listener for the "toggleMute" event on the document object.
- */
-document.addEventListener("toggleMute", (e) => {
-  sound_background.muted = e.detail;
-  sound_win.muted = e.detail;
-  sound_lost.muted = e.detail;
-});
-
-/**
  * Sets the `draggable` attribute to `false` for all `<img>` elements in the document.
  */
 document.addEventListener("DOMContentLoaded", function () {
@@ -125,8 +116,7 @@ window.addEventListener("load", () => {
 function gameEndWin() {
   setTimeout(() => {
     exitFullscreen();
-    sound_win.play();
-    sound_win = 0.3;
+    soundWin.play();
     document.getElementById("endscreen").classList.remove("d-none");
     document.getElementById("endscreen-win").classList.remove("d-none");
     document.getElementById("fullscreen").classList.add("d-none");
@@ -142,8 +132,7 @@ function gameEndWin() {
 function gameEndLost() {
   setTimeout(() => {
     exitFullscreen();
-    sound_lost.play();
-    sound_lost = 0.3;
+    soundLost.play();
     document.getElementById("endscreen").classList.remove("d-none");
     document.getElementById("endscreen-lost").classList.remove("d-none");
     document.getElementById("fullscreen").classList.add("d-none");

@@ -83,9 +83,6 @@ class Character extends MovableObject {
     "img/1.Sharkie/6.dead/2.Electro_shock/10.png",
   ];
 
-  sound_shock = new Audio("./audio/hit_shock.mp3");
-  sound_meele = new Audio("./audio/hit_meele.mp3");
-
   constructor() {
     super().loadImage("./img/1.Sharkie/1.IDLE/1.png");
     this.loadImages(this.IMAGES_IDLE);
@@ -95,14 +92,7 @@ class Character extends MovableObject {
     this.loadImages(this.IMAGES_HURT_ELECTRIC_SHOCK);
     this.loadImages(this.IMAGES_DEAD_MEELE);
     this.loadImages(this.IMAGES_DEAD_ELECTRIC_SHOCK);
-    this.sound_shock.volume = 0.3;
-    this.sound_meele.volume = 0.3;
     this.animate();
-
-    document.addEventListener("toggleMute", (e) => {
-      this.sound_shock.muted = e.detail;
-      this.sound_meele.muted = e.detail;
-    });
   }
 
   stopCharacter() {

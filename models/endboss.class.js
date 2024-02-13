@@ -9,8 +9,6 @@ class Endboss extends MovableObject {
   enemyOffsetWidth = 60;
   enemyOffsetHeight = 300;
 
-  sound_spawn = new Audio("./audio/endboss_spawn.mp3");
-
   IMAGES_SPAWN = [
     "./img/2.Enemy/3 Final Enemy/1.Introduce/1.png",
     "./img/2.Enemy/3 Final Enemy/1.Introduce/2.png",
@@ -69,12 +67,6 @@ class Endboss extends MovableObject {
     this.x = -1000;
     this.y = 0;
     this.spawnEndboss();
-
-    this.sound_spawn.volume = 0.3;
-
-    document.addEventListener("toggleMute", (e) => {
-      this.sound_spawn.muted = e.detail;
-    });
   }
 
   spawnEndboss() {
@@ -88,7 +80,7 @@ class Endboss extends MovableObject {
         this.loadImages(this.IMAGES_ATTACK);
         this.animate();
         this.attackCharacter();
-        this.sound_spawn.play();
+        soundEndbossSpawn.play();
         clearInterval(intervalId);
         this.spawn = true;
       }

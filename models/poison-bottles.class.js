@@ -17,19 +17,12 @@ class PoisonBottle extends MovableObject {
     "img/4. Marcadores/Posiขn/Animada/8.png",
   ];
 
-  sound = new Audio("./audio/poison_bottle.mp3");
-
   constructor(x, y) {
     super().loadImage("img/4. Marcadores/Posiขn/Animada/1.png");
     this.x = x;
     this.y = y;
     this.loadImages(this.IMAGES);
-    this.sound.volume = 0.3;
     this.animate();
-
-    document.addEventListener("toggleMute", (e) => {
-      this.sound.muted = e.detail;
-    });
   }
 
   animate() {
