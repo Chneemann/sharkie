@@ -63,4 +63,9 @@ class DrawableObject {
       ctx.stroke();
     }
   }
+
+  objectCollected(obj) {
+    obj.x = -100;
+    obj.y = -100;
+  }
 }

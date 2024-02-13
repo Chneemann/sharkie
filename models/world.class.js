@@ -72,7 +72,7 @@ class World {
     if (object instanceof PoisonBottle) {
       if (this.statusBarPoisonBottle.percentage < 5) {
         this.statusBarPoisonBottle.setPercentage();
-        this.objectCollected(object);
+        this.character.objectCollected(object);
         soundCollectPoisonBottle.play();
       }
     }
@@ -81,7 +81,7 @@ class World {
   isCharacterCollectingCoin(object) {
     if (object instanceof Coin) {
       this.statusBarCoin.setPercentage();
-      this.objectCollected(object);
+      this.character.objectCollected(object);
       soundCollectCoin.play();
     }
   }
@@ -111,7 +111,7 @@ class World {
         soundAttackBubbleHit.play();
         enemy.hp--;
         this.checkEndbossHp(enemy);
-        this.objectCollected(this.attackBubble[i]);
+        enemy.objectCollected(this.attackBubble[i]);
         this.attackBubble[i].intervalClearStatus = true;
         if (enemy.hp == 0) {
           enemy.dead = true;
@@ -135,7 +135,7 @@ class World {
     for (let i = 0; i < this.attackBubble.length; i++) {
       if (this.attackBubble[i].isColliding(barrier)) {
         soundAttackBubbleHit.play();
-        this.objectCollected(this.attackBubble[i]);
+        barrier.objectCollected(this.attackBubble[i]);
         this.attackBubble[i].intervalClearStatus = true;
       }
     }
@@ -186,20 +186,15 @@ class World {
 
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
     this.ctx.translate(this.camera_x, 0);
-
     this.addObjectsToMap(this.level.backgroundObjects);
     this.addObjectsToMap(this.level.barrier);
     this.addObjectsToMap(this.level.objects);
     this.addObjectsToMap(this.level.enemies);
     this.addObjectsToMap(this.level.endboss);
     this.addObjectsToMap(this.attackBubble);
-
     this.addToMap(this.character);
-
     this.ctx.translate(-this.camera_x, 0);
-    // Space for fixed objects
     this.addToMap(this.statusBarHp);
     this.addToMap(this.statusBarCoin);
     this.addToMap(this.statusBarPoisonBottle);
@@ -221,10 +216,7 @@ class World {
       147
     );
     this.ctx.translate(this.camera_x, 0);
-
     this.ctx.translate(-this.camera_x, 0);
-
-    // Draw() wird immer weder aufgerufen
     let self = this;
     requestAnimationFrame(function () {
       self.draw();
@@ -263,10 +255,5 @@ class World {
   flipImageBack(mo) {
     mo.x = mo.x * -1;
     this.ctx.restore();
-  }
-
-  objectCollected(obj) {
-    obj.x = -100;
-    obj.y = -100;
   }
 }
