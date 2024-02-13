@@ -54,70 +54,91 @@ class World {
   }
 
   checkCollisions() {
-    this.collectingObject();
-    this.collidingEnemy();
-    this.collidingBarrier();
+    this.isCollectingObject();
+    this.isCollidingEnemy();
+    this.isCollidingBarrier();
   }
 
-  collectingObject() {
+  isCollectingObject() {
     this.level.objects.forEach((object) => {
       if (this.character.isColliding(object)) {
-        if (object instanceof PoisonBottle) {
-          if (this.statusBarPoisonBottle.percentage < 5) {
-            this.statusBarPoisonBottle.setPercentage();
-            this.objectCollected(object);
-            soundCollectPoisonBottle.play();
-          }
-        } else {
-          this.statusBarCoin.setPercentage();
-          this.objectCollected(object);
-          soundCollectCoin.play();
-        }
+        this.isCharacterCollectingPoisionBottle(object);
+        this.isCharacterCollectingCoin(object);
       }
     });
   }
 
-  collidingEnemy() {
+  isCharacterCollectingPoisionBottle(object) {
+    if (object instanceof PoisonBottle) {
+      if (this.statusBarPoisonBottle.percentage < 5) {
+        this.statusBarPoisonBottle.setPercentage();
+        this.objectCollected(object);
+        soundCollectPoisonBottle.play();
+      }
+    }
+  }
+
+  isCharacterCollectingCoin(object) {
+    if (object instanceof Coin) {
+      this.statusBarCoin.setPercentage();
+      this.objectCollected(object);
+      soundCollectCoin.play();
+    }
+  }
+
+  isCollidingEnemy() {
     const allEnemies = [...this.level.enemies, ...this.level.endboss];
     allEnemies.forEach((enemy) => {
-      if (this.character.isColliding(enemy)) {
-        if (enemy instanceof JellyFish) {
-          this.character.hit("shock");
-        } else if (enemy instanceof PufferFish || enemy instanceof Endboss) {
-          this.character.hit("meele");
-        }
-        this.statusBarHp.setPercentage(this.character.hp);
-      }
-      for (let i = 0; i < this.attackBubble.length; i++) {
-        if (this.attackBubble[i].isColliding(enemy)) {
-          soundAttackBubbleHit.play();
-          enemy.hp--;
-          this.checkEndbossHp(enemy);
-          this.objectCollected(this.attackBubble[i]);
-          this.attackBubble[i].intervalClearStatus = true;
-          if (enemy.hp == 0) {
-            enemy.dead = true;
-          }
-        }
-      }
+      this.isCharacterCollidingEnemy(enemy);
+      this.isAttackBubbleCollidingEnemy(enemy);
     });
   }
 
-  collidingBarrier() {
-    let isColliding = false;
-    this.level.barrier.forEach((barrier) => {
-      if (this.character.isColliding(barrier)) {
-        isColliding = true;
+  isCharacterCollidingEnemy(enemy) {
+    if (this.character.isColliding(enemy)) {
+      if (enemy instanceof JellyFish) {
+        this.character.hit("shock");
+      } else if (enemy instanceof PufferFish || enemy instanceof Endboss) {
+        this.character.hit("meele");
       }
-      this.character.isCharacterStopped = isColliding;
-      for (let i = 0; i < this.attackBubble.length; i++) {
-        if (this.attackBubble[i].isColliding(barrier)) {
-          this.attackBubble[i].sound_impact.play();
-          this.objectCollected(this.attackBubble[i]);
-          this.attackBubble[i].intervalClearStatus = true;
+      this.statusBarHp.setPercentage(this.character.hp);
+    }
+  }
+
+  isAttackBubbleCollidingEnemy(enemy) {
+    for (let i = 0; i < this.attackBubble.length; i++) {
+      if (this.attackBubble[i].isColliding(enemy)) {
+        soundAttackBubbleHit.play();
+        enemy.hp--;
+        this.checkEndbossHp(enemy);
+        this.objectCollected(this.attackBubble[i]);
+        this.attackBubble[i].intervalClearStatus = true;
+        if (enemy.hp == 0) {
+          enemy.dead = true;
         }
       }
+    }
+  }
+
+  isCollidingBarrier() {
+    let isColliding = false;
+    this.level.barrier.forEach((barrier) => {
+      this.isCharacterCollidingBarrier(isColliding, barrier);
     });
+  }
+
+  isCharacterCollidingBarrier(isColliding, barrier) {
+    if (this.character.isColliding(barrier)) {
+      isColliding = true;
+    }
+    this.character.isCharacterStopped = isColliding;
+    for (let i = 0; i < this.attackBubble.length; i++) {
+      if (this.attackBubble[i].isColliding(barrier)) {
+        soundAttackBubbleHit.play();
+        this.objectCollected(this.attackBubble[i]);
+        this.attackBubble[i].intervalClearStatus = true;
+      }
+    }
   }
 
   checkBubbleSpawn() {
