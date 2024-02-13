@@ -147,8 +147,7 @@ class World {
 
   checkEndbossSpawn() {
     if (this.character.x >= this.level.level_end - 1800) {
-      this.statusBarEndboss.y = 25;
-      this.statusBarEndbossTextY = 73;
+      return true;
     }
   }
 
@@ -185,7 +184,15 @@ class World {
     this.addToMap(this.statusBarHp);
     this.addToMap(this.statusBarCoin);
     this.addToMap(this.statusBarPoisonBottle);
-    this.addToMap(this.statusBarEndboss);
+    if (this.checkEndbossSpawn()) {
+      this.addToMap(this.statusBarEndboss);
+      this.addTextToMap(
+        this.statusBarEndboss.percentage + "/3",
+        "20px",
+        835,
+        73
+      );
+    }
     this.addTextToMap(this.character.hp + "%", "20px", 190, 47);
     this.addTextToMap(this.statusBarCoin.percentage + "/10", "20px", 195, 97);
     this.addTextToMap(
@@ -193,12 +200,6 @@ class World {
       "20px",
       200,
       147
-    );
-    this.addTextToMap(
-      this.statusBarEndboss.percentage + "/3",
-      "20px",
-      835,
-      this.statusBarEndbossTextY
     );
     this.ctx.translate(this.camera_x, 0);
 

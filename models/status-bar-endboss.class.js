@@ -7,7 +7,7 @@ class StatusBarEndboss extends DrawableObject {
   ];
 
   x = 650;
-  y = -100;
+  y = 25;
   width = 220;
   height = 60;
   percentage = 3;
