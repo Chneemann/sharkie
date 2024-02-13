@@ -113,7 +113,7 @@ class Character extends MovableObject {
         this.x <= this.world.level.levelEnd_right &&
         !this.isDead()
       ) {
-        this.x += 3;
+        this.x += 13;
         this.otherDirection = false;
       }
       if (

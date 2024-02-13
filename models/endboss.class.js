@@ -69,6 +69,9 @@ class Endboss extends MovableObject {
     this.spawnEndboss();
   }
 
+  /**
+   * Checks whether the character is in the right place in the level and then makes the endboss appear
+   */
   spawnEndboss() {
     const intervalId = setInterval(() => {
       if (world.character.x >= world.level.levelEnd_right - 1500) {
@@ -87,6 +90,9 @@ class Endboss extends MovableObject {
     }, 1000);
   }
 
+  /**
+   * The endboss moves to the current coordinates of the character
+   */
   attackCharacter() {
     setInterval(() => {
       if (this.idle) {
@@ -127,28 +133,40 @@ class Endboss extends MovableObject {
         attackTimer = Date.now() - lastAttack;
         let i = this.currentImage % this.IMAGES_IDLE.length;
         if (attackTimer > attackInterval) {
-          let attackImageIndex = this.currentImage % this.IMAGES_ATTACK.length;
-          let pathAttack = this.IMAGES_ATTACK[attackImageIndex];
-          this.img = this.imageCache[pathAttack];
-          this.currentImage++;
-          if (attackImageIndex === this.IMAGES_ATTACK.length - 1) {
-            lastAttack = Date.now();
-            this.idle = true;
-          }
+          this.endbossAttackAnimation(lastAttack);
         } else if (this.idle) {
-          let pathIdle = this.IMAGES_IDLE[i];
-          this.img = this.imageCache[pathIdle];
-          this.currentImage++;
+          this.endbossIdleAnimation(i);
         } else {
-          if (i >= this.IMAGES_SPAWN.length) {
-            this.idle = true;
-          } else {
-            let pathSpawn = this.IMAGES_SPAWN[i];
-            this.img = this.imageCache[pathSpawn];
-            this.currentImage++;
-          }
+          this.endbossSpawnAnimation(i);
         }
       }
     }, 150);
+  }
+
+  endbossIdleAnimation(i) {
+    let pathIdle = this.IMAGES_IDLE[i];
+    this.img = this.imageCache[pathIdle];
+    this.currentImage++;
+  }
+
+  endbossSpawnAnimation(i) {
+    if (i >= this.IMAGES_SPAWN.length) {
+      this.idle = true;
+    } else {
+      let pathSpawn = this.IMAGES_SPAWN[i];
+      this.img = this.imageCache[pathSpawn];
+      this.currentImage++;
+    }
+  }
+
+  endbossAttackAnimation(lastAttack) {
+    let attackImageIndex = this.currentImage % this.IMAGES_ATTACK.length;
+    let pathAttack = this.IMAGES_ATTACK[attackImageIndex];
+    this.img = this.imageCache[pathAttack];
+    this.currentImage++;
+    if (attackImageIndex === this.IMAGES_ATTACK.length - 1) {
+      lastAttack = Date.now();
+      this.idle = true;
+    }
   }
 }
