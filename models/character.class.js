@@ -109,6 +109,18 @@ class Character extends MovableObject {
     return this.isCharacterStopped;
   }
 
+  /**
+   * Adjusts the camera position smoothly based on the current character position and direction
+   */
+  adjustCameraPosition() {
+    const targetCameraX = this.otherDirection ? -this.x + 500 : -this.x + 200;
+    const smoothness = 0.05;
+
+    this.world.camera_x = (function lerp(start, end, t) {
+      return start * (1 - t) + end * t;
+    })(this.world.camera_x, targetCameraX, smoothness);
+  }
+
   animate() {
     setInterval(() => {
       if (
@@ -120,7 +132,7 @@ class Character extends MovableObject {
         this.x += 3;
         this.otherDirection = false;
       }
-      if (this.world.keyboard.LEFT && this.x >= 0 && !this.isDead()) {
+      if (this.world.keyboard.LEFT && this.x >= -300 && !this.isDead()) {
         this.x -= 3;
         this.otherDirection = true;
       }
@@ -133,7 +145,7 @@ class Character extends MovableObject {
       if (this.world.keyboard.SPACE && !this.isDead()) {
         this.lastAnimate = new Date().getTime();
       }
-      this.world.camera_x = -this.x;
+      this.adjustCameraPosition();
     }, 1000 / 60);
 
     setInterval(() => {
