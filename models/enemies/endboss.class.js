@@ -70,6 +70,34 @@ class Endboss extends MovableObject {
   }
 
   /**
+   * Controls the animations
+   */
+  animate() {
+    let attackTimer = 0;
+    let attackInterval = 3000;
+    let lastAttack = Date.now();
+
+    setInterval(() => {
+      if (!this.isAlive()) {
+        this.playAnimation(this.IMAGES_DEAD);
+        this.moveUp();
+      } else if (this.isHurt("lastHitEndboss")) {
+        this.playAnimation(this.IMAGES_HURT);
+      } else if (this.isAlive()) {
+        attackTimer = Date.now() - lastAttack;
+        let i = this.currentImage % this.IMAGES_IDLE.length;
+        if (attackTimer > attackInterval) {
+          this.endbossAttackAnimation(lastAttack);
+        } else if (this.idle) {
+          this.endbossIdleAnimation(i);
+        } else {
+          this.endbossSpawnAnimation(i);
+        }
+      }
+    }, 150);
+  }
+
+  /**
    * Checks whether the character is in the right place in the level and then makes the endboss appear
    */
   spawnEndboss() {
@@ -91,7 +119,7 @@ class Endboss extends MovableObject {
   }
 
   /**
-   * The endboss moves to the current coordinates of the character
+   * Moves to the current coordinates of the character
    */
   attackCharacter() {
     setInterval(() => {
@@ -118,37 +146,22 @@ class Endboss extends MovableObject {
     }, 1);
   }
 
-  animate() {
-    let attackTimer = 0;
-    let attackInterval = 3000;
-    let lastAttack = Date.now();
-
-    setInterval(() => {
-      if (!this.isAlive()) {
-        this.playAnimation(this.IMAGES_DEAD);
-        this.moveUp();
-      } else if (this.isHurt("lastHitEndboss")) {
-        this.playAnimation(this.IMAGES_HURT);
-      } else if (this.isAlive()) {
-        attackTimer = Date.now() - lastAttack;
-        let i = this.currentImage % this.IMAGES_IDLE.length;
-        if (attackTimer > attackInterval) {
-          this.endbossAttackAnimation(lastAttack);
-        } else if (this.idle) {
-          this.endbossIdleAnimation(i);
-        } else {
-          this.endbossSpawnAnimation(i);
-        }
-      }
-    }, 150);
-  }
-
+  /**
+   * Plays the idle animation of the final boss
+   *
+   * @param {number} i - The current index
+   */
   endbossIdleAnimation(i) {
     let pathIdle = this.IMAGES_IDLE[i];
     this.img = this.imageCache[pathIdle];
     this.currentImage++;
   }
 
+  /**
+   * Plays the spawn animation of the final boss
+   *
+   * @param {number} i - The current index
+   */
   endbossSpawnAnimation(i) {
     if (i >= this.IMAGES_SPAWN.length) {
       this.idle = true;
@@ -159,6 +172,11 @@ class Endboss extends MovableObject {
     }
   }
 
+  /**
+   * Executes the attack animation of the final boss
+   *
+   * @param {number} lastAttack - The time of the last attack
+   */
   endbossAttackAnimation(lastAttack) {
     let attackImageIndex = this.currentImage % this.IMAGES_ATTACK.length;
     let pathAttack = this.IMAGES_ATTACK[attackImageIndex];
