@@ -9,7 +9,7 @@ let soundAttackBubbleHit = new Audio("./audio/attack_bubble_hit.mp3");
 let soundCollectPoisonBottle = new Audio("./audio/poison_bottle.mp3");
 let soundCollectCoin = new Audio("./audio/coin.mp3");
 
-let allAudio = [
+let allSounds = [
   soundBackground,
   soundLost,
   soundWin,
@@ -26,10 +26,10 @@ let allAudio = [
  * Adjusts the audio volume
  */
 function adjustsAudioVolume() {
-  for (let i = 1; i < allAudio.length; i++) {
-    allAudio[i].volume = 0.2;
+  for (let i = 1; i < allSounds.length; i++) {
+    allSounds[i].volume = 0.2;
   }
-  allAudio[0].volume = 0.1;
+  allSounds[0].volume = 0.1;
 }
 
 /**
@@ -47,7 +47,7 @@ function toggleMute() {
  * Adds an event listener for the "toggleMute" event on the document object.
  */
 document.addEventListener("toggleMute", (e) => {
-  for (let i = 0; i < allAudio.length; i++) {
-    allAudio[i].muted = e.detail;
+  for (let i = 0; i < allSounds.length; i++) {
+    allSounds[i].muted = e.detail;
   }
 });

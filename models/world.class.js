@@ -120,17 +120,19 @@ class World {
   }
 
   isCollidingBarrier() {
-    let isColliding = false;
     this.level.barrier.forEach((barrier) => {
-      this.isCharacterCollidingBarrier(isColliding, barrier);
+      this.isCharacterCollidingBarrier(barrier);
+      this.isAttackBubbleCollidingBarrier(barrier);
     });
   }
 
-  isCharacterCollidingBarrier(isColliding, barrier) {
+  isCharacterCollidingBarrier(barrier) {
     if (this.character.isColliding(barrier)) {
-      isColliding = true;
+      this.character.isColliding = true;
     }
-    this.character.isCharacterStopped = isColliding;
+  }
+
+  isAttackBubbleCollidingBarrier(barrier) {
     for (let i = 0; i < this.attackBubble.length; i++) {
       if (this.attackBubble[i].isColliding(barrier)) {
         soundAttackBubbleHit.play();

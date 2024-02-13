@@ -28,7 +28,7 @@ function startGame() {
  * Stops the Game
  */
 function stopGame() {
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 100; i++) {
     clearInterval(i);
   }
 }

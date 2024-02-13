@@ -1,7 +1,6 @@
 class Character extends MovableObject {
   height = 200;
   width = 250;
-  isCharacterStopped = false;
   characterOffsetX = 45;
   characterOffsetY = 95;
   characterOffsetWidth = 90;
@@ -95,10 +94,6 @@ class Character extends MovableObject {
     this.animate();
   }
 
-  stopCharacter() {
-    return this.isCharacterStopped;
-  }
-
   /**
    * Adjusts the camera position smoothly based on the current character position and direction
    */
@@ -116,8 +111,7 @@ class Character extends MovableObject {
       if (
         this.world.keyboard.RIGHT &&
         this.x <= this.world.level.levelEnd_right &&
-        !this.isDead() &&
-        !this.stopCharacter()
+        !this.isDead()
       ) {
         this.x += 3;
         this.otherDirection = false;

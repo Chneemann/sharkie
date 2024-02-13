@@ -64,7 +64,7 @@ class Endboss extends MovableObject {
 
   constructor() {
     super().loadImage("");
-    this.x = -1000;
+    this.x = -2000;
     this.y = 0;
     this.spawnEndboss();
   }
