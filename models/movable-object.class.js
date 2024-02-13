@@ -8,6 +8,11 @@ class MovableObject extends DrawableObject {
   otherDirection = false;
   canvasCollision = false;
 
+  /**
+   * Processes a hit that the object receives and reduces its health points (HP).
+   *
+   * @param {string} hit - The type of hit.
+   */
   hit(hit) {
     this.hp -= 2;
     if (this.hp < 0) {
@@ -23,10 +28,20 @@ class MovableObject extends DrawableObject {
     }
   }
 
+  /**
+   * Checks whether the object is dead (i.e. has no more health points (HP)).
+   *
+   * @returns {boolean} True or False.
+   */
   isDead() {
     return this.hp == 0;
   }
 
+  /**
+   * Checks whether the object is alive (i.e. not marked as dead)
+   *
+   * @returns {boolean} True or False.
+   */
   isAlive() {
     if (!this.dead) {
       this.lastAnimate = new Date().getTime();
@@ -36,6 +51,12 @@ class MovableObject extends DrawableObject {
     }
   }
 
+  /**
+   * Determines whether the object has recently been violated.
+   *
+   * @param {string} lastHit - The time of the last hit.
+   * @returns {boolean} True or False.
+   */
   isHurt(lastHit) {
     let lastHitTime = this[lastHit];
     let timepassed = new Date().getTime() - lastHitTime;
@@ -43,12 +64,23 @@ class MovableObject extends DrawableObject {
     return timepassed < 1;
   }
 
+  /**
+   * Checks whether less than a certain amount of time has passed since the last animation.
+   *
+   * @param {number} time - The time in seconds.
+   * @returns {boolean} True or False.
+   */
   lastAnimation(time) {
     let timepassed = new Date().getTime() - this.lastAnimate;
     timepassed /= 1000;
     return timepassed < time;
   }
 
+  /**
+   * Plays an animation
+   *
+   * @param {string[]} images - The paths to the images.
+   */
   playAnimation(images) {
     let i = this.currentImage % images.length;
     let path = images[i];
@@ -56,24 +88,37 @@ class MovableObject extends DrawableObject {
     this.currentImage++;
   }
 
+  /**
+   * Moves the object continuously to the left.
+   */
   moveLeft() {
     setInterval(() => {
       this.x -= this.speed;
     }, 1);
   }
 
+  /**
+   * Moves the object continuously to the right.
+   */
   moveRight() {
     setInterval(() => {
       this.x += this.speed;
     }, 1);
   }
 
+  /**
+   * Moves the object continuously upwards.
+   */
   moveUp() {
     setInterval(() => {
       this.y -= this.speed;
     }, 2);
   }
 
+  /**
+   * Moves the object continuously back and forth within a defined horizontal range.
+   * Changes the direction of movement as soon as the object reaches an end point of the range.
+   */
   moveLeftAndRight() {
     this.movingRight = true;
     this.startX = this.x;
@@ -95,6 +140,10 @@ class MovableObject extends DrawableObject {
     }, 20);
   }
 
+  /**
+   * Moves the object continuously back and forth within a defined horizontal range.
+   * Changes the direction of movement as soon as the object reaches an end point of the range.
+   */
   moveUpAndDown() {
     this.movingDown = true;
     this.startY = this.y;
@@ -114,6 +163,12 @@ class MovableObject extends DrawableObject {
     }, 20);
   }
 
+  /**
+   * Checks whether the object collides with another object.
+   *
+   * @param {Object} obj - The other object to be checked for collision.
+   * @returns {boolean} True or False.
+   */
   isColliding(obj) {
     return (
       this.x + this.characterOffsetX + this.width - this.characterOffsetWidth >=
