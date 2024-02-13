@@ -92,28 +92,58 @@ class Character extends MovableObject {
     this.loadImages(this.IMAGES_DEAD_MEELE);
     this.loadImages(this.IMAGES_DEAD_ELECTRIC_SHOCK);
     this.animate();
+    this.moveCharacter();
   }
 
   /**
    * Adjusts the camera position smoothly based on the current character position and direction
    */
   adjustCameraPosition() {
-    const targetCameraX = this.otherDirection ? -this.x + 500 : -this.x + 200;
+    const cameraX = this.otherDirection ? -this.x + 500 : -this.x + 200;
     const smoothness = 0.05;
 
     this.world.camera_x = (function lerp(start, end, t) {
       return start * (1 - t) + end * t;
-    })(this.world.camera_x, targetCameraX, smoothness);
+    })(this.world.camera_x, cameraX, smoothness);
   }
 
+  /**
+   * Controls the character's animations
+   */
   animate() {
+    setInterval(() => {
+      if (this.isDead() && this.lastHitMeele < this.lastHitElectricShock) {
+        this.playAnimation(this.IMAGES_DEAD_ELECTRIC_SHOCK);
+      } else if (this.isDead()) {
+        this.playAnimation(this.IMAGES_DEAD_MEELE);
+      } else if (this.isHurt("lastHitMeele")) {
+        this.playAnimation(this.IMAGES_HURT_MEELE);
+      } else if (this.isHurt("lastHitElectricShock")) {
+        this.playAnimation(this.IMAGES_HURT_ELECTRIC_SHOCK);
+      } else if (
+        this.lastAnimation(0.85) &&
+        this.world.statusBarPoisonBottle.percentage >= 1
+      ) {
+        this.playAnimation(this.IMAGES_ATTACK);
+      } else if (this.world.keyboard.MOVE) {
+        this.playAnimation(this.IMAGES_MOVE);
+      } else if (!this.world.keyboard.MOVE) {
+        this.playAnimation(this.IMAGES_IDLE);
+      }
+    }, 150);
+  }
+
+  /**
+   * Controls the character key inputs
+   */
+  moveCharacter() {
     setInterval(() => {
       if (
         this.world.keyboard.RIGHT &&
         this.x <= this.world.level.levelEnd_right &&
         !this.isDead()
       ) {
-        this.x += 13;
+        this.x += 3;
         this.otherDirection = false;
       }
       if (
@@ -143,26 +173,5 @@ class Character extends MovableObject {
       }
       this.adjustCameraPosition();
     }, 1000 / 60);
-
-    setInterval(() => {
-      if (this.isDead() && this.lastHitMeele < this.lastHitElectricShock) {
-        this.playAnimation(this.IMAGES_DEAD_ELECTRIC_SHOCK);
-      } else if (this.isDead()) {
-        this.playAnimation(this.IMAGES_DEAD_MEELE);
-      } else if (this.isHurt("lastHitMeele")) {
-        this.playAnimation(this.IMAGES_HURT_MEELE);
-      } else if (this.isHurt("lastHitElectricShock")) {
-        this.playAnimation(this.IMAGES_HURT_ELECTRIC_SHOCK);
-      } else if (
-        this.lastAnimation(0.85) &&
-        this.world.statusBarPoisonBottle.percentage >= 1
-      ) {
-        this.playAnimation(this.IMAGES_ATTACK);
-      } else if (this.world.keyboard.MOVE) {
-        this.playAnimation(this.IMAGES_MOVE);
-      } else if (!this.world.keyboard.MOVE) {
-        this.playAnimation(this.IMAGES_IDLE);
-      }
-    }, 150);
   }
 }
