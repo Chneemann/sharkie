@@ -87,39 +87,21 @@ function restartGame() {
 }
 
 /**
- * This script deactivates the drag & drop of images, prevents the context
- * menu from appearing when you right-click or long press on the image and
- * prevents standard touch events
+ * Sets the `draggable` attribute to `false` for all `<img>` elements in the document.
  */
 document.addEventListener("DOMContentLoaded", function () {
   const images = document.getElementsByTagName("img");
   for (let i = 0; i < images.length; i++) {
     images[i].setAttribute("draggable", false);
-    images[i].oncontextmenu = function (event) {
-      event.preventDefault();
-      k;
-    };
-    images[i].addEventListener(
-      "touchstart",
-      function (event) {
-        event.preventDefault();
-      },
-      { passive: false }
-    );
-    images[i].addEventListener(
-      "touchend",
-      function (event) {
-        event.preventDefault();
-      },
-      { passive: false }
-    );
-    images[i].addEventListener(
-      "touchmove",
-      function (event) {
-        event.preventDefault();
-      },
-      { passive: false }
-    );
+  }
+});
+
+/**
+ * Prevents the context menu from being opened.
+ */
+document.addEventListener("contextmenu", function (event) {
+  if (event.target.tagName === "IMG") {
+    event.preventDefault();
   }
 });
 
