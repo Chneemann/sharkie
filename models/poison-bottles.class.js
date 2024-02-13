@@ -25,6 +25,9 @@ class PoisonBottle extends MovableObject {
     this.animate();
   }
 
+  /**
+   * Controls the animations
+   */
   animate() {
     setInterval(() => {
       this.playAnimation(this.IMAGES);

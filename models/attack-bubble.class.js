@@ -22,6 +22,9 @@ class AttackBubble extends MovableObject {
     this.animate();
   }
 
+  /**
+   * Controls the animations
+   */
   animate() {
     if (this.bubbleMoveTo == "right") {
       this.attackbubbleright();
@@ -34,6 +37,9 @@ class AttackBubble extends MovableObject {
     }, 150);
   }
 
+  /**
+   * Move to the right
+   */
   attackbubbleright() {
     const intervalId = setInterval(() => {
       this.x += 1.75;
@@ -41,6 +47,9 @@ class AttackBubble extends MovableObject {
     }, 1);
   }
 
+  /**
+   * Move to the left
+   */
   attackbubbleleft() {
     const intervalId = setInterval(() => {
       this.x -= 1.75;

@@ -9,6 +9,9 @@ class BackgroundObject extends MovableObject {
     this.y = 0;
   }
 
+  /**
+   * Controls the animations
+   */
   animateBackground() {
     if (!this.isAnimating) {
       this.isAnimating = true;
