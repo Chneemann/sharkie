@@ -5,9 +5,9 @@ class World {
   statusBarCoin = new StatusBarCoin();
   statusBarPoisonBottle = new StatusBarPoisonBottle();
   statusBarEndboss = new StatusBarEndboss();
-  statusBarEndbossTextY = -100;
   soundManager = new SoundManager();
   level = level1;
+  endboss = this.level.endboss[0];
   isGameOver = false;
   ctx;
   canvas;
@@ -146,21 +146,21 @@ class World {
   }
 
   checkEndbossSpawn() {
-    if (this.character.x >= this.level.level_end - 1800) {
+    if (this.endboss.spawn) {
       return true;
     }
   }
 
   checkEndbossHp(enemy) {
-    if (enemy == this.level.endboss[0] && this.level.endboss[0].isAlive()) {
+    if (enemy == this.endboss && this.endboss.isAlive()) {
       this.statusBarEndboss.percentage--;
       this.statusBarEndboss.setPercentage(this.statusBarEndboss.percentage);
-      this.level.endboss[0].lastHitEndboss = new Date().getTime();
+      this.endboss.lastHitEndboss = new Date().getTime();
     }
   }
 
   isEndbossDead() {
-    if (this.level.endboss[0].hp == 0) {
+    if (this.endboss.hp == 0) {
       return true;
     }
   }
@@ -174,7 +174,6 @@ class World {
     this.addObjectsToMap(this.level.barrier);
     this.addObjectsToMap(this.level.objects);
     this.addObjectsToMap(this.level.enemies);
-    this.addObjectsToMap(this.level.endboss);
     this.addObjectsToMap(this.attackBubble);
 
     this.addToMap(this.character);
@@ -185,6 +184,7 @@ class World {
     this.addToMap(this.statusBarCoin);
     this.addToMap(this.statusBarPoisonBottle);
     if (this.checkEndbossSpawn()) {
+      this.addObjectsToMap(this.level.endboss);
       this.addToMap(this.statusBarEndboss);
       this.addTextToMap(
         this.statusBarEndboss.percentage + "/3",

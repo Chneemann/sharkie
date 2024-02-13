@@ -4,7 +4,10 @@ class Level {
   objects;
   backgroundObjects;
   barrier;
-  level_end;
+  levelEnd_up;
+  levelEnd_down;
+  levelEnd_left;
+  levelEnd_right;
 
   constructor(
     enemies,
@@ -12,14 +15,17 @@ class Level {
     objects,
     backgroundObjects,
     barrier,
-    level_end
+    levelSize
   ) {
     this.enemies = enemies;
     this.endboss = endboss;
     this.objects = objects;
     this.backgroundObjects = backgroundObjects;
     this.barrier = barrier;
-    this.level_end = level_end;
+    this.levelEnd_up = levelSize[0];
+    this.levelEnd_down = levelSize[1];
+    this.levelEnd_left = levelSize[2];
+    this.levelEnd_right = levelSize[3];
 
     this.backgroundObjects[0].animateBackground();
     this.backgroundObjects[1].animateBackground();

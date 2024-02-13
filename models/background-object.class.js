@@ -1,5 +1,5 @@
 class BackgroundObject extends MovableObject {
-  width = 899;
+  width = 900;
   height = 600;
   isAnimating = false;
 
@@ -13,11 +13,11 @@ class BackgroundObject extends MovableObject {
     if (!this.isAnimating) {
       this.isAnimating = true;
       setInterval(() => {
-        this.x -= 1;
-        if (this.x <= -(this.width * 3) + this.width * 2) {
-          this.x = this.width * 3 + this.width - 1;
+        this.x -= 0.5;
+        if (this.x <= -(this.width * 4) + this.width * 2) {
+          this.x = this.width * 4 + this.width - 1;
         }
-      }, 70);
+      }, 100);
     }
   }
 }
