@@ -9,7 +9,6 @@
     <script src="./models/world.class.js"></script>
     <script src="./models/drawable-object.class.js"></script>
     <script src="./models/movable-object.class.js"></script>
-    <script src="./models/soundManager.class.js"></script>
     <script src="./models/status-bar-hp.class.js"></script>
     <script src="./models/status-bar-coin.class.js"></script>
     <script src="./models/status-bar-bottle.class.js"></script>
@@ -48,14 +47,14 @@
         <div id="volume">
           <img
             id="volume_off"
-            onclick="world.soundManager.toggleMute()"
+            onclick="toggleMute()"
             src="img/others/volume_off.svg"
             alt="Volume Off"
             class="d-none"
           />
           <img
             id="volume_on"
-            onclick="world.soundManager.toggleMute()"
+            onclick="toggleMute()"
             src="img/others/volume_up.svg"
             alt="Volume On"
           />

@@ -5,7 +5,6 @@ class World {
   statusBarCoin = new StatusBarCoin();
   statusBarPoisonBottle = new StatusBarPoisonBottle();
   statusBarEndboss = new StatusBarEndboss();
-  soundManager = new SoundManager();
   level = level1;
   endboss = this.level.endboss[0];
   isGameOver = false;

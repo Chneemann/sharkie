@@ -33,6 +33,17 @@ function adjustsAudioVolume() {
 }
 
 /**
+ * Switches the sound on or off
+ */
+function toggleMute() {
+  this.muted = !this.muted;
+  document.getElementById("volume_off").classList.toggle("d-none");
+  document.getElementById("volume_on").classList.toggle("d-none");
+
+  document.dispatchEvent(new CustomEvent("toggleMute", { detail: this.muted }));
+}
+
+/**
  * Adds an event listener for the "toggleMute" event on the document object.
  */
 document.addEventListener("toggleMute", (e) => {
