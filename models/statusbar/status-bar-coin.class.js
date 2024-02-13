@@ -17,15 +17,22 @@ class StatusBarCoin extends DrawableObject {
   constructor() {
     super();
     this.loadImages(this.IMAGES_COIN);
-    this.setPercentage(this.percentage);
+    this.addCoin(this.percentage);
   }
 
-  setPercentage() {
+  /**
+   * Adds a coin
+   */
+  addCoin() {
     this.percentage++;
     let path = this.IMAGES_COIN[this.resolveImageIndex()];
     this.img = this.imageCache[path];
   }
 
+  /**
+   * Determines the index of the image based on the current percentage.
+   * @returns The image index that corresponds to the current percentage.
+   */
   resolveImageIndex() {
     if (this.percentage == 10) {
       return 5;

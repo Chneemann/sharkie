@@ -18,12 +18,19 @@ class StatusBarEndboss extends DrawableObject {
     this.setPercentage(this.percentage);
   }
 
+  /**
+   * Updates the image based on the new percentage.
+   */
   setPercentage(percentage) {
     this.percentage = percentage;
     let path = this.IMAGES_HP[this.resolveImageIndex()];
     this.img = this.imageCache[path];
   }
 
+  /**
+   * Determines the index of the image based on the current percentage.
+   * @returns The image index that corresponds to the current percentage.
+   */
   resolveImageIndex() {
     if (this.percentage == 3) {
       return 3;

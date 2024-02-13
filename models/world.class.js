@@ -160,7 +160,7 @@ class World {
       );
       soundAttackBubble.play();
       this.attackBubble.push(poisonAttackBubble);
-      this.statusBarPoisonBottle.removeBubble();
+      this.statusBarPoisonBottle.removePoisonBottle();
       this.keyboard.SPACE = false;
     }
   }
