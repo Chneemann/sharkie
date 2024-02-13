@@ -20,6 +20,7 @@ class StatusBarEndboss extends DrawableObject {
 
   /**
    * Updates the image based on the new percentage.
+   * @param {number} percentage - The new percentage to be set
    */
   setPercentage(percentage) {
     this.percentage = percentage;
