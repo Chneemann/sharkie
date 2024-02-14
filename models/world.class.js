@@ -22,10 +22,16 @@ class World {
     this.update();
   }
 
+  /**
+   * Adds the variable world to the character
+   */
   setWorld() {
     this.character.world = this;
   }
 
+  /**
+   * Performs continuous updates for the game as long as the game is not finished.
+   */
   update() {
     setInterval(() => {
       if (!this.isGameOver) {
@@ -37,6 +43,11 @@ class World {
     }, 100);
   }
 
+  /**
+   * Checks whether the game is over
+   *
+   * @returns true or false
+   */
   isGameEnd() {
     if (this.isGameOver) {
       return;
@@ -52,12 +63,18 @@ class World {
     }
   }
 
+  /**
+   * Checks all types of collisions on the canvas
+   */
   checkCollisions() {
     this.isCollectingObject();
     this.isCollidingEnemy();
     this.isCollidingBarrier();
   }
 
+  /**
+   * Checks whether the character collects objects.
+   */
   isCollectingObject() {
     this.level.objects.forEach((object) => {
       if (this.character.isColliding(object)) {
@@ -67,6 +84,11 @@ class World {
     });
   }
 
+  /**
+   * Processes the collection of a poison bottle by the character.
+   *
+   * @param {Object} object - The object with which the collision check is performed.
+   */
   isCharacterCollectingPoisionBottle(object) {
     if (object instanceof PoisonBottle) {
       if (this.statusBarPoisonBottle.percentage < 5) {
@@ -77,6 +99,11 @@ class World {
     }
   }
 
+  /**
+   * Processes the collection of a coin by the character.
+   *
+   * @param {Object} object - The object with which the collision check is performed.
+   */
   isCharacterCollectingCoin(object) {
     if (object instanceof Coin) {
       this.statusBarCoin.addCoin();
@@ -85,6 +112,9 @@ class World {
     }
   }
 
+  /**
+   * Checks whether the character or attack bubbles collide with enemies.
+   */
   isCollidingEnemy() {
     const allEnemies = [...this.level.enemies, ...this.level.endboss];
     allEnemies.forEach((enemy) => {
@@ -93,6 +123,11 @@ class World {
     });
   }
 
+  /**
+   * Processes a collision between the character and an enemy.
+   *
+   * @param {Object} enemy - The enemy with which the collision is checked.
+   */
   isCharacterCollidingEnemy(enemy) {
     if (this.character.isColliding(enemy)) {
       if (enemy instanceof JellyFish) {
@@ -104,6 +139,11 @@ class World {
     }
   }
 
+  /**
+   * Checks whether attack bubbles collide with enemies.
+   *
+   * @param {Object} enemy - The enemy with which the collision is checked.
+   */
   isAttackBubbleCollidingEnemy(enemy) {
     for (let i = 0; i < this.attackBubble.length; i++) {
       if (this.attackBubble[i].isColliding(enemy)) {
@@ -119,6 +159,9 @@ class World {
     }
   }
 
+  /**
+   * Checks whether the character or attack bubbles collide with barriers.
+   */
   isCollidingBarrier() {
     this.level.barrier.forEach((barrier) => {
       this.isCharacterCollidingBarrier(barrier);
@@ -126,12 +169,22 @@ class World {
     });
   }
 
+  /**
+   * Processes a collision of the character with a barrier.
+   *
+   * @param {Object} barrier - The barrier with which the collision is checked.
+   */
   isCharacterCollidingBarrier(barrier) {
     if (this.character.isColliding(barrier)) {
       this.character.isColliding = true;
     }
   }
 
+  /**
+   * Checks whether the attack bubbles collide with barriers.
+   *
+   * @param {Object} barrier - The barrier with which the collision is checked.
+   */
   isAttackBubbleCollidingBarrier(barrier) {
     for (let i = 0; i < this.attackBubble.length; i++) {
       if (this.attackBubble[i].isColliding(barrier)) {
@@ -142,6 +195,9 @@ class World {
     }
   }
 
+  /**
+   * Controls the spawning of a new attack bubble.
+   */
   checkBubbleSpawn() {
     let direction;
     let characterX;
@@ -165,12 +221,21 @@ class World {
     }
   }
 
+  /**
+   * Checks whether the endboss is spawned
+   * @returns true or false
+   */
   checkEndbossSpawn() {
     if (this.endboss.spawn) {
       return true;
     }
   }
 
+  /**
+   * Decreases the percentage of health points (HP) of the end boss and updates its status bar
+   *
+   * @param {Object} enemy - The enemy object that is checked.
+   */
   checkEndbossHp(enemy) {
     if (enemy == this.endboss && this.endboss.isAlive()) {
       this.statusBarEndboss.percentage--;
@@ -179,12 +244,20 @@ class World {
     }
   }
 
+  /**
+   * Checks if the endboss is dead
+   *
+   * @returns true or false
+   */
   isEndbossDead() {
     if (this.endboss.hp == 0) {
       return true;
     }
   }
 
+  /**
+   * Paints the objects on the canvas
+   */
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.ctx.translate(this.camera_x, 0);

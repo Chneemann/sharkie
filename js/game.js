@@ -28,7 +28,7 @@ function startGame() {
  * Stops the Game
  */
 function stopGame() {
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 200; i++) {
     clearInterval(i);
   }
 }
@@ -59,6 +59,7 @@ function togglePlayButtons() {
 
 /**
  * Check whether the device is mobile
+ *
  * @returns true or false
  */
 function detectMobile() {
