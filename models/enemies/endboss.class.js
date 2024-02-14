@@ -4,6 +4,7 @@ class Endboss extends MovableObject {
   width = 500;
   spawn = false;
   idle = false;
+  lastAttack;
   enemyOffsetX = 30;
   enemyOffsetY = 220;
   enemyOffsetWidth = 60;
@@ -75,19 +76,20 @@ class Endboss extends MovableObject {
   animate() {
     let attackTimer = 0;
     let attackInterval = 3000;
-    let lastAttack = Date.now();
 
     setInterval(() => {
       if (!this.isAlive()) {
         this.playAnimation(this.IMAGES_DEAD);
         this.moveUp();
+        this.idle = false;
       } else if (this.isHurt("lastHitEndboss")) {
         this.playAnimation(this.IMAGES_HURT);
+        this.idle = false;
       } else if (this.isAlive()) {
-        attackTimer = Date.now() - lastAttack;
+        attackTimer = Date.now() - this.lastAttack;
         let i = this.currentImage % this.IMAGES_IDLE.length;
         if (attackTimer > attackInterval) {
-          this.endbossAttackAnimation(lastAttack);
+          this.endbossAttackAnimation();
         } else if (this.idle) {
           this.endbossIdleAnimation(i);
         } else {
@@ -114,6 +116,7 @@ class Endboss extends MovableObject {
         soundEndbossSpawn.play();
         clearInterval(intervalId);
         this.spawn = true;
+        this.lastAttack = Date.now();
       }
     }, 1000);
   }
@@ -174,16 +177,14 @@ class Endboss extends MovableObject {
 
   /**
    * Executes the attack animation of the final boss
-   *
-   * @param {number} lastAttack - The time of the last attack
    */
-  endbossAttackAnimation(lastAttack) {
+  endbossAttackAnimation() {
     let attackImageIndex = this.currentImage % this.IMAGES_ATTACK.length;
     let pathAttack = this.IMAGES_ATTACK[attackImageIndex];
     this.img = this.imageCache[pathAttack];
     this.currentImage++;
     if (attackImageIndex === this.IMAGES_ATTACK.length - 1) {
-      lastAttack = Date.now();
+      this.lastAttack = Date.now();
       this.idle = true;
     }
   }
