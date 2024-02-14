@@ -70,7 +70,7 @@ class World {
   isCharacterCollectingPoisionBottle(object) {
     if (object instanceof PoisonBottle) {
       if (this.statusBarPoisonBottle.percentage < 5) {
-        this.statusBarPoisonBottle.setPercentage();
+        this.statusBarPoisonBottle.addPoisonBottle();
         this.character.objectCollected(object);
         soundCollectPoisonBottle.play();
       }
@@ -79,7 +79,7 @@ class World {
 
   isCharacterCollectingCoin(object) {
     if (object instanceof Coin) {
-      this.statusBarCoin.setPercentage();
+      this.statusBarCoin.addCoin();
       this.character.objectCollected(object);
       soundCollectCoin.play();
     }
