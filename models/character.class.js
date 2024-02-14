@@ -145,6 +145,7 @@ class Character extends MovableObject {
       ) {
         this.x += 3;
         this.otherDirection = false;
+        soundCharacterMove.play();
       }
       if (
         this.world.keyboard.LEFT &&
@@ -153,6 +154,7 @@ class Character extends MovableObject {
       ) {
         this.x -= 3;
         this.otherDirection = true;
+        soundCharacterMove.play();
       }
       if (
         this.world.keyboard.UP &&
@@ -160,6 +162,7 @@ class Character extends MovableObject {
         !this.isDead()
       ) {
         this.y -= 3;
+        soundCharacterMove.play();
       }
       if (
         this.world.keyboard.DOWN &&
@@ -167,6 +170,7 @@ class Character extends MovableObject {
         !this.isDead()
       ) {
         this.y += 3;
+        soundCharacterMove.play();
       }
       if (this.world.keyboard.SPACE && !this.isDead()) {
         this.lastAnimate = new Date().getTime();
