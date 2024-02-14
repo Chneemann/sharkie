@@ -97,15 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /**
- * Prevents the context menu from being opened.
- */
-document.addEventListener("contextmenu", function (event) {
-  if (event.target.tagName === "IMG") {
-    event.preventDefault();
-  }
-});
-
-/**
  * Adds an event listener to the window object that triggers when the page is fully loaded.
  * If the `localStorage` item "restartGame" is set to "true", it executes the `startGame` function
  * to restart the game and then removes the "restartGame" item from `localStorage`.
