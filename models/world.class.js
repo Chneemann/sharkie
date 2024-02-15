@@ -34,11 +34,11 @@ class World {
    */
   update() {
     setInterval(() => {
-      if (!this.isGameOver) {
-        this.isGameEnd();
+      if (!this.isGameEnd()) {
+        this.checkIsGameEnd();
         this.checkBubbleSpawn();
         this.checkCollisions();
-        this.checkEndbossSpawn();
+        this.endboss.checkSpawn();
       }
     }, 100);
   }
@@ -52,10 +52,18 @@ class World {
     if (this.isGameOver) {
       return;
     }
+  }
+
+  /**
+   * Checks whether the game is over
+   *
+   * @returns true or false
+   */
+  checkIsGameEnd() {
     if (this.character.isDead()) {
       gameEndLost();
       this.isGameOver = true;
-    } else if (this.isEndbossDead()) {
+    } else if (this.endboss.isDead()) {
       gameEndWin();
       this.isGameOver = true;
     } else {
@@ -149,7 +157,7 @@ class World {
       if (this.attackBubble[i].isColliding(enemy)) {
         soundAttackBubbleHit.play();
         enemy.hp--;
-        this.checkEndbossHp(enemy);
+        this.endboss.checkHp(enemy);
         enemy.objectCollected(this.attackBubble[i]);
         this.attackBubble[i].intervalClearStatus = true;
         if (enemy.hp == 0) {
@@ -222,40 +230,6 @@ class World {
   }
 
   /**
-   * Checks whether the endboss is spawned
-   * @returns true or false
-   */
-  checkEndbossSpawn() {
-    if (this.endboss.spawn) {
-      return true;
-    }
-  }
-
-  /**
-   * Decreases the percentage of health points (HP) of the end boss and updates its status bar
-   *
-   * @param {Object} enemy - The enemy object that is checked.
-   */
-  checkEndbossHp(enemy) {
-    if (enemy == this.endboss && this.endboss.isAlive()) {
-      this.statusBarEndboss.percentage--;
-      this.statusBarEndboss.setPercentage(this.statusBarEndboss.percentage);
-      this.endboss.lastHitEndboss = new Date().getTime();
-    }
-  }
-
-  /**
-   * Checks if the endboss is dead
-   *
-   * @returns true or false
-   */
-  isEndbossDead() {
-    if (this.endboss.hp == 0) {
-      return true;
-    }
-  }
-
-  /**
    * Paints the objects on the canvas
    */
   draw() {
@@ -272,7 +246,7 @@ class World {
     this.addToMap(this.statusBarHp);
     this.addToMap(this.statusBarCoin);
     this.addToMap(this.statusBarPoisonBottle);
-    if (this.checkEndbossSpawn()) {
+    if (this.endboss.checkSpawn()) {
       this.addToMap(this.statusBarEndboss);
       this.addTextToMap(
         this.statusBarEndboss.percentage + "/3",

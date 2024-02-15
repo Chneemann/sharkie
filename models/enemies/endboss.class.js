@@ -188,4 +188,38 @@ class Endboss extends MovableObject {
       this.idle = true;
     }
   }
+
+  /**
+   * Decreases the percentage of health points (HP) of the end boss and updates its status bar
+   *
+   * @param {Object} enemy - The enemy object that is checked.
+   */
+  checkHp(enemy) {
+    if (enemy == this && this.isAlive()) {
+      world.statusBarEndboss.percentage--;
+      world.statusBarEndboss.setPercentage(world.statusBarEndboss.percentage);
+      this.lastHitEndboss = new Date().getTime();
+    }
+  }
+
+  /**
+   * Checks if the endboss is dead
+   *
+   * @returns true or false
+   */
+  isDead() {
+    if (this.hp == 0) {
+      return true;
+    }
+  }
+
+  /**
+   * Checks whether the endboss is spawned
+   * @returns true or false
+   */
+  checkSpawn() {
+    if (this.spawn) {
+      return true;
+    }
+  }
 }
