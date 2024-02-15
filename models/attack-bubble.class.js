@@ -56,4 +56,30 @@ class AttackBubble extends MovableObject {
       stopInterval(this.intervalClearStatus, intervalId);
     }, 1);
   }
+
+  /**
+   * Controls the spawning of a new attack bubble.
+   */
+  checkSpawn() {
+    let direction;
+    let characterX;
+    if (keyboard.SPACE && world.statusBarPoisonBottle.percentage >= 1) {
+      if (keyboard.lastInput == "right") {
+        direction = "right";
+        characterX = world.character.x;
+      } else if (keyboard.lastInput == "left") {
+        direction = "left";
+        characterX = world.character.x - world.character.width;
+      }
+      let poisonAttackBubble = new AttackBubble(
+        characterX,
+        world.character.y,
+        direction
+      );
+      soundAttackBubble.play();
+      world.newAttackBubble.push(poisonAttackBubble);
+      world.statusBarPoisonBottle.removePoisonBottle();
+      keyboard.SPACE = false;
+    }
+  }
 }

@@ -1,6 +1,7 @@
 class World {
   character = new Character();
-  attackBubble = [];
+  attackBubble = new AttackBubble();
+  newAttackBubble = [];
   statusBarHp = new StatusBarHp();
   statusBarCoin = new StatusBarCoin();
   statusBarPoisonBottle = new StatusBarPoisonBottle();
@@ -36,7 +37,7 @@ class World {
     setInterval(() => {
       if (!this.isGameEnd()) {
         this.checkIsGameEnd();
-        this.checkBubbleSpawn();
+        this.attackBubble.checkSpawn();
         this.checkCollisions();
         this.endboss.checkSpawn();
       }
@@ -204,32 +205,6 @@ class World {
   }
 
   /**
-   * Controls the spawning of a new attack bubble.
-   */
-  checkBubbleSpawn() {
-    let direction;
-    let characterX;
-    if (this.keyboard.SPACE && this.statusBarPoisonBottle.percentage >= 1) {
-      if (this.keyboard.lastInput == "right") {
-        direction = "right";
-        characterX = this.character.x;
-      } else if (this.keyboard.lastInput == "left") {
-        direction = "left";
-        characterX = this.character.x - this.character.width;
-      }
-      let poisonAttackBubble = new AttackBubble(
-        characterX,
-        this.character.y,
-        direction
-      );
-      soundAttackBubble.play();
-      this.attackBubble.push(poisonAttackBubble);
-      this.statusBarPoisonBottle.removePoisonBottle();
-      this.keyboard.SPACE = false;
-    }
-  }
-
-  /**
    * Paints the objects on the canvas
    */
   draw() {
@@ -240,7 +215,7 @@ class World {
     this.addObjectsToMap(this.level.objects);
     this.addObjectsToMap(this.level.enemies);
     this.addObjectsToMap(this.level.endboss);
-    this.addObjectsToMap(this.attackBubble);
+    this.addObjectsToMap(this.newAttackBubble);
     this.addToMap(this.character);
     this.ctx.translate(-this.camera_x, 0);
     this.addToMap(this.statusBarHp);
