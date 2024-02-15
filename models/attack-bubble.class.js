@@ -82,4 +82,24 @@ class AttackBubble extends MovableObject {
       keyboard.SPACE = false;
     }
   }
+
+  /**
+   * Checks whether attack bubbles collide with enemies.
+   *
+   * @param {Object} enemy - The enemy with which the collision is checked.
+   */
+  isCollidingEnemy(enemy) {
+    for (let i = 0; i < world.newAttackBubble.length; i++) {
+      if (world.newAttackBubble[i].isColliding(enemy)) {
+        soundAttackBubbleHit.play();
+        enemy.hp--;
+        world.endboss.checkHp(enemy);
+        enemy.objectCollected(world.newAttackBubble[i]);
+        world.newAttackBubble[i].intervalClearStatus = true;
+        if (enemy.hp == 0) {
+          enemy.dead = true;
+        }
+      }
+    }
+  }
 }

@@ -128,7 +128,7 @@ class World {
     const allEnemies = [...this.level.enemies, ...this.level.endboss];
     allEnemies.forEach((enemy) => {
       this.isCharacterCollidingEnemy(enemy);
-      this.isAttackBubbleCollidingEnemy(enemy);
+      this.attackBubble.isCollidingEnemy(enemy);
     });
   }
 
@@ -145,26 +145,6 @@ class World {
         this.character.hit("meele");
       }
       this.statusBarHp.setPercentage(this.character.hp);
-    }
-  }
-
-  /**
-   * Checks whether attack bubbles collide with enemies.
-   *
-   * @param {Object} enemy - The enemy with which the collision is checked.
-   */
-  isAttackBubbleCollidingEnemy(enemy) {
-    for (let i = 0; i < this.attackBubble.length; i++) {
-      if (this.attackBubble[i].isColliding(enemy)) {
-        soundAttackBubbleHit.play();
-        enemy.hp--;
-        this.endboss.checkHp(enemy);
-        enemy.objectCollected(this.attackBubble[i]);
-        this.attackBubble[i].intervalClearStatus = true;
-        if (enemy.hp == 0) {
-          enemy.dead = true;
-        }
-      }
     }
   }
 
