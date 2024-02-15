@@ -102,4 +102,19 @@ class AttackBubble extends MovableObject {
       }
     }
   }
+
+  /**
+   * Checks whether the attack bubbles collide with barriers.
+   *
+   * @param {Object} barrier - The barrier with which the collision is checked.
+   */
+  isCollidingBarrier(barrier) {
+    for (let i = 0; i < world.newAttackBubble.length; i++) {
+      if (world.newAttackBubble[i].isColliding(barrier)) {
+        soundAttackBubbleHit.play();
+        barrier.objectCollected(world.newAttackBubble[i]);
+        world.newAttackBubble[i].intervalClearStatus = true;
+      }
+    }
+  }
 }

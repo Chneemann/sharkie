@@ -154,7 +154,7 @@ class World {
   isCollidingBarrier() {
     this.level.barrier.forEach((barrier) => {
       this.isCharacterCollidingBarrier(barrier);
-      this.isAttackBubbleCollidingBarrier(barrier);
+      this.attackBubble.isCollidingBarrier(barrier);
     });
   }
 
@@ -166,21 +166,6 @@ class World {
   isCharacterCollidingBarrier(barrier) {
     if (this.character.isColliding(barrier)) {
       this.character.isColliding = true;
-    }
-  }
-
-  /**
-   * Checks whether the attack bubbles collide with barriers.
-   *
-   * @param {Object} barrier - The barrier with which the collision is checked.
-   */
-  isAttackBubbleCollidingBarrier(barrier) {
-    for (let i = 0; i < this.attackBubble.length; i++) {
-      if (this.attackBubble[i].isColliding(barrier)) {
-        soundAttackBubbleHit.play();
-        barrier.objectCollected(this.attackBubble[i]);
-        this.attackBubble[i].intervalClearStatus = true;
-      }
     }
   }
 
