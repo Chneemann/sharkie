@@ -230,7 +230,7 @@ class Character extends MovableObject {
    */
   isCollidingBarrier(barrier) {
     if (this.isColliding(barrier)) {
-      this.isColliding = true;
+      console.log("colliding");
     }
   }
 }

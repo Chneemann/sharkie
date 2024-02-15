@@ -1,7 +1,7 @@
 class World {
   character = new Character();
   attackBubble = new AttackBubble();
-  newAttackBubble = [];
+  allAttackBubbles = [];
   statusBarHp = new StatusBarHp();
   statusBarCoin = new StatusBarCoin();
   statusBarPoisonBottle = new StatusBarPoisonBottle();
@@ -38,8 +38,8 @@ class World {
       if (!this.isGameEnd()) {
         this.checkIsGameEnd();
         this.attackBubble.checkSpawn();
-        this.checkCollisions();
         this.endboss.checkSpawn();
+        this.checkAllCollisions();
       }
     }, 100);
   }
@@ -75,7 +75,7 @@ class World {
   /**
    * Checks all types of collisions on the canvas
    */
-  checkCollisions() {
+  checkAllCollisions() {
     this.isCollectingObject();
     this.isCollidingEnemy();
     this.isCollidingBarrier();
@@ -125,7 +125,7 @@ class World {
     this.addObjectsToMap(this.level.objects);
     this.addObjectsToMap(this.level.enemies);
     this.addObjectsToMap(this.level.endboss);
-    this.addObjectsToMap(this.newAttackBubble);
+    this.addObjectsToMap(this.allAttackBubbles);
     this.addToMap(this.character);
     this.ctx.translate(-this.camera_x, 0);
     this.addToMap(this.statusBarHp);

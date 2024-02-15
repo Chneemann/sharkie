@@ -77,7 +77,7 @@ class AttackBubble extends MovableObject {
         direction
       );
       soundAttackBubble.play();
-      world.newAttackBubble.push(poisonAttackBubble);
+      world.allAttackBubbles.push(poisonAttackBubble);
       world.statusBarPoisonBottle.removePoisonBottle();
       keyboard.SPACE = false;
     }
@@ -89,13 +89,13 @@ class AttackBubble extends MovableObject {
    * @param {Object} enemy - The enemy with which the collision is checked.
    */
   isCollidingEnemy(enemy) {
-    for (let i = 0; i < world.newAttackBubble.length; i++) {
-      if (world.newAttackBubble[i].isColliding(enemy)) {
+    for (let i = 0; i < world.allAttackBubbles.length; i++) {
+      if (world.allAttackBubbles[i].isColliding(enemy)) {
         soundAttackBubbleHit.play();
         enemy.hp--;
         world.endboss.checkHp(enemy);
-        enemy.objectCollected(world.newAttackBubble[i]);
-        world.newAttackBubble[i].intervalClearStatus = true;
+        enemy.objectCollected(world.allAttackBubbles[i]);
+        world.allAttackBubbles[i].intervalClearStatus = true;
         if (enemy.hp == 0) {
           enemy.dead = true;
         }
@@ -109,11 +109,11 @@ class AttackBubble extends MovableObject {
    * @param {Object} barrier - The barrier with which the collision is checked.
    */
   isCollidingBarrier(barrier) {
-    for (let i = 0; i < world.newAttackBubble.length; i++) {
-      if (world.newAttackBubble[i].isColliding(barrier)) {
+    for (let i = 0; i < world.allAttackBubbles.length; i++) {
+      if (world.allAttackBubbles[i].isColliding(barrier)) {
         soundAttackBubbleHit.play();
-        barrier.objectCollected(world.newAttackBubble[i]);
-        world.newAttackBubble[i].intervalClearStatus = true;
+        barrier.objectCollected(world.allAttackBubbles[i]);
+        world.allAttackBubbles[i].intervalClearStatus = true;
       }
     }
   }

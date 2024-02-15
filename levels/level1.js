@@ -66,8 +66,9 @@ const level1BackgroundObjects = [
   new BackgroundObject("./img/3. Background/Layers/1. Light/1.png", 899 * 4),
 ];
 const level1Barriers = [
-  new Barrier("./img/3. Background/Barrier/3.png", -660, 300, 630),
-  new Barrier("./img/3. Background/Barrier/3.png", 899 * 4.13, 300, 630),
+  new Barrier("./img/3. Background/Barrier/3.png", -660, 0, 300, 630),
+  new Barrier("./img/3. Background/Barrier/3.png", 899 * 4.13, 0, 300, 630),
+  new Barrier("./img/3. Background/Barrier/2.png", 400, 400, 300, 200),
 ];
 const level1Sizes = [-90, 440, -400, 3500];
 
