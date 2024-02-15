@@ -178,4 +178,59 @@ class Character extends MovableObject {
       this.adjustCameraPosition();
     }, 1000 / 60);
   }
+
+  /**
+   * Processes the collection of a poison bottle by the character.
+   *
+   * @param {Object} object - The object with which the collision check is performed.
+   */
+  isCollectingPoisionBottle(object) {
+    if (object instanceof PoisonBottle) {
+      if (world.statusBarPoisonBottle.percentage < 5) {
+        world.statusBarPoisonBottle.addPoisonBottle();
+        this.objectCollected(object);
+        soundCollectPoisonBottle.play();
+      }
+    }
+  }
+
+  /**
+   * Processes the collection of a coin by the character.
+   *
+   * @param {Object} object - The object with which the collision check is performed.
+   */
+  isCollectingCoin(object) {
+    if (object instanceof Coin) {
+      world.statusBarCoin.addCoin();
+      this.objectCollected(object);
+      soundCollectCoin.play();
+    }
+  }
+
+  /**
+   * Processes a collision between the character and an enemy.
+   *
+   * @param {Object} enemy - The enemy with which the collision is checked.
+   */
+  isCollidingEnemy(enemy) {
+    if (this.isColliding(enemy)) {
+      if (enemy instanceof JellyFish) {
+        this.hit("shock");
+      } else if (enemy instanceof PufferFish || enemy instanceof Endboss) {
+        this.hit("meele");
+      }
+      world.statusBarHp.setPercentage(this.hp);
+    }
+  }
+
+  /**
+   * Processes a collision of the character with a barrier.
+   *
+   * @param {Object} barrier - The barrier with which the collision is checked.
+   */
+  isCollidingBarrier(barrier) {
+    if (this.isColliding(barrier)) {
+      this.isColliding = true;
+    }
+  }
 }

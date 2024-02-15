@@ -87,38 +87,10 @@ class World {
   isCollectingObject() {
     this.level.objects.forEach((object) => {
       if (this.character.isColliding(object)) {
-        this.isCharacterCollectingPoisionBottle(object);
-        this.isCharacterCollectingCoin(object);
+        this.character.isCollectingPoisionBottle(object);
+        this.character.isCollectingCoin(object);
       }
     });
-  }
-
-  /**
-   * Processes the collection of a poison bottle by the character.
-   *
-   * @param {Object} object - The object with which the collision check is performed.
-   */
-  isCharacterCollectingPoisionBottle(object) {
-    if (object instanceof PoisonBottle) {
-      if (this.statusBarPoisonBottle.percentage < 5) {
-        this.statusBarPoisonBottle.addPoisonBottle();
-        this.character.objectCollected(object);
-        soundCollectPoisonBottle.play();
-      }
-    }
-  }
-
-  /**
-   * Processes the collection of a coin by the character.
-   *
-   * @param {Object} object - The object with which the collision check is performed.
-   */
-  isCharacterCollectingCoin(object) {
-    if (object instanceof Coin) {
-      this.statusBarCoin.addCoin();
-      this.character.objectCollected(object);
-      soundCollectCoin.play();
-    }
   }
 
   /**
@@ -127,25 +99,9 @@ class World {
   isCollidingEnemy() {
     const allEnemies = [...this.level.enemies, ...this.level.endboss];
     allEnemies.forEach((enemy) => {
-      this.isCharacterCollidingEnemy(enemy);
+      this.character.isCollidingEnemy(enemy);
       this.attackBubble.isCollidingEnemy(enemy);
     });
-  }
-
-  /**
-   * Processes a collision between the character and an enemy.
-   *
-   * @param {Object} enemy - The enemy with which the collision is checked.
-   */
-  isCharacterCollidingEnemy(enemy) {
-    if (this.character.isColliding(enemy)) {
-      if (enemy instanceof JellyFish) {
-        this.character.hit("shock");
-      } else if (enemy instanceof PufferFish || enemy instanceof Endboss) {
-        this.character.hit("meele");
-      }
-      this.statusBarHp.setPercentage(this.character.hp);
-    }
   }
 
   /**
@@ -153,20 +109,9 @@ class World {
    */
   isCollidingBarrier() {
     this.level.barrier.forEach((barrier) => {
-      this.isCharacterCollidingBarrier(barrier);
+      this.character.isCollidingBarrier(barrier);
       this.attackBubble.isCollidingBarrier(barrier);
     });
-  }
-
-  /**
-   * Processes a collision of the character with a barrier.
-   *
-   * @param {Object} barrier - The barrier with which the collision is checked.
-   */
-  isCharacterCollidingBarrier(barrier) {
-    if (this.character.isColliding(barrier)) {
-      this.character.isColliding = true;
-    }
   }
 
   /**
