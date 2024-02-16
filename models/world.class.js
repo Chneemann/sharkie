@@ -186,6 +186,10 @@ class World {
    * @param {MovableObject} mo - The movable object.
    */
   addToMap(mo) {
+    this.ctx.save();
+    if (mo.rotate) {
+      this.rotateObject(mo);
+    }
     if (mo.otherDirection) {
       this.flipImage(mo);
     }
@@ -194,6 +198,15 @@ class World {
     if (mo.otherDirection) {
       this.flipImageBack(mo);
     }
+    this.ctx.restore();
+  }
+
+  rotateObject(mo) {
+    const centerX = mo.x + mo.width / 2;
+    const centerY = mo.y + mo.height / 2;
+    this.ctx.translate(centerX, centerY);
+    this.ctx.rotate((mo.rotationAngle * Math.PI) / 180);
+    this.ctx.translate(-centerX, -centerY);
   }
 
   /**
@@ -215,6 +228,5 @@ class World {
    */
   flipImageBack(mo) {
     mo.x = mo.x * -1;
-    this.ctx.restore();
   }
 }
