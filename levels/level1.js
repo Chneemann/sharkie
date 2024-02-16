@@ -12,6 +12,7 @@ const level1Enemies = [
 ];
 const level1Endboss = [new Endboss()];
 const level1CollectableObjects = [
+  new Heart(400, 270),
   new Coin(600, 270),
   new Coin(750, 270),
   new Coin(750, 150),
