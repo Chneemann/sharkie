@@ -1,6 +1,6 @@
 class Coin extends MovableObject {
-  width = 35;
-  height = 35;
+  width = 40;
+  height = 40;
   enemyOffsetX = 0;
   enemyOffsetY = 0;
   enemyOffsetWidth = 0;
@@ -18,7 +18,7 @@ class Coin extends MovableObject {
 
   rotateImg() {
     setInterval(() => {
-      this.rotationAngle += this.rotationSpeed;
+      this.rotationAngle -= this.rotationSpeed;
       if (this.rotationAngle >= 360) {
         this.rotationAngle = 0;
       }
