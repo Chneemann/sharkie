@@ -5,7 +5,7 @@ class Keyboard {
   DOWN = false;
   SPACE = false;
   MOVE = false;
-  lastInput;
+  lastInput = "right";
 
   constructor() {
     document.addEventListener("DOMContentLoaded", () => {

@@ -156,17 +156,35 @@ class World {
     });
   }
 
+  /**
+   * Adds text at a specific position on the canvas.
+   *
+   * @param {string} text - The text to be displayed.
+   * @param {string} size - The size and font
+   * @param {number} x - The x-position.
+   * @param {number} y - The Y position.
+   */
   addTextToMap(text, size, x, y) {
     this.ctx.font = size + " water-galon";
     this.ctx.fillText(text, x, y);
   }
 
+  /**
+   * Adds a list of objects to the canvas.
+   *
+   * @param {Object[]} objects - An array of objects
+   */
   addObjectsToMap(objects) {
     objects.forEach((o) => {
       this.addToMap(o);
     });
   }
 
+  /**
+   * Adds a single movable object to the canvas.
+   *
+   * @param {MovableObject} mo - The movable object.
+   */
   addToMap(mo) {
     if (mo.otherDirection) {
       this.flipImage(mo);
@@ -178,6 +196,11 @@ class World {
     }
   }
 
+  /**
+   * Mirrors the image of a moving object horizontally.
+   *
+   * @param {MovableObject} mo - The object to be mirrored.
+   */
   flipImage(mo) {
     this.ctx.save();
     this.ctx.translate(mo.width, 0);
@@ -185,6 +208,11 @@ class World {
     mo.x = mo.x * -1;
   }
 
+  /**
+   * Restores the original orientation of the image
+   *
+   * @param {MovableObject} mo - The object that is being restored.
+   */
   flipImageBack(mo) {
     mo.x = mo.x * -1;
     this.ctx.restore();

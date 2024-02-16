@@ -115,7 +115,7 @@ class AttackBubble extends MovableObject {
   }
 
   /**
-   * Checks whether the player has more than one bottle of poison.
+   * Checks whether the player had a poison bottle at that moment.
    *
    * @returns {boolean} true or false
    */
