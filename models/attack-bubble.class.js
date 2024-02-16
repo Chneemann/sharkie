@@ -73,34 +73,54 @@ class AttackBubble extends MovableObject {
    * Controls the spawning of a new attack bubble.
    */
   checkSpawn() {
-    let direction;
-    let characterX;
-    let poisonedBubble;
     if (keyboard.SPACE) {
-      if (keyboard.lastInput == "right") {
-        direction = "right";
-        characterX = world.character.x;
-      } else if (keyboard.lastInput == "left") {
-        direction = "left";
-        characterX = world.character.x - world.character.width;
-      }
-      if (world.statusBarPoisonBottle.percentage >= 1) {
-        poisonedBubble = true;
-      }
-
-      let poisonAttackBubble = new AttackBubble(
-        characterX,
-        world.character.y,
-        direction,
-        poisonedBubble
-      );
       soundAttackBubble.play();
-      world.allAttackBubbles.push(poisonAttackBubble);
+      world.allAttackBubbles.push(this.addNewAttackBubble());
       if (world.statusBarPoisonBottle.percentage >= 1) {
         world.statusBarPoisonBottle.removePoisonBottle();
       }
       keyboard.SPACE = false;
     }
+  }
+
+  /**
+   * Creates a new attack bubble
+   */
+  addNewAttackBubble() {
+    const { direction, characterX, characterY } = this.checkDirection();
+    return new AttackBubble(
+      characterX,
+      characterY,
+      direction,
+      this.checkPoisionedBubble()
+    );
+  }
+
+  /**
+   * Determines the current direction of movement of the character and its X and Y position.
+   * @returns {Object} Contains the direction of movement, X/Y position of the character
+   */
+  checkDirection() {
+    let direction;
+    let characterX;
+    let characterY = world.character.y;
+    if (keyboard.lastInput === "right") {
+      direction = "right";
+      characterX = world.character.x;
+    } else if (keyboard.lastInput === "left") {
+      direction = "left";
+      characterX = world.character.x - world.character.width;
+    }
+    return { direction, characterX, characterY };
+  }
+
+  /**
+   * Checks whether the player has more than one bottle of poison.
+   *
+   * @returns {boolean} true or false
+   */
+  checkPoisionedBubble() {
+    return world.statusBarPoisonBottle.percentage >= 1;
   }
 
   /**
