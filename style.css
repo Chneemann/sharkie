@@ -93,7 +93,7 @@ h1 {
   gap: 5%;
 }
 
-#playbuttons img {
+#playbtns img {
   height: 100%;
   width: auto;
   border-radius: 20px;
@@ -103,8 +103,8 @@ h1 {
   padding: 5px;
 }
 
-#playbuttons img:hover,
-#playbuttons img:focus {
+#playbtns img:hover,
+#playbtns img:focus {
   background-color: lightgray;
 }
 
