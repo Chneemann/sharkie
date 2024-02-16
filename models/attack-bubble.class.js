@@ -112,9 +112,16 @@ class AttackBubble extends MovableObject {
     for (let i = 0; i < world.allAttackBubbles.length; i++) {
       if (world.allAttackBubbles[i].isColliding(enemy)) {
         soundAttackBubbleHit.play();
-        enemy.hp--;
-        world.endboss.checkHp(enemy);
         enemy.objectCollected(world.allAttackBubbles[i]);
+        if (
+          world.allAttackBubbles[i].poisonedBubble &&
+          enemy == world.endboss
+        ) {
+          enemy.hp--;
+          world.endboss.checkHp(enemy);
+        } else if (enemy != world.endboss) {
+          enemy.hp--;
+        }
         world.allAttackBubbles[i].intervalClearStatus = true;
         if (enemy.hp == 0) {
           enemy.dead = true;
