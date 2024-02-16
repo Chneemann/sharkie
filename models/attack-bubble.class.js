@@ -7,18 +7,26 @@ class AttackBubble extends MovableObject {
   characterOffsetHeight = 0;
   intervalClearStatus = false;
 
-  IMAGE = [
+  IMAGE_NORMAL = ["img/1.Sharkie/4.Attack/Bubble trap/Bubble.png"];
+
+  IMAGE_POISONED = [
     "img/1.Sharkie/4.Attack/Bubble trap/Poisoned Bubble (for whale).png",
   ];
 
-  constructor(x, y, direction) {
-    super().loadImage(
-      "./img/1.Sharkie/4.Attack/Bubble trap/Poisoned Bubble (for whale).png"
-    );
-    this.loadImages(this.IMAGE);
+  constructor(x, y, direction, poisonedBubble) {
+    if (poisonedBubble) {
+      super().loadImage(
+        "img/1.Sharkie/4.Attack/Bubble trap/Poisoned Bubble (for whale).png"
+      );
+    } else {
+      super().loadImage("img/1.Sharkie/4.Attack/Bubble trap/Bubble.png");
+    }
+    this.loadImages(this.IMAGE_NORMAL);
+    this.loadImages(this.IMAGE_POISONED);
     this.x = x + 210;
     this.y = y + 100;
     this.bubbleMoveTo = direction;
+    this.poisonedBubble = poisonedBubble;
     this.animate();
   }
 
@@ -32,7 +40,11 @@ class AttackBubble extends MovableObject {
       this.attackbubbleleft();
     }
     const intervalId = setInterval(() => {
-      this.playAnimation(this.IMAGE);
+      if (this.poisonedBubble) {
+        this.playAnimation(this.IMAGE_POISONED);
+      } else {
+        this.playAnimation(this.IMAGE_NORMAL);
+      }
       stopInterval(this.intervalClearStatus, intervalId);
     }, 150);
   }
@@ -63,7 +75,8 @@ class AttackBubble extends MovableObject {
   checkSpawn() {
     let direction;
     let characterX;
-    if (keyboard.SPACE && world.statusBarPoisonBottle.percentage >= 1) {
+    let poisonedBubble;
+    if (keyboard.SPACE) {
       if (keyboard.lastInput == "right") {
         direction = "right";
         characterX = world.character.x;
@@ -71,14 +84,21 @@ class AttackBubble extends MovableObject {
         direction = "left";
         characterX = world.character.x - world.character.width;
       }
+      if (world.statusBarPoisonBottle.percentage >= 1) {
+        poisonedBubble = true;
+      }
+
       let poisonAttackBubble = new AttackBubble(
         characterX,
         world.character.y,
-        direction
+        direction,
+        poisonedBubble
       );
       soundAttackBubble.play();
       world.allAttackBubbles.push(poisonAttackBubble);
-      world.statusBarPoisonBottle.removePoisonBottle();
+      if (world.statusBarPoisonBottle.percentage >= 1) {
+        world.statusBarPoisonBottle.removePoisonBottle();
+      }
       keyboard.SPACE = false;
     }
   }

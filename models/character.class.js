@@ -35,14 +35,13 @@ class Character extends MovableObject {
     "img/1.Sharkie/3.Swim/6.png",
   ];
   IMAGES_ATTACK = [
-    "img/1.Sharkie/4.Attack/Bubble trap/For Whale/1.png",
-    "img/1.Sharkie/4.Attack/Bubble trap/For Whale/2.png",
-    "img/1.Sharkie/4.Attack/Bubble trap/For Whale/3.png",
-    "img/1.Sharkie/4.Attack/Bubble trap/For Whale/4.png",
-    "img/1.Sharkie/4.Attack/Bubble trap/For Whale/5.png",
-    "img/1.Sharkie/4.Attack/Bubble trap/For Whale/6.png",
-    "img/1.Sharkie/4.Attack/Bubble trap/For Whale/7.png",
-    "img/1.Sharkie/4.Attack/Bubble trap/For Whale/8.png",
+    "img/1.Sharkie/4.Attack/Bubble trap/Op2 (Without Bubbles)/1.png",
+    "img/1.Sharkie/4.Attack/Bubble trap/Op2 (Without Bubbles)/2.png",
+    "img/1.Sharkie/4.Attack/Bubble trap/Op2 (Without Bubbles)/3.png",
+    "img/1.Sharkie/4.Attack/Bubble trap/Op2 (Without Bubbles)/4.png",
+    "img/1.Sharkie/4.Attack/Bubble trap/Op2 (Without Bubbles)/5.png",
+    "img/1.Sharkie/4.Attack/Bubble trap/Op2 (Without Bubbles)/6.png",
+    "img/1.Sharkie/4.Attack/Bubble trap/Op2 (Without Bubbles)/7.png",
   ];
   IMAGES_HURT_MEELE = [
     "img/1.Sharkie/5.Hurt/1.Poisoned/1.png",
@@ -120,10 +119,7 @@ class Character extends MovableObject {
         this.playAnimation(this.IMAGES_HURT_MEELE);
       } else if (this.isHurt("lastHitElectricShock")) {
         this.playAnimation(this.IMAGES_HURT_ELECTRIC_SHOCK);
-      } else if (
-        this.lastAnimation(0.85) &&
-        this.world.statusBarPoisonBottle.percentage >= 1
-      ) {
+      } else if (this.lastAnimation(0.85)) {
         this.playAnimation(this.IMAGES_ATTACK);
       } else if (this.world.keyboard.MOVE) {
         this.playAnimation(this.IMAGES_MOVE);
