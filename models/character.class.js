@@ -204,6 +204,23 @@ class Character extends MovableObject {
   }
 
   /**
+   * Processes the collection of a heart by the character.
+   *
+   * @param {Object} object - The object with which the collision check is performed.
+   */
+  isCollectingHeart(object) {
+    if (object instanceof Heart) {
+      if (this.hp <= 80) {
+        this.hp += 20;
+        world.statusBarHp.percentage += 20;
+        world.statusBarHp.setPercentage(world.statusBarHp.percentage);
+        this.objectCollected(object);
+        soundCollectCoin.play();
+      }
+    }
+  }
+
+  /**
    * Processes a collision between the character and an enemy.
    *
    * @param {Object} enemy - The enemy with which the collision is checked.

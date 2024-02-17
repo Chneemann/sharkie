@@ -89,6 +89,7 @@ class World {
       if (this.character.isColliding(object)) {
         this.character.isCollectingPoisionBottle(object);
         this.character.isCollectingCoin(object);
+        this.character.isCollectingHeart(object);
       }
     });
   }
