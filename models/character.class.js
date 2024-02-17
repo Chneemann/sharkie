@@ -139,7 +139,7 @@ class Character extends MovableObject {
         this.x <= this.world.level.levelEnd_right &&
         !this.isDead()
       ) {
-        this.x += 13;
+        this.x += 3;
         this.otherDirection = false;
         soundCharacterMove.play();
       }
