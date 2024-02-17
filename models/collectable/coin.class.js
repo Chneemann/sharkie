@@ -6,8 +6,6 @@ class Coin extends MovableObject {
   enemyOffsetWidth = 0;
   enemyOffsetHeight = 0;
   rotate = true;
-  rotationAngle = 0;
-  rotationSpeed = 2;
 
   constructor(x, y) {
     super().loadImage("./img/4. Marcadores/1. Coins/1.png");
@@ -17,10 +15,12 @@ class Coin extends MovableObject {
   }
 
   rotateImg() {
+    let rotationAngle = 0;
+    let rotationSpeed = 2;
     setInterval(() => {
-      this.rotationAngle -= this.rotationSpeed;
-      if (this.rotationAngle >= 360) {
-        this.rotationAngle = 0;
+      rotationAngle -= rotationSpeed;
+      if (rotationAngle >= 360) {
+        rotationAngle = 0;
       }
     }, 10);
   }
