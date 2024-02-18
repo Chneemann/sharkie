@@ -148,4 +148,14 @@ class Keyboard {
       });
     });
   }
+
+  /**
+   * Checks whether a specific key has been pressed on the keyboard.
+   *
+   * @param {string} btn - The key to be checked
+   * @returns {boolean} true or false
+   */
+  btnPressed(btn) {
+    return world.keyboard[btn];
+  }
 }

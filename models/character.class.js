@@ -136,28 +136,28 @@ class Character extends MovableObject {
   moveCharacter() {
     setInterval(() => {
       if (
-        this.world.keyboard.RIGHT &&
+        keyboard.btnPressed("RIGHT") &&
         this.x <= this.world.level.levelEnd_right &&
         !this.isDead()
       ) {
         this.moveRight();
       }
       if (
-        this.world.keyboard.LEFT &&
+        keyboard.btnPressed("LEFT") &&
         this.x >= this.world.level.levelEnd_left &&
         !this.isDead()
       ) {
         this.moveLeft();
       }
       if (
-        this.world.keyboard.UP &&
+        keyboard.btnPressed("UP") &&
         this.y >= this.world.level.levelEnd_up &&
         !this.isDead()
       ) {
         this.moveUp();
       }
       if (
-        this.world.keyboard.DOWN &&
+        keyboard.btnPressed("DOWN") &&
         this.y <= this.world.level.levelEnd_down &&
         !this.isDead()
       ) {
