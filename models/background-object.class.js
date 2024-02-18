@@ -1,7 +1,8 @@
 class BackgroundObject extends MovableObject {
   width = 900;
   height = 600;
-  isAnimating = false;
+  speed = 0.2;
+  motionRange = 500;
 
   constructor(imagePath, x) {
     super().loadImage(imagePath);
@@ -10,17 +11,24 @@ class BackgroundObject extends MovableObject {
   }
 
   /**
-   * Controls the animations
+   * Moves the background alternately to the right and left
    */
   animateBackground() {
-    if (!this.isAnimating) {
-      this.isAnimating = true;
-      setInterval(() => {
-        this.x -= 0.5;
-        if (this.x <= -(this.width * 4) + this.width * 2) {
-          this.x = this.width * 4 + this.width - 1;
+    this.movingRight = true;
+    this.startX = this.x;
+
+    setInterval(() => {
+      if (this.movingRight) {
+        this.x -= this.speed;
+        if (this.x <= this.startX - this.motionRange) {
+          this.movingRight = false;
         }
-      }, 100);
-    }
+      } else {
+        this.x += this.speed;
+        if (this.x >= this.startX) {
+          this.movingRight = true;
+        }
+      }
+    }, 20);
   }
 }
