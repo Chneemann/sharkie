@@ -204,9 +204,13 @@ class Character extends MovableObject {
    */
   isCollectingHeart(object) {
     if (object instanceof Heart) {
-      if (this.hp <= 80) {
+      if (this.hp <= 99) {
         this.hp += 20;
         world.statusBarHp.percentage += 20;
+        if (this.hp > 100) {
+          this.hp = 100;
+          world.statusBarHp.percentage = 100;
+        }
         world.statusBarHp.setPercentage(world.statusBarHp.percentage);
         this.objectCollected(object);
         soundCollectCoin.play();
