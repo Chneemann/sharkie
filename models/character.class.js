@@ -5,6 +5,7 @@ class Character extends MovableObject {
   characterOffsetY = 95;
   characterOffsetWidth = 90;
   characterOffsetHeight = 140;
+  stop = false;
 
   IMAGES_IDLE = [
     "img/1.Sharkie/1.IDLE/1.png",
@@ -139,34 +140,28 @@ class Character extends MovableObject {
         this.x <= this.world.level.levelEnd_right &&
         !this.isDead()
       ) {
-        this.x += 3;
-        this.otherDirection = false;
-        soundCharacterMove.play();
+        this.moveRight();
       }
       if (
         this.world.keyboard.LEFT &&
         this.x >= this.world.level.levelEnd_left &&
         !this.isDead()
       ) {
-        this.x -= 3;
-        this.otherDirection = true;
-        soundCharacterMove.play();
+        this.moveLeft();
       }
       if (
         this.world.keyboard.UP &&
         this.y >= this.world.level.levelEnd_up &&
         !this.isDead()
       ) {
-        this.y -= 3;
-        soundCharacterMove.play();
+        this.moveUp();
       }
       if (
         this.world.keyboard.DOWN &&
         this.y <= this.world.level.levelEnd_down &&
         !this.isDead()
       ) {
-        this.y += 3;
-        soundCharacterMove.play();
+        this.moveDown();
       }
       if (this.world.keyboard.SPACE && !this.isDead()) {
         this.lastAnimate = new Date().getTime();
@@ -245,5 +240,39 @@ class Character extends MovableObject {
     if (this.isColliding(barrier)) {
       console.log("colliding");
     }
+  }
+
+  /**
+   * Character moves to the right
+   */
+  moveRight() {
+    this.x += 3;
+    this.otherDirection = false;
+    soundCharacterMove.play();
+  }
+
+  /**
+   * Character moves to the left
+   */
+  moveLeft() {
+    this.x -= 3;
+    this.otherDirection = true;
+    soundCharacterMove.play();
+  }
+
+  /**
+   * Character moves upwards
+   */
+  moveUp() {
+    this.y -= 3;
+    soundCharacterMove.play();
+  }
+
+  /**
+   * Character moves downwards
+   */
+  moveDown() {
+    this.y += 3;
+    soundCharacterMove.play();
   }
 }
