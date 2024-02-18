@@ -137,33 +137,33 @@ class Character extends MovableObject {
     setInterval(() => {
       if (
         keyboard.btnPressed("RIGHT") &&
-        this.x <= this.world.level.levelEnd_right &&
+        world.level.isWorldEnd("right") &&
         !this.isDead()
       ) {
         this.moveRight();
       }
       if (
         keyboard.btnPressed("LEFT") &&
-        this.x >= this.world.level.levelEnd_left &&
+        world.level.isWorldEnd("left") &&
         !this.isDead()
       ) {
         this.moveLeft();
       }
       if (
         keyboard.btnPressed("UP") &&
-        this.y >= this.world.level.levelEnd_up &&
+        world.level.isWorldEnd("up") &&
         !this.isDead()
       ) {
         this.moveUp();
       }
       if (
         keyboard.btnPressed("DOWN") &&
-        this.y <= this.world.level.levelEnd_down &&
+        world.level.isWorldEnd("down") &&
         !this.isDead()
       ) {
         this.moveDown();
       }
-      if (this.world.keyboard.SPACE && !this.isDead()) {
+      if (keyboard.btnPressed("SPACE") && !this.isDead()) {
         this.lastAnimate = new Date().getTime();
       }
       this.adjustCameraPosition();

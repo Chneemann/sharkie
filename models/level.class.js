@@ -35,4 +35,16 @@ class Level {
     this.backgroundObjects[5].animateBackground();
     this.backgroundObjects[6].animateBackground();
   }
+
+  isWorldEnd(end) {
+    if (end == "right") {
+      return world.character.x <= this.levelEnd_right;
+    } else if (end == "left") {
+      return world.character.x >= this.levelEnd_left;
+    } else if (end == "up") {
+      return world.character.y >= this.levelEnd_up;
+    } else if (end == "down") {
+      return world.character.y <= this.levelEnd_down;
+    }
+  }
 }
