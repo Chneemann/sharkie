@@ -110,7 +110,6 @@ class World {
    */
   isCollidingBarrier() {
     this.level.barrier.forEach((barrier) => {
-      this.character.isCollidingBarrier(barrier);
       this.attackBubble.isCollidingBarrier(barrier);
     });
   }

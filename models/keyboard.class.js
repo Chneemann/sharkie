@@ -5,7 +5,9 @@ class Keyboard {
   DOWN = false;
   SPACE = false;
   MOVE = false;
+
   lastInputX = "right";
+  lastInputY;
 
   constructor() {
     document.addEventListener("DOMContentLoaded", () => {
@@ -22,19 +24,25 @@ class Keyboard {
       if (e.code === "ArrowUp" || e.code === "KeyW") {
         this.UP = true;
         this.MOVE = true;
+        this.lastInput = "up";
+        this.lastInputY = "up";
       }
       if (e.code === "ArrowDown" || e.code === "KeyS") {
         this.DOWN = true;
         this.MOVE = true;
+        this.lastInput = "down";
+        this.lastInputY = "down";
       }
       if (e.code === "ArrowRight" || e.code === "KeyD") {
         this.RIGHT = true;
         this.MOVE = true;
+        this.lastInput = "right";
         this.lastInputX = "right";
       }
       if (e.code === "ArrowLeft" || e.code === "KeyA") {
         this.LEFT = true;
         this.MOVE = true;
+        this.lastInput = "left";
         this.lastInputX = "left";
       }
       if (e.code === "Space") {
@@ -78,6 +86,7 @@ class Keyboard {
         action: () => {
           this.LEFT = true;
           this.MOVE = true;
+          this.lastInput = "left";
           this.lastInputX = "left";
         },
         actionEnd: () => {
@@ -90,6 +99,7 @@ class Keyboard {
         action: () => {
           this.RIGHT = true;
           this.MOVE = true;
+          this.lastInput = "right";
           this.lastInputX = "right";
         },
         actionEnd: () => {
@@ -102,6 +112,8 @@ class Keyboard {
         action: () => {
           this.UP = true;
           this.MOVE = true;
+          this.lastInput = "up";
+          this.lastInputY = "up";
         },
         actionEnd: () => {
           this.UP = false;
@@ -113,6 +125,8 @@ class Keyboard {
         action: () => {
           this.DOWN = true;
           this.MOVE = true;
+          this.lastInput = "down";
+          this.lastInputY = "down";
         },
         actionEnd: () => {
           this.DOWN = false;

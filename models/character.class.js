@@ -231,17 +231,6 @@ class Character extends MovableObject {
   }
 
   /**
-   * Processes a collision of the character with a barrier.
-   *
-   * @param {Object} barrier - The barrier with which the collision is checked.
-   */
-  isCollidingBarrier(barrier) {
-    if (this.isColliding(barrier)) {
-      console.log("colliding");
-    }
-  }
-
-  /**
    * Character moves to the right
    */
   moveRight() {
