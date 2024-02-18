@@ -5,7 +5,7 @@ class Keyboard {
   DOWN = false;
   SPACE = false;
   MOVE = false;
-  lastInput = "right";
+  lastInputX = "right";
 
   constructor() {
     document.addEventListener("DOMContentLoaded", () => {
@@ -30,12 +30,12 @@ class Keyboard {
       if (e.code === "ArrowRight" || e.code === "KeyD") {
         this.RIGHT = true;
         this.MOVE = true;
-        this.lastInput = "right";
+        this.lastInputX = "right";
       }
       if (e.code === "ArrowLeft" || e.code === "KeyA") {
         this.LEFT = true;
         this.MOVE = true;
-        this.lastInput = "left";
+        this.lastInputX = "left";
       }
       if (e.code === "Space") {
         this.SPACE = true;
@@ -78,7 +78,7 @@ class Keyboard {
         action: () => {
           this.LEFT = true;
           this.MOVE = true;
-          this.lastInput = "left";
+          this.lastInputX = "left";
         },
         actionEnd: () => {
           this.LEFT = false;
@@ -90,7 +90,7 @@ class Keyboard {
         action: () => {
           this.RIGHT = true;
           this.MOVE = true;
-          this.lastInput = "right";
+          this.lastInputX = "right";
         },
         actionEnd: () => {
           this.RIGHT = false;

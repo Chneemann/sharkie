@@ -104,10 +104,10 @@ class AttackBubble extends MovableObject {
     let direction;
     let characterX;
     let characterY = world.character.y;
-    if (keyboard.lastInput === "right") {
+    if (keyboard.lastInputX === "right") {
       direction = "right";
       characterX = world.character.x;
-    } else if (keyboard.lastInput === "left") {
+    } else if (keyboard.lastInputX === "left") {
       direction = "left";
       characterX = world.character.x - world.character.width;
     }

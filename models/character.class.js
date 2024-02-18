@@ -5,7 +5,6 @@ class Character extends MovableObject {
   characterOffsetY = 95;
   characterOffsetWidth = 90;
   characterOffsetHeight = 140;
-  stop = false;
 
   IMAGES_IDLE = [
     "img/1.Sharkie/1.IDLE/1.png",

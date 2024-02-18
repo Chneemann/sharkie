@@ -36,15 +36,19 @@ class Level {
     this.backgroundObjects[6].animateBackground();
   }
 
+  /**
+   * Checks whether the character has reached the end of the level
+   *
+   * @param {string} end - The direction to be checked
+   * @returns {boolean} true or false
+   */
   isWorldEnd(end) {
-    if (end == "right") {
-      return world.character.x <= this.levelEnd_right;
-    } else if (end == "left") {
-      return world.character.x >= this.levelEnd_left;
-    } else if (end == "up") {
-      return world.character.y >= this.levelEnd_up;
-    } else if (end == "down") {
-      return world.character.y <= this.levelEnd_down;
-    }
+    const check = {
+      right: () => world.character.x <= this.levelEnd_right,
+      left: () => world.character.x >= this.levelEnd_left,
+      up: () => world.character.y >= this.levelEnd_up,
+      down: () => world.character.y <= this.levelEnd_down,
+    };
+    return check[end] ? check[end]() : undefined;
   }
 }
