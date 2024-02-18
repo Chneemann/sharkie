@@ -1,8 +1,6 @@
 class BackgroundObject extends MovableObject {
   width = 900;
   height = 600;
-  speed = 0.2;
-  motionRange = 500;
 
   constructor(imagePath, x) {
     super().loadImage(imagePath);
@@ -11,21 +9,25 @@ class BackgroundObject extends MovableObject {
   }
 
   /**
-   * Moves the background alternately to the right and left
+   * Animates the background by horizontal movement within a certain movement range.
+   *
+   * @param {number} speed - The speed
+   * @param {number} motionRange - The maximum motion range
+   * @param {string} startDirection - The initial direction of movement
    */
-  animateBackground() {
-    this.movingRight = true;
+  animateBackground(speed, motionRange, startDirection) {
+    this.movingRight = startDirection === "right";
     this.startX = this.x;
 
     setInterval(() => {
       if (this.movingRight) {
-        this.x -= this.speed;
-        if (this.x <= this.startX - this.motionRange) {
+        this.x -= speed;
+        if (this.x <= this.startX - motionRange) {
           this.movingRight = false;
         }
       } else {
-        this.x += this.speed;
-        if (this.x >= this.startX) {
+        this.x += speed;
+        if (this.x >= this.startX + motionRange) {
           this.movingRight = true;
         }
       }

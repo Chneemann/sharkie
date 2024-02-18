@@ -27,13 +27,20 @@ class Level {
     this.levelEnd_left = levelSize[2];
     this.levelEnd_right = levelSize[3];
 
-    this.backgroundObjects[0].animateBackground();
-    this.backgroundObjects[1].animateBackground();
-    this.backgroundObjects[2].animateBackground();
-    this.backgroundObjects[3].animateBackground();
-    this.backgroundObjects[4].animateBackground();
-    this.backgroundObjects[5].animateBackground();
-    this.backgroundObjects[6].animateBackground();
+    this.backgroundObjects[0].animateBackground(0.2, 500, "right");
+    this.backgroundObjects[1].animateBackground(0.2, 500, "right");
+    this.backgroundObjects[2].animateBackground(0.2, 500, "right");
+    this.backgroundObjects[3].animateBackground(0.2, 500, "right");
+    this.backgroundObjects[4].animateBackground(0.2, 500, "right");
+    this.backgroundObjects[5].animateBackground(0.2, 500, "right");
+    this.backgroundObjects[6].animateBackground(0.2, 500, "right");
+
+    this.backgroundObjects[25].animateBackground(0.1, 50, "left");
+    this.backgroundObjects[26].animateBackground(0.1, 50, "left");
+    this.backgroundObjects[27].animateBackground(0.1, 50, "left");
+    this.backgroundObjects[28].animateBackground(0.1, 50, "left");
+    this.backgroundObjects[29].animateBackground(0.1, 50, "left");
+    this.backgroundObjects[30].animateBackground(0.1, 50, "left");
   }
 
   /**
