@@ -9,6 +9,7 @@ class Endboss extends MovableObject {
   enemyOffsetY = 220;
   enemyOffsetWidth = 60;
   enemyOffsetHeight = 300;
+  speed = 1;
 
   IMAGES_SPAWN = [
     "./img/2.Enemy/3 Final Enemy/1.Introduce/1.png",
@@ -127,26 +128,71 @@ class Endboss extends MovableObject {
   attackCharacter() {
     setInterval(() => {
       if (this.idle) {
-        if (
-          world.character.x >
-          this.x + (this.width - this.enemyOffsetWidth) / 2
-        ) {
-          this.x += this.speed;
-          this.otherDirection = true;
+        if (world.character.x > this.x - 50) {
+          if (world.character.x > this.x + 300) {
+            this.moveRight();
+          }
+          this.checkDirectionRight();
         } else {
-          this.x -= this.speed;
-          this.otherDirection = false;
+          this.moveLeft();
+          this.checkDirectionLeft();
         }
         if (
           world.character.y >
           this.y + (this.height - this.enemyOffsetHeight)
         ) {
-          this.y += this.speed;
+          this.moveDown();
         } else {
-          this.y -= this.speed;
+          this.moveUp();
         }
       }
-    }, 1);
+    }, 1000 / 60);
+  }
+
+  /**
+   * Endboss moves to the right
+   */
+  moveRight() {
+    this.x += this.speed;
+  }
+
+  /**
+   * Endboss moves to the left
+   */
+  moveLeft() {
+    this.x -= this.speed;
+  }
+
+  /**
+   * Endboss moves upwards
+   */
+  moveUp() {
+    this.y -= this.speed;
+  }
+
+  /**
+   * Endboss moves downwards
+   */
+  moveDown() {
+    this.y += this.speed;
+  }
+
+  /**
+   * Checks whether the character is to the left of the centre of the object
+   */
+  checkDirectionLeft() {
+    if (world.character.x < this.x + (this.width - this.enemyOffsetWidth) / 2) {
+      this.otherDirection = false;
+    }
+  }
+
+  /**
+   * Checks whether the character is to the right of the centre of the object
+   */
+  checkDirectionRight() {
+    if (world.character.x > this.x + (this.width - this.enemyOffsetWidth) / 2) {
+      this.otherDirection = true;
+    }
   }
 
   /**

@@ -5,6 +5,7 @@ class Character extends MovableObject {
   characterOffsetY = 95;
   characterOffsetWidth = 90;
   characterOffsetHeight = 140;
+  speed = 7;
   lastAttack;
 
   IMAGES_IDLE = [
@@ -254,7 +255,7 @@ class Character extends MovableObject {
    * Character moves to the right
    */
   moveRight() {
-    this.x += 3;
+    this.x += this.speed;
     this.otherDirection = false;
     soundCharacterMove.play();
   }
@@ -263,7 +264,7 @@ class Character extends MovableObject {
    * Character moves to the left
    */
   moveLeft() {
-    this.x -= 3;
+    this.x -= this.speed;
     this.otherDirection = true;
     soundCharacterMove.play();
   }
@@ -272,7 +273,7 @@ class Character extends MovableObject {
    * Character moves upwards
    */
   moveUp() {
-    this.y -= 3;
+    this.y -= this.speed;
     soundCharacterMove.play();
   }
 
@@ -280,7 +281,7 @@ class Character extends MovableObject {
    * Character moves downwards
    */
   moveDown() {
-    this.y += 3;
+    this.y += this.speed;
     soundCharacterMove.play();
   }
 }
