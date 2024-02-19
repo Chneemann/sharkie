@@ -126,7 +126,7 @@ class Character extends MovableObject {
       } else if (!this.world.keyboard.MOVE) {
         this.playAnimation(this.IMAGES_IDLE);
       }
-    }, 150);
+    }, 100);
   }
 
   /**

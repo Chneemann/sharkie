@@ -13,7 +13,7 @@ class AttackBubble extends MovableObject {
     "img/1.Sharkie/4.Attack/Bubble trap/Poisoned Bubble (for whale).png",
   ];
 
-  constructor(x, y, direction, poisonedBubble) {
+  constructor(x, y, direction, time, poisonedBubble) {
     if (poisonedBubble) {
       super().loadImage(
         "img/1.Sharkie/4.Attack/Bubble trap/Poisoned Bubble (for whale).png"
@@ -27,6 +27,7 @@ class AttackBubble extends MovableObject {
     this.y = y + 100;
     this.bubbleMoveTo = direction;
     this.poisonedBubble = poisonedBubble;
+    this.time = time;
     this.animate();
   }
 
@@ -73,7 +74,7 @@ class AttackBubble extends MovableObject {
    * Controls the spawning of a new attack bubble.
    */
   checkSpawn() {
-    if (keyboard.SPACE) {
+    if (keyboard.SPACE && this.canCreateNewAttackBubble()) {
       soundAttackBubble.play();
       world.allAttackBubbles.push(this.addNewAttackBubble());
       if (world.statusBarPoisonBottle.percentage >= 1) {
@@ -83,15 +84,27 @@ class AttackBubble extends MovableObject {
     }
   }
 
+  canCreateNewAttackBubble() {
+    if (world.allAttackBubbles.length > 0) {
+      const currentTime = new Date().getTime();
+      const lastBubbleTime =
+        world.allAttackBubbles[world.allAttackBubbles.length - 1].time;
+      return currentTime > lastBubbleTime + 1000;
+    } else {
+      return true;
+    }
+  }
+
   /**
    * Creates a new attack bubble
    */
   addNewAttackBubble() {
-    const { direction, characterX, characterY } = this.checkDirection();
+    const { direction, characterX, characterY, time } = this.checkDirection();
     return new AttackBubble(
       characterX,
       characterY,
       direction,
+      time,
       this.checkPoisionedBubble()
     );
   }
@@ -104,6 +117,7 @@ class AttackBubble extends MovableObject {
     let direction;
     let characterX;
     let characterY = world.character.y;
+    let time = new Date().getTime();
     if (keyboard.lastInputX === "right") {
       direction = "right";
       characterX = world.character.x;
@@ -111,7 +125,7 @@ class AttackBubble extends MovableObject {
       direction = "left";
       characterX = world.character.x - world.character.width;
     }
-    return { direction, characterX, characterY };
+    return { direction, characterX, characterY, time };
   }
 
   /**
