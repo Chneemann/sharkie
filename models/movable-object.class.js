@@ -14,7 +14,7 @@ class MovableObject extends DrawableObject {
    * @param {string} hit - The type of hit.
    */
   hit(hit) {
-    //this.hp -= 2;
+    this.hp -= 2;
     if (this.hp < 0) {
       this.hp = 0;
     } else {
