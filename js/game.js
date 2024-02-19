@@ -75,6 +75,9 @@ function detectMobile() {
   return toMatch.some((toMatchItem) => navigator.userAgent.match(toMatchItem));
 }
 
+/**
+ * Show or hide the help menu
+ */
 function help() {
   document.getElementById("helpscreen").classList.toggle("d-none");
 }

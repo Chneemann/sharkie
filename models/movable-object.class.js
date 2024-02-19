@@ -82,6 +82,12 @@ class MovableObject extends DrawableObject {
    * @param {string[]} images - The paths to the images.
    */
   playAnimation(images) {
+    // Überprüfen, ob die neue Animation anders ist als die aktuelle
+    if (this.currentAnimation !== images) {
+      this.currentImage = 0; // Zurücksetzen von currentImage, wenn eine neue Animation abgespielt wird
+      this.currentAnimation = images; // Aktualisieren der aktuellen Animation
+    }
+
     let i = this.currentImage % images.length;
     let path = images[i];
     this.img = this.imageCache[path];
