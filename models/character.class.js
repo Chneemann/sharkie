@@ -5,7 +5,7 @@ class Character extends MovableObject {
   characterOffsetY = 95;
   characterOffsetWidth = 90;
   characterOffsetHeight = 140;
-  lastAttackTime;
+  lastAttack;
 
   IMAGES_IDLE = [
     "img/1.Sharkie/1.IDLE/1.png",
@@ -120,11 +120,11 @@ class Character extends MovableObject {
         this.playAnimation(this.IMAGES_HURT_MEELE);
       } else if (this.isHurt("lastHitElectricShock")) {
         this.playAnimation(this.IMAGES_HURT_ELECTRIC_SHOCK);
-      } else if (this.lastAttack()) {
+      } else if (this.lastAttackTime()) {
         this.playAnimation(this.IMAGES_ATTACK);
       } else if (this.world.keyboard.MOVE) {
         this.playAnimation(this.IMAGES_MOVE);
-      } else if (!this.world.keyboard.MOVE && !this.lastAttack()) {
+      } else if (!this.world.keyboard.MOVE && !this.lastAttackTime()) {
         this.playAnimation(this.IMAGES_IDLE);
       }
     }, 100);
@@ -135,10 +135,10 @@ class Character extends MovableObject {
    *
    * @returns true or false
    */
-  lastAttack() {
-    let timepassed = new Date().getTime() - this.lastAttackTime;
+  lastAttackTime() {
+    let timepassed = new Date().getTime() - this.lastAttack;
     timepassed /= 1000;
-    return timepassed < 0.8;
+    return timepassed < 0.6;
   }
 
   /**
@@ -179,7 +179,7 @@ class Character extends MovableObject {
         world.attackBubble.canCreateNewAttackBubble() &&
         !this.isDead()
       ) {
-        this.lastAttackTime = new Date().getTime();
+        this.lastAttack = new Date().getTime();
       }
       this.adjustCameraPosition();
     }, 1000 / 60);
