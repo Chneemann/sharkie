@@ -230,7 +230,7 @@ class Character extends MovableObject {
         }
         world.statusBarHp.setPercentage(world.statusBarHp.percentage);
         this.objectCollected(object);
-        soundCollectCoin.play();
+        soundCollectHeart.play();
       }
     }
   }

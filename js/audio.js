@@ -10,6 +10,7 @@ let soundAttackBubble = new Audio("./audio/attack_bubble.mp3");
 let soundAttackBubbleHit = new Audio("./audio/attack_bubble_hit.mp3");
 let soundCollectPoisonBottle = new Audio("./audio/poison_bottle.mp3");
 let soundCollectCoin = new Audio("./audio/coin.mp3");
+let soundCollectHeart = new Audio("./audio/heart.mp3");
 
 let allSounds = [
   soundBackground,
@@ -24,6 +25,7 @@ let allSounds = [
   soundAttackBubbleHit,
   soundCollectPoisonBottle,
   soundCollectCoin,
+  soundCollectHeart,
 ];
 
 /**

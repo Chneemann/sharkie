@@ -28,6 +28,7 @@ function startGame() {
  * Stops the Game
  */
 function stopGame() {
+  world.isGameOver = true;
   for (let i = 0; i < 200; i++) {
     clearInterval(i);
   }
