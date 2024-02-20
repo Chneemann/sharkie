@@ -233,8 +233,8 @@ h1 {
   font-size: 20px;
   text-align: center;
   top: 20%;
-  right: 35%;
-  width: 30%;
+  right: 30%;
+  width: 40%;
   color: red;
   text-shadow: 1px 1px 2px #000;
 }
@@ -274,16 +274,26 @@ h1 {
   #coins p {
     font-size: 20px;
   }
+  #errormsg {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 550px) {
   #coins p {
     font-size: 16px;
   }
+  #errormsg {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 400px) {
-  #coins p {
+  #coins p,
+  #errormsg {
     font-size: 12px;
+  }
+  #errormsg {
+    font-size: 8px;
   }
 }

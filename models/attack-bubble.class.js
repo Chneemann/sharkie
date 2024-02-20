@@ -6,6 +6,7 @@ class AttackBubble extends MovableObject {
   characterOffsetWidth = 0;
   characterOffsetHeight = 0;
   intervalClearStatus = false;
+  speed = 7;
 
   IMAGE_NORMAL = ["img/1.Sharkie/4.Attack/Bubble trap/Bubble.png"];
 
@@ -55,9 +56,9 @@ class AttackBubble extends MovableObject {
    */
   attackbubbleright() {
     const intervalId = setInterval(() => {
-      this.x += 1.75;
+      this.x += this.speed;
       stopInterval(this.intervalClearStatus, intervalId);
-    }, 1);
+    }, 1000 / 60);
   }
 
   /**
@@ -65,9 +66,9 @@ class AttackBubble extends MovableObject {
    */
   attackbubbleleft() {
     const intervalId = setInterval(() => {
-      this.x -= 1.75;
+      this.x -= this.speed;
       stopInterval(this.intervalClearStatus, intervalId);
-    }, 1);
+    }, 1000 / 60);
   }
 
   /**
