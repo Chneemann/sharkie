@@ -1,5 +1,5 @@
 class World {
-  devMode = false;
+  DEVMODE = true;
   character = new Character();
   attackBubble = new AttackBubble();
   allAttackBubbles = [];
@@ -195,7 +195,8 @@ class World {
       this.flipImage(mo);
     }
     mo.draw(this.ctx);
-    if (this.devMode) {
+    if (this.DEVMODE) {
+      // Developer Mode
       mo.drawFrame(this.ctx);
     }
     if (mo.otherDirection) {

@@ -131,6 +131,8 @@ function gameEndWin() {
   setTimeout(() => {
     exitFullscreen();
     soundWin.play();
+    document.getElementById("countCoins").innerHTML =
+      world.statusBarCoin.percentage;
     document.getElementById("endscreen").classList.remove("d-none");
     document.getElementById("endscreen-win").classList.remove("d-none");
     document.getElementById("fullscreen").classList.add("d-none");
