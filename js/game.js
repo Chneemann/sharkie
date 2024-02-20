@@ -49,8 +49,8 @@ function stopInterval(status, id) {
  */
 function togglePlayButtons() {
   if (detectMobile()) {
-    document.getElementById("playbuttons").classList.remove("d-none");
-    document.getElementById("playbuttons").classList.add("d-flex");
+    document.getElementById("playbtns").classList.remove("d-none");
+    document.getElementById("playbtns").classList.add("d-flex");
     document.getElementById("img_fullscreen").classList.add("d-none");
   }
 }
@@ -83,12 +83,12 @@ function help() {
 /**
  * Show or hide the help menu
  */
-function errormsgEndboss() {
-  document.getElementById("errormsg").classList.remove("d-none");
-  document.getElementById("errormsg").innerHTML =
+function errorMsgEndboss() {
+  document.getElementById("errorMsg").classList.remove("d-none");
+  document.getElementById("errorMsg").innerHTML =
     "Only a Poision Bottle can hurt the final boss!";
   setTimeout(() => {
-    document.getElementById("errormsg").classList.add("d-none");
+    document.getElementById("errorMsg").classList.add("d-none");
   }, 2000);
 }
 

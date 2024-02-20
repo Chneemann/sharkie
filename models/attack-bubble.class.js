@@ -158,7 +158,7 @@ class AttackBubble extends MovableObject {
           !world.allAttackBubbles[i].poisonedBubble &&
           enemy == world.endboss
         ) {
-          errormsgEndboss();
+          errorMsgEndboss();
         } else if (enemy != world.endboss) {
           enemy.hp--;
         }
