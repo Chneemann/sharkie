@@ -42,7 +42,7 @@ class JellyFish extends MovableObject {
     setInterval(() => {
       if (!this.isAlive()) {
         this.playAnimation(this.IMAGES_DEAD);
-        this.moveUp();
+        this.moveUpDead();
       } else if (this.isAlive()) {
         this.playAnimation(this.IMAGES_SWIM);
       }

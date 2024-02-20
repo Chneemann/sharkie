@@ -95,27 +95,9 @@ class MovableObject extends DrawableObject {
   }
 
   /**
-   * Moves the object continuously to the left.
-   */
-  moveLeft() {
-    setInterval(() => {
-      this.x -= this.speed;
-    }, 1);
-  }
-
-  /**
-   * Moves the object continuously to the right.
-   */
-  moveRight() {
-    setInterval(() => {
-      this.x += this.speed;
-    }, 1);
-  }
-
-  /**
    * Moves the object continuously upwards.
    */
-  moveUp() {
+  moveUpDead() {
     setInterval(() => {
       this.y -= this.speed;
     }, 2);

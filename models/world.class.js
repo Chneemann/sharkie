@@ -1,4 +1,5 @@
 class World {
+  devMode = false;
   character = new Character();
   attackBubble = new AttackBubble();
   allAttackBubbles = [];
@@ -62,8 +63,10 @@ class World {
    */
   checkIsGameEnd() {
     if (this.character.isDead()) {
+      this.isGameOver = true;
       gameEndLost();
     } else if (this.endboss.isDead()) {
+      this.isGameOver = true;
       gameEndWin();
     } else {
       return false;
@@ -192,7 +195,9 @@ class World {
       this.flipImage(mo);
     }
     mo.draw(this.ctx);
-    mo.drawFrame(this.ctx);
+    if (this.devMode) {
+      mo.drawFrame(this.ctx);
+    }
     if (mo.otherDirection) {
       this.flipImageBack(mo);
     }

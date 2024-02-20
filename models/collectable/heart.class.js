@@ -13,6 +13,9 @@ class Heart extends MovableObject {
     this.pulsate();
   }
 
+  /**
+   * Creates a pulsation effect
+   */
   pulsate() {
     let scaleIncrement = 1;
     let minScale = 0.98;
