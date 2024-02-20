@@ -92,7 +92,7 @@ class Endboss extends MovableObject {
         if (attackTimer > attackInterval) {
           this.endbossAttackAnimation();
         } else if (this.idle) {
-          this.endbossIdleAnimation(i);
+          this.playAnimation(this.IMAGES_IDLE);
         } else {
           this.endbossSpawnAnimation(i);
         }
@@ -232,6 +232,7 @@ class Endboss extends MovableObject {
     if (attackImageIndex === this.IMAGES_ATTACK.length - 1) {
       this.lastAttack = Date.now();
       this.idle = true;
+      soundEndbossBite.play();
     }
   }
 

@@ -63,10 +63,8 @@ class World {
   checkIsGameEnd() {
     if (this.character.isDead()) {
       gameEndLost();
-      this.isGameOver = true;
     } else if (this.endboss.isDead()) {
       gameEndWin();
-      this.isGameOver = true;
     } else {
       return false;
     }

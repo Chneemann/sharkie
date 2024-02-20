@@ -5,6 +5,7 @@ let soundCharacterHitShock = new Audio("./audio/hit_shock.mp3");
 let soundCharacterHitMeele = new Audio("./audio/hit_meele.mp3");
 let soundCharacterMove = new Audio("./audio/move.mp3");
 let soundEndbossSpawn = new Audio("./audio/endboss_spawn.mp3");
+let soundEndbossBite = new Audio("./audio/endboss_bite.mp3");
 let soundAttackBubble = new Audio("./audio/attack_bubble.mp3");
 let soundAttackBubbleHit = new Audio("./audio/attack_bubble_hit.mp3");
 let soundCollectPoisonBottle = new Audio("./audio/poison_bottle.mp3");
@@ -18,6 +19,7 @@ let allSounds = [
   soundCharacterHitMeele,
   soundCharacterMove,
   soundEndbossSpawn,
+  soundEndbossBite,
   soundAttackBubble,
   soundAttackBubbleHit,
   soundCollectPoisonBottle,

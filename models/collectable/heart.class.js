@@ -1,10 +1,10 @@
 class Heart extends MovableObject {
   width = 70;
   height = 70;
-  enemyOffsetX = 0;
-  enemyOffsetY = 0;
-  enemyOffsetWidth = 0;
-  enemyOffsetHeight = 0;
+  enemyOffsetX = 10;
+  enemyOffsetY = 20;
+  enemyOffsetWidth = 22;
+  enemyOffsetHeight = 28;
 
   constructor(x, y) {
     super().loadImage("./img/4. Marcadores/green/100_  copia 3.png");

@@ -54,6 +54,7 @@ class DrawableObject {
       this instanceof JellyFish ||
       this instanceof Endboss ||
       this instanceof Coin ||
+      this instanceof Heart ||
       this instanceof PoisonBottle ||
       this instanceof Barrier
     ) {
@@ -64,7 +65,8 @@ class DrawableObject {
         this instanceof PufferFish ||
         this instanceof JellyFish ||
         this instanceof Endboss ||
-        this instanceof PoisonBottle
+        this instanceof PoisonBottle ||
+        this instanceof Heart
       ) {
         ctx.rect(
           this.x + this.enemyOffsetX,
