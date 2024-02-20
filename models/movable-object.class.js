@@ -5,6 +5,7 @@ class MovableObject extends DrawableObject {
   lastHitEndboss = 0;
   lastAnimate = 0;
   speed = 0.2;
+  lastAttack;
   otherDirection = false;
   canvasCollision = false;
   dead = false;

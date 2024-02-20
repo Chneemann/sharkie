@@ -2,7 +2,6 @@ class Endboss extends MovableObject {
   hp = 3;
   height = 480;
   width = 500;
-  lastAttack;
   enemyOffsetX = 30;
   enemyOffsetY = 220;
   enemyOffsetWidth = 60;
@@ -96,7 +95,7 @@ class Endboss extends MovableObject {
           this.endbossSpawnAnimation(i);
         }
       }
-    }, 150);
+    }, 200);
   }
 
   /**
