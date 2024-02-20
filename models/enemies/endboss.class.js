@@ -2,8 +2,6 @@ class Endboss extends MovableObject {
   hp = 3;
   height = 480;
   width = 500;
-  spawn = false;
-  idle = false;
   lastAttack;
   enemyOffsetX = 30;
   enemyOffsetY = 220;

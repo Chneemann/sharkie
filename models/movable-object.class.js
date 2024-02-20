@@ -7,6 +7,9 @@ class MovableObject extends DrawableObject {
   speed = 0.2;
   otherDirection = false;
   canvasCollision = false;
+  dead = false;
+  spawn = false;
+  idle = false;
 
   /**
    * Processes a hit that the object receives and reduces its health points (HP).
