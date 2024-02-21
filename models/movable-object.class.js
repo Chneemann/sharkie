@@ -129,7 +129,7 @@ class MovableObject extends DrawableObject {
           this.otherDirection = false;
         }
       }
-    }, 20);
+    }, 1000 / 60);
   }
 
   /**
@@ -152,7 +152,7 @@ class MovableObject extends DrawableObject {
           this.movingDown = true;
         }
       }
-    }, 20);
+    }, 1000 / 60);
   }
 
   /**

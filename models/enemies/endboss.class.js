@@ -76,6 +76,8 @@ class Endboss extends MovableObject {
     let attackInterval = 3000;
 
     setInterval(() => {
+      attackTimer = Date.now() - this.lastAttack;
+      let i = this.currentImage % this.IMAGES_IDLE.length;
       if (!this.isAlive()) {
         this.playAnimation(this.IMAGES_DEAD);
         this.speed = 0.2;
@@ -85,11 +87,9 @@ class Endboss extends MovableObject {
         this.playAnimation(this.IMAGES_HURT);
         this.idle = false;
       } else if (this.isAlive()) {
-        attackTimer = Date.now() - this.lastAttack;
-        let i = this.currentImage % this.IMAGES_IDLE.length;
         if (attackTimer > attackInterval) {
           this.endbossAttackAnimation();
-        } else if (this.idle) {
+        } else if (this.isIdle()) {
           this.playAnimation(this.IMAGES_IDLE);
         } else {
           this.endbossSpawnAnimation(i);
@@ -254,6 +254,17 @@ class Endboss extends MovableObject {
    */
   isDead() {
     if (this.hp == 0) {
+      return true;
+    }
+  }
+
+  /**
+   * Checks if the endboss is idle
+   *
+   * @returns true or false
+   */
+  isIdle() {
+    if (this.idle) {
       return true;
     }
   }
