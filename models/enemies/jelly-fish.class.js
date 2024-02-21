@@ -36,15 +36,16 @@ class JellyFish extends MovableObject {
    * Controls the animations
    */
   animate() {
-    this.moveLeftAndRight();
+    this.moveUpAndDown();
 
-    setInterval(() => {
+    const intervalId = setInterval(() => {
       if (!this.isAlive()) {
         this.playAnimation(this.IMAGES_DEAD);
         this.moveUpDead();
       } else if (this.isAlive()) {
         this.playAnimation(this.IMAGES_SWIM);
       }
+      stopInterval(this.intervalClearStatus, intervalId);
     }, 150);
   }
 }

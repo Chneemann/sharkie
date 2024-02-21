@@ -6,6 +6,7 @@ class MovableObject extends DrawableObject {
   lastAnimate = 0;
   speed = 0.2;
   lastAttack;
+  intervalClearStatus = false;
   otherDirection = false;
   canvasCollision = false;
   dead = false;
@@ -102,9 +103,10 @@ class MovableObject extends DrawableObject {
    * Moves the object continuously upwards.
    */
   moveUpDead() {
-    setInterval(() => {
-      this.y -= this.speed;
-    }, 2);
+    const intervalId = setInterval(() => {
+      this.y -= this.speed * 10;
+      stopInterval(this.intervalClearStatus, intervalId);
+    }, 1000 / 60);
   }
 
   /**
@@ -115,7 +117,7 @@ class MovableObject extends DrawableObject {
     this.movingRight = true;
     this.startX = this.x;
 
-    setInterval(() => {
+    const intervalId = setInterval(() => {
       if (this.movingRight && this.isAlive()) {
         this.x -= this.speed;
         if (this.x <= this.startX - this.motionRange) {
@@ -129,6 +131,8 @@ class MovableObject extends DrawableObject {
           this.otherDirection = false;
         }
       }
+      console.log(intervalId);
+      stopInterval(this.intervalClearStatus, intervalId);
     }, 1000 / 60);
   }
 
@@ -140,7 +144,7 @@ class MovableObject extends DrawableObject {
     this.movingDown = true;
     this.startY = this.y;
 
-    setInterval(() => {
+    const intervalId = setInterval(() => {
       if (this.movingDown) {
         this.y += this.speed;
         if (this.y >= this.startY + this.motionRange) {
@@ -152,6 +156,7 @@ class MovableObject extends DrawableObject {
           this.movingDown = true;
         }
       }
+      stopInterval(this.intervalClearStatus, intervalId);
     }, 1000 / 60);
   }
 

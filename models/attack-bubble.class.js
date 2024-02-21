@@ -5,7 +5,6 @@ class AttackBubble extends MovableObject {
   characterOffsetY = 0;
   characterOffsetWidth = 0;
   characterOffsetHeight = 0;
-  intervalClearStatus = false;
   speed = 7;
 
   IMAGE_NORMAL = ["img/1.Sharkie/4.Attack/Bubble trap/Bubble.png"];
@@ -165,6 +164,9 @@ class AttackBubble extends MovableObject {
         world.allAttackBubbles[i].intervalClearStatus = true;
         if (enemy.hp == 0) {
           enemy.dead = true;
+          setTimeout(() => {
+            enemy.intervalClearStatus = true;
+          }, 3000);
         }
       }
     }

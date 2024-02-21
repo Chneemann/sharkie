@@ -8,7 +8,7 @@ const level1Enemies = [
   new JellyFish(1650, 240),
   new JellyFish(1750, 40),
   new JellyFish(1800, 320),
-  new JellyFish(1700, 470),
+  new JellyFish(1700, 440),
 ];
 const level1Endboss = [new Endboss()];
 const level1CollectableObjects = [
