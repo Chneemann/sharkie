@@ -258,6 +258,52 @@ h1 {
   filter: invert();
 }
 
+#privacyPolicy,
+#legalNotice {
+  color: #fff;
+  text-shadow: 2px 2px 2px #000;
+  margin: 20px;
+  width: 95%;
+}
+
+#privacyPolicy a,
+#legalNotice a {
+  color: gray;
+  cursor: pointer;
+}
+
+#privacyPolicy a:hover,
+#legalNotice a:hover {
+  color: lightgray;
+}
+
+#privacyPolicy h1,
+#legalNotice h1 {
+  font-size: 36px;
+  text-shadow: 2px 2px 2px #000;
+}
+
+#privacyPolicy h2,
+#legalNotice h2 {
+  font-size: 28px;
+}
+
+footer {
+  color: white;
+  text-shadow: 1px 1px 2px #000;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+  text-shadow: 1px 1px 2px #000;
+  cursor: pointer;
+}
+
+footer a:hover {
+  color: gray;
+}
+
 /*--------- Smartphone ---------*/
 
 @media only screen and (max-width: 925px) {
