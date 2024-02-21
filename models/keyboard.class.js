@@ -6,6 +6,7 @@ class Keyboard {
   SPACE = false;
   MOVE = false;
 
+  lastInputDate;
   lastInputX = "right";
   lastInputY;
 
@@ -26,27 +27,32 @@ class Keyboard {
         this.MOVE = true;
         this.lastInput = "up";
         this.lastInputY = "up";
+        this.lastInputDate = new Date().getTime();
       }
       if (e.code === "ArrowDown" || e.code === "KeyS") {
         this.DOWN = true;
         this.MOVE = true;
         this.lastInput = "down";
         this.lastInputY = "down";
+        this.lastInputDate = new Date().getTime();
       }
       if (e.code === "ArrowRight" || e.code === "KeyD") {
         this.RIGHT = true;
         this.MOVE = true;
         this.lastInput = "right";
         this.lastInputX = "right";
+        this.lastInputDate = new Date().getTime();
       }
       if (e.code === "ArrowLeft" || e.code === "KeyA") {
         this.LEFT = true;
         this.MOVE = true;
         this.lastInput = "left";
         this.lastInputX = "left";
+        this.lastInputDate = new Date().getTime();
       }
       if (e.code === "Space") {
         this.SPACE = true;
+        this.lastInputDate = new Date().getTime();
       }
     });
 
@@ -54,21 +60,26 @@ class Keyboard {
       if (e.code === "ArrowUp" || e.code === "KeyW") {
         this.UP = false;
         this.MOVE = false;
+        this.lastInputDate = new Date().getTime();
       }
       if (e.code === "ArrowDown" || e.code === "KeyS") {
         this.DOWN = false;
         this.MOVE = false;
+        this.lastInputDate = new Date().getTime();
       }
       if (e.code === "ArrowRight" || e.code === "KeyD") {
         this.RIGHT = false;
         this.MOVE = false;
+        this.lastInputDate = new Date().getTime();
       }
       if (e.code === "ArrowLeft" || e.code === "KeyA") {
         this.LEFT = false;
         this.MOVE = false;
+        this.lastInputDate = new Date().getTime();
       }
       if (e.code === "Space") {
         this.SPACE = false;
+        this.lastInputDate = new Date().getTime();
       }
     });
   }
@@ -152,6 +163,7 @@ class Keyboard {
           e.preventDefault();
         }
         action();
+        this.lastInputDate = new Date().getTime();
       });
 
       button.addEventListener("touchend", (e) => {
@@ -159,6 +171,7 @@ class Keyboard {
           e.preventDefault();
         }
         actionEnd();
+        this.lastInputDate = new Date().getTime();
       });
     });
   }

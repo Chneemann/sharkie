@@ -27,6 +27,27 @@ class Character extends MovableObject {
     "img/1.Sharkie/1.IDLE/17.png",
     "img/1.Sharkie/1.IDLE/18.png",
   ];
+
+  IMAGES_INTO_SLEEP = [
+    "img/1.Sharkie/2.Long_IDLE/i1.png",
+    "img/1.Sharkie/2.Long_IDLE/i2.png",
+    "img/1.Sharkie/2.Long_IDLE/i3.png",
+    "img/1.Sharkie/2.Long_IDLE/i4.png",
+    "img/1.Sharkie/2.Long_IDLE/i5.png",
+    "img/1.Sharkie/2.Long_IDLE/i6.png",
+    "img/1.Sharkie/2.Long_IDLE/i7.png",
+    "img/1.Sharkie/2.Long_IDLE/i8.png",
+    "img/1.Sharkie/2.Long_IDLE/i9.png",
+    "img/1.Sharkie/2.Long_IDLE/i10.png",
+  ];
+
+  IMAGES_IS_SLEEP = [
+    "img/1.Sharkie/2.Long_IDLE/i11.png",
+    "img/1.Sharkie/2.Long_IDLE/i12.png",
+    "img/1.Sharkie/2.Long_IDLE/i13.png",
+    "img/1.Sharkie/2.Long_IDLE/i14.png",
+  ];
+
   IMAGES_MOVE = [
     "img/1.Sharkie/3.Swim/1.png",
     "img/1.Sharkie/3.Swim/2.png",
@@ -35,6 +56,7 @@ class Character extends MovableObject {
     "img/1.Sharkie/3.Swim/5.png",
     "img/1.Sharkie/3.Swim/6.png",
   ];
+
   IMAGES_ATTACK = [
     "img/1.Sharkie/4.Attack/Bubble trap/Op2 (Without Bubbles)/1.png",
     "img/1.Sharkie/4.Attack/Bubble trap/Op2 (Without Bubbles)/2.png",
@@ -44,17 +66,20 @@ class Character extends MovableObject {
     "img/1.Sharkie/4.Attack/Bubble trap/Op2 (Without Bubbles)/6.png",
     "img/1.Sharkie/4.Attack/Bubble trap/Op2 (Without Bubbles)/7.png",
   ];
+
   IMAGES_HURT_MEELE = [
     "img/1.Sharkie/5.Hurt/1.Poisoned/1.png",
     "img/1.Sharkie/5.Hurt/1.Poisoned/2.png",
     "img/1.Sharkie/5.Hurt/1.Poisoned/3.png",
     "img/1.Sharkie/5.Hurt/1.Poisoned/4.png",
   ];
+
   IMAGES_HURT_ELECTRIC_SHOCK = [
     "img/1.Sharkie/5.Hurt/2.Electric shock/1.png",
     "img/1.Sharkie/5.Hurt/2.Electric shock/2.png",
     "img/1.Sharkie/5.Hurt/2.Electric shock/3.png",
   ];
+
   IMAGES_DEAD_MEELE = [
     "img/1.Sharkie/6.dead/1.Poisoned/1.png",
     "img/1.Sharkie/6.dead/1.Poisoned/2.png",
@@ -69,6 +94,7 @@ class Character extends MovableObject {
     "img/1.Sharkie/6.dead/1.Poisoned/11.png",
     "img/1.Sharkie/6.dead/1.Poisoned/12.png",
   ];
+
   IMAGES_DEAD_ELECTRIC_SHOCK = [
     "img/1.Sharkie/6.dead/2.Electro_shock/1.png",
     "img/1.Sharkie/6.dead/2.Electro_shock/2.png",
@@ -85,6 +111,8 @@ class Character extends MovableObject {
   constructor() {
     super().loadImage("./img/1.Sharkie/1.IDLE/1.png");
     this.loadImages(this.IMAGES_IDLE);
+    this.loadImages(this.IMAGES_INTO_SLEEP);
+    this.loadImages(this.IMAGES_IS_SLEEP);
     this.loadImages(this.IMAGES_MOVE);
     this.loadImages(this.IMAGES_ATTACK);
     this.loadImages(this.IMAGES_HURT_MEELE);
@@ -124,21 +152,16 @@ class Character extends MovableObject {
         this.playAnimation(this.IMAGES_ATTACK);
       } else if (this.world.keyboard.MOVE) {
         this.playAnimation(this.IMAGES_MOVE);
+      } else if (this.isSleep(15)) {
+        if (this.isSleep(16)) {
+          this.playAnimation(this.IMAGES_IS_SLEEP);
+        } else {
+          this.playAnimation(this.IMAGES_INTO_SLEEP);
+        }
       } else if (!this.world.keyboard.MOVE && !this.lastAttackTime()) {
         this.playAnimation(this.IMAGES_IDLE);
       }
     }, 100);
-  }
-
-  /**
-   * Checks whether the attack animation was 0.8s ago
-   *
-   * @returns true or false
-   */
-  lastAttackTime() {
-    let timepassed = new Date().getTime() - this.lastAttack;
-    timepassed /= 1000;
-    return timepassed < 0.6;
   }
 
   /**
@@ -248,6 +271,29 @@ class Character extends MovableObject {
       }
       world.statusBarHp.setPercentage(this.hp);
     }
+  }
+
+  /**
+   * Checks whether the attack animation was 0.8s ago
+   *
+   * @returns true or false
+   */
+  lastAttackTime() {
+    let timepassed = new Date().getTime() - this.lastAttack;
+    timepassed /= 1000;
+    return timepassed < 0.6;
+  }
+
+  /**
+   * Checks whether a certain amount of time has elapsed since the last button was pressed.
+   *
+   * @param {number} time - The time in seconds
+   * @returns true or false
+   */
+  isSleep(time) {
+    let timepassed = new Date().getTime() - keyboard.lastInputDate;
+    timepassed /= 1000;
+    return timepassed > time;
   }
 
   /**

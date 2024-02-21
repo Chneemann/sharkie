@@ -87,10 +87,9 @@ class MovableObject extends DrawableObject {
    * @param {string[]} images - The paths to the images.
    */
   playAnimation(images) {
-    // Überprüfen, ob die neue Animation anders ist als die aktuelle
     if (this.currentAnimation !== images) {
-      this.currentImage = 0; // Zurücksetzen von currentImage, wenn eine neue Animation abgespielt wird
-      this.currentAnimation = images; // Aktualisieren der aktuellen Animation
+      this.currentImage = 0;
+      this.currentAnimation = images;
     }
 
     let i = this.currentImage % images.length;
@@ -104,7 +103,7 @@ class MovableObject extends DrawableObject {
    */
   moveUpDead() {
     const intervalId = setInterval(() => {
-      this.y -= this.speed * 10;
+      this.y -= this.speed * 8;
       stopInterval(this.intervalClearStatus, intervalId);
     }, 1000 / 60);
   }
@@ -131,7 +130,6 @@ class MovableObject extends DrawableObject {
           this.otherDirection = false;
         }
       }
-      console.log(intervalId);
       stopInterval(this.intervalClearStatus, intervalId);
     }, 1000 / 60);
   }
