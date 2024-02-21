@@ -264,6 +264,7 @@ h1 {
   text-shadow: 2px 2px 2px #000;
   margin: 20px;
   width: 95%;
+  word-wrap: break-word;
 }
 
 #privacyPolicy a,
@@ -296,7 +297,7 @@ footer {
 footer a {
   text-decoration: none;
   color: white;
-  text-shadow: 1px 1px 2px #000;
+  text-shadow: 2px 2px 2px #000;
   cursor: pointer;
 }
 
@@ -304,7 +305,23 @@ footer a:hover {
   color: gray;
 }
 
-/*--------- Smartphone ---------*/
+/*------------- SCROLLBAR -------------*/
+
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--white);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--light-gray);
+  border-radius: 10px;
+  border: 3px solid var(--white);
+}
+
+/*--------- MEDIA ---------*/
 
 @media only screen and (max-width: 925px) {
   #canvas,
