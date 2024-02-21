@@ -155,6 +155,7 @@ class Character extends MovableObject {
       } else if (this.isSleep(15)) {
         if (this.isSleep(16)) {
           this.playAnimation(this.IMAGES_IS_SLEEP);
+          soundCharacterSnore.play();
         } else {
           this.playAnimation(this.IMAGES_INTO_SLEEP);
         }
