@@ -69,7 +69,7 @@ h1 {
   width: auto;
 }
 
-#playbuttons {
+#playbtns {
   position: absolute;
   bottom: 15px;
   left: 0;
@@ -342,13 +342,16 @@ footer a:hover {
   .helpscreen {
     max-width: 90vw;
     width: auto;
-    max-height: 90vh;
+    max-height: 85vh;
   }
   .helpscreen {
     width: 100%;
   }
   h1 {
     display: none;
+  }
+  footer {
+    font-size: 12px;
   }
 }
 
