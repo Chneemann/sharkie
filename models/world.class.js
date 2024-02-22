@@ -1,5 +1,5 @@
 class World {
-  DEVMODE = true;
+  DEVMODE = false;
   character = new Character();
   attackBubble = new AttackBubble();
   allAttackBubbles = [];

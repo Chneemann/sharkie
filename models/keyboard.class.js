@@ -22,66 +22,106 @@ class Keyboard {
    */
   btnEvents() {
     window.addEventListener("keydown", (e) => {
-      if (e.code === "ArrowUp" || e.code === "KeyW") {
-        this.UP = true;
-        this.MOVE = true;
-        this.lastInput = "up";
-        this.lastInputY = "up";
-        this.lastInputDate = new Date().getTime();
-      }
-      if (e.code === "ArrowDown" || e.code === "KeyS") {
-        this.DOWN = true;
-        this.MOVE = true;
-        this.lastInput = "down";
-        this.lastInputY = "down";
-        this.lastInputDate = new Date().getTime();
-      }
-      if (e.code === "ArrowRight" || e.code === "KeyD") {
-        this.RIGHT = true;
-        this.MOVE = true;
-        this.lastInput = "right";
-        this.lastInputX = "right";
-        this.lastInputDate = new Date().getTime();
-      }
-      if (e.code === "ArrowLeft" || e.code === "KeyA") {
-        this.LEFT = true;
-        this.MOVE = true;
-        this.lastInput = "left";
-        this.lastInputX = "left";
-        this.lastInputDate = new Date().getTime();
-      }
-      if (e.code === "Space") {
-        this.SPACE = true;
-        this.lastInputDate = new Date().getTime();
-      }
+      this.btnKeyDownArrowUp(e);
+      this.btnKeyDownArrowDown(e);
+      this.btnKeyDownArrowRight(e);
+      this.btnKeyDownArrowLeft(e);
+      this.btnKeyDownArrowSpace(e);
     });
 
     window.addEventListener("keyup", (e) => {
-      if (e.code === "ArrowUp" || e.code === "KeyW") {
-        this.UP = false;
-        this.MOVE = false;
-        this.lastInputDate = new Date().getTime();
-      }
-      if (e.code === "ArrowDown" || e.code === "KeyS") {
-        this.DOWN = false;
-        this.MOVE = false;
-        this.lastInputDate = new Date().getTime();
-      }
-      if (e.code === "ArrowRight" || e.code === "KeyD") {
-        this.RIGHT = false;
-        this.MOVE = false;
-        this.lastInputDate = new Date().getTime();
-      }
-      if (e.code === "ArrowLeft" || e.code === "KeyA") {
-        this.LEFT = false;
-        this.MOVE = false;
-        this.lastInputDate = new Date().getTime();
-      }
-      if (e.code === "Space") {
-        this.SPACE = false;
-        this.lastInputDate = new Date().getTime();
-      }
+      this.btnKeyUpArrowUp(e);
+      this.btnKeyUpArrowDown(e);
+      this.btnKeyUpArrowRight(e);
+      this.btnKeyUpArrowLeft(e);
+      this.btnKeyUpArrowSpace(e);
     });
+  }
+
+  btnKeyDownArrowUp(e) {
+    if (e.code === "ArrowUp" || e.code === "KeyW") {
+      this.UP = true;
+      this.MOVE = true;
+      this.lastInput = "up";
+      this.lastInputY = "up";
+      this.lastInputDate = new Date().getTime();
+    }
+  }
+
+  btnKeyDownArrowDown(e) {
+    if (e.code === "ArrowDown" || e.code === "KeyS") {
+      this.DOWN = true;
+      this.MOVE = true;
+      this.lastInput = "down";
+      this.lastInputY = "down";
+      this.lastInputDate = new Date().getTime();
+    }
+  }
+
+  btnKeyDownArrowRight(e) {
+    if (e.code === "ArrowRight" || e.code === "KeyD") {
+      this.RIGHT = true;
+      this.MOVE = true;
+      this.lastInput = "right";
+      this.lastInputX = "right";
+      this.lastInputDate = new Date().getTime();
+    }
+  }
+
+  btnKeyDownArrowLeft(e) {
+    if (e.code === "ArrowLeft" || e.code === "KeyA") {
+      this.LEFT = true;
+      this.MOVE = true;
+      this.lastInput = "left";
+      this.lastInputX = "left";
+      this.lastInputDate = new Date().getTime();
+    }
+  }
+
+  btnKeyDownArrowSpace(e) {
+    if (e.code === "Space") {
+      this.SPACE = true;
+      this.lastInputDate = new Date().getTime();
+    }
+  }
+
+  btnKeyUpArrowUp(e) {
+    if (e.code === "ArrowUp" || e.code === "KeyW") {
+      this.UP = false;
+      this.MOVE = false;
+      this.lastInputDate = new Date().getTime();
+    }
+  }
+
+  btnKeyUpArrowDown(e) {
+    if (e.code === "ArrowDown" || e.code === "KeyS") {
+      this.DOWN = false;
+      this.MOVE = false;
+      this.lastInputDate = new Date().getTime();
+    }
+  }
+
+  btnKeyUpArrowRight(e) {
+    if (e.code === "ArrowRight" || e.code === "KeyD") {
+      this.RIGHT = false;
+      this.MOVE = false;
+      this.lastInputDate = new Date().getTime();
+    }
+  }
+
+  btnKeyUpArrowLeft(e) {
+    if (e.code === "ArrowLeft" || e.code === "KeyA") {
+      this.LEFT = false;
+      this.MOVE = false;
+      this.lastInputDate = new Date().getTime();
+    }
+  }
+
+  btnKeyUpArrowSpace(e) {
+    if (e.code === "Space") {
+      this.SPACE = false;
+      this.lastInputDate = new Date().getTime();
+    }
   }
 
   /**
