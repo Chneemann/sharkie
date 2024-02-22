@@ -42,6 +42,7 @@ class DrawableObject {
 
   /**
    * Determines the index of the image based on the current percentage.
+   *
    * @returns The image index that corresponds to the current percentage.
    */
   resolveImageIndex() {
