@@ -41,6 +41,46 @@ class DrawableObject {
   }
 
   /**
+   * Determines the index of the image based on the current percentage.
+   * @returns The image index that corresponds to the current percentage.
+   */
+  resolveImageIndex() {
+    if (
+      this.percentage == 100 ||
+      this.percentage == 10 ||
+      this.percentage == 5
+    ) {
+      return 5;
+    } else if (
+      this.percentage >= 80 ||
+      this.percentage >= 8 ||
+      this.percentage == 4
+    ) {
+      return 4;
+    } else if (
+      this.percentage >= 60 ||
+      this.percentage >= 6 ||
+      this.percentage == 3
+    ) {
+      return 3;
+    } else if (
+      this.percentage >= 40 ||
+      this.percentage >= 4 ||
+      this.percentage == 2
+    ) {
+      return 2;
+    } else if (
+      this.percentage >= 20 ||
+      this.percentage >= 2 ||
+      this.percentage == 1
+    ) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
+  /**
    * Processes the collection of an object in the game by moving the object out of the visible area.
    *
    * @param {Object} obj - The object that was collected.
