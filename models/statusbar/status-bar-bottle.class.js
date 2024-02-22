@@ -21,7 +21,7 @@ class StatusBarPoisonBottle extends DrawableObject {
   }
 
   /**
-   * Adds a poison bottle
+   * Adds a poison bottle.
    */
   addPoisonBottle() {
     this.percentage++;
@@ -30,7 +30,7 @@ class StatusBarPoisonBottle extends DrawableObject {
   }
 
   /**
-   * Removes a poison bottle
+   * Removes a poison bottle.
    */
   removePoisonBottle() {
     this.percentage--;

@@ -16,6 +16,9 @@ class Coin extends MovableObject {
     this.rotateImg();
   }
 
+  /**
+   * Starts a continuous rotation of the object by periodically adjusting the rotation angle.
+   */
   rotateImg() {
     setInterval(() => {
       this.rotationAngle -= this.rotationSpeed;

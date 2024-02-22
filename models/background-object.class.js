@@ -11,9 +11,9 @@ class BackgroundObject extends MovableObject {
   /**
    * Animates the background by horizontal movement within a certain movement range.
    *
-   * @param {number} speed - The speed
-   * @param {number} motionRange - The maximum motion range
-   * @param {string} startDirection - The initial direction of movement
+   * @param {number} speed - The speed.
+   * @param {number} motionRange - The maximum motion range.
+   * @param {string} startDirection - The initial direction of movement.
    */
   animateBackground(speed, motionRange, startDirection) {
     this.movingRight = startDirection === "right";

@@ -32,7 +32,7 @@ class AttackBubble extends MovableObject {
   }
 
   /**
-   * Controls the animations
+   * Controls the animations.
    */
   animate() {
     if (this.bubbleMoveTo == "right") {
@@ -51,7 +51,7 @@ class AttackBubble extends MovableObject {
   }
 
   /**
-   * Move to the right
+   * Move to the right.
    */
   attackbubbleright() {
     const intervalId = setInterval(() => {
@@ -61,7 +61,7 @@ class AttackBubble extends MovableObject {
   }
 
   /**
-   * Move to the left
+   * Move to the left.
    */
   attackbubbleleft() {
     const intervalId = setInterval(() => {
@@ -96,7 +96,7 @@ class AttackBubble extends MovableObject {
   }
 
   /**
-   * Creates a new attack bubble
+   * Creates a new attack bubble.
    */
   addNewAttackBubble() {
     const { direction, characterX, characterY, time } = this.checkDirection();
@@ -131,7 +131,7 @@ class AttackBubble extends MovableObject {
   /**
    * Checks whether the player had a poison bottle at that moment.
    *
-   * @returns {boolean} true or false
+   * @returns {boolean} True or false.
    */
   checkPoisionedBubble() {
     return world.statusBarPoisonBottle.percentage >= 1;

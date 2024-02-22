@@ -24,7 +24,7 @@ class World {
   }
 
   /**
-   * Adds the variable world to the character
+   * Adds the variable world to the character.
    */
   setWorld() {
     this.character.world = this;
@@ -45,9 +45,9 @@ class World {
   }
 
   /**
-   * Checks whether the game is over
+   * Checks whether the game is over.
    *
-   * @returns true or false
+   * @returns true or false.
    */
   isGameEnd() {
     if (this.isGameOver) {
@@ -56,9 +56,9 @@ class World {
   }
 
   /**
-   * Checks whether the game is over
+   * Checks whether the game is over.
    *
-   * @returns true or false
+   * @returns true or false.
    */
   checkIsGameEnd() {
     if (this.character.isDead()) {
@@ -73,7 +73,7 @@ class World {
   }
 
   /**
-   * Checks all types of collisions on the canvas
+   * Checks all types of collisions on the canvas.
    */
   checkAllCollisions() {
     this.isCollectingObject();
@@ -160,7 +160,7 @@ class World {
    * Adds text at a specific position on the canvas.
    *
    * @param {string} text - The text to be displayed.
-   * @param {string} size - The size and font
+   * @param {string} size - The size and font.
    * @param {number} x - The x-position.
    * @param {number} y - The Y position.
    */
@@ -172,7 +172,7 @@ class World {
   /**
    * Adds a list of objects to the canvas.
    *
-   * @param {Object[]} objects - An array of objects
+   * @param {Object[]} objects - An array of objects.
    */
   addObjectsToMap(objects) {
     objects.forEach((o) => {
@@ -221,7 +221,7 @@ class World {
   }
 
   /**
-   * Restores the original orientation of the image
+   * Restores the original orientation of the image.
    *
    * @param {MovableObject} mo - The object that is being restored.
    */

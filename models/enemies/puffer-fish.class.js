@@ -35,7 +35,7 @@ class PufferFish extends MovableObject {
   }
 
   /**
-   * Controls the animations
+   * Controls the animations.
    */
   animate() {
     this.moveLeftAndRight();

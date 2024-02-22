@@ -33,7 +33,7 @@ class JellyFish extends MovableObject {
   }
 
   /**
-   * Controls the animations
+   * Controls the animations.
    */
   animate() {
     this.moveUpAndDown();

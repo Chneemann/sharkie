@@ -36,7 +36,7 @@ class MovableObject extends DrawableObject {
   /**
    * Checks whether the object is dead (i.e. has no more health points (HP)).
    *
-   * @returns {boolean} True or False.
+   * @returns {boolean} True or false.
    */
   isDead() {
     return this.hp == 0;
@@ -45,7 +45,7 @@ class MovableObject extends DrawableObject {
   /**
    * Checks whether the object is alive (i.e. not marked as dead)
    *
-   * @returns {boolean} True or False.
+   * @returns {boolean} True or false.
    */
   isAlive() {
     if (!this.dead) {
@@ -60,7 +60,7 @@ class MovableObject extends DrawableObject {
    * Determines whether the object has recently been violated.
    *
    * @param {string} lastHit - The time of the last hit.
-   * @returns {boolean} True or False.
+   * @returns {boolean} True or false.
    */
   isHurt(lastHit) {
     let lastHitTime = this[lastHit];
@@ -73,7 +73,7 @@ class MovableObject extends DrawableObject {
    * Checks whether less than a certain amount of time has passed since the last animation.
    *
    * @param {number} time - The time in seconds.
-   * @returns {boolean} True or False.
+   * @returns {boolean} True or false.
    */
   lastAnimation(time) {
     let timepassed = new Date().getTime() - this.lastAnimate;
@@ -162,7 +162,7 @@ class MovableObject extends DrawableObject {
    * Checks whether the object collides with another object.
    *
    * @param {Object} obj - The other object to be checked for collision.
-   * @returns {boolean} True or False.
+   * @returns {boolean} True or false.
    */
   isColliding(obj) {
     return (

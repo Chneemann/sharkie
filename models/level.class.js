@@ -30,7 +30,7 @@ class Level {
   }
 
   /**
-   * Background images that are to be animated
+   * Background images that are to be animated.
    */
   animateBackground() {
     for (let i = 0; i <= 6; i++) {
@@ -42,10 +42,10 @@ class Level {
   }
 
   /**
-   * Checks whether the character has reached the end of the level
+   * Checks whether the character has reached the end of the level.
    *
-   * @param {string} end - The direction to be checked
-   * @returns {boolean} true or false
+   * @param {string} end - The direction to be checked.
+   * @returns {boolean} True or false.
    */
   isWorldEnd(end) {
     const check = {

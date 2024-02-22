@@ -14,7 +14,7 @@ class Heart extends MovableObject {
   }
 
   /**
-   * Creates a pulsation effect
+   * Creates a pulsation effect.
    */
   pulsate() {
     let scaleIncrement = 1;

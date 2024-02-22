@@ -124,7 +124,7 @@ class Character extends MovableObject {
   }
 
   /**
-   * Adjusts the camera position smoothly based on the current character position and direction
+   * Adjusts the camera position smoothly based on the current character position and direction.
    */
   adjustCameraPosition() {
     const cameraX = this.otherDirection ? -this.x + 500 : -this.x + 200;
@@ -136,7 +136,7 @@ class Character extends MovableObject {
   }
 
   /**
-   * Controls the character's animations
+   * Controls the character's animations.
    */
   animate() {
     setInterval(() => {
@@ -166,7 +166,7 @@ class Character extends MovableObject {
   }
 
   /**
-   * Controls the character key inputs
+   * Controls the character key inputs.
    */
   moveCharacter() {
     setInterval(() => {
@@ -288,8 +288,8 @@ class Character extends MovableObject {
   /**
    * Checks whether a certain amount of time has elapsed since the last button was pressed.
    *
-   * @param {number} time - The time in seconds
-   * @returns true or false
+   * @param {number} time - The time in seconds.
+   * @returns True or false.
    */
   isSleep(time) {
     let timepassed = new Date().getTime() - keyboard.lastInputDate;
@@ -298,7 +298,7 @@ class Character extends MovableObject {
   }
 
   /**
-   * Character moves to the right
+   * Character moves to the right.
    */
   moveRight() {
     this.x += this.speed;
@@ -307,7 +307,7 @@ class Character extends MovableObject {
   }
 
   /**
-   * Character moves to the left
+   * Character moves to the left.
    */
   moveLeft() {
     this.x -= this.speed;
@@ -316,7 +316,7 @@ class Character extends MovableObject {
   }
 
   /**
-   * Character moves upwards
+   * Character moves upwards.
    */
   moveUp() {
     this.y -= this.speed;
@@ -324,7 +324,7 @@ class Character extends MovableObject {
   }
 
   /**
-   * Character moves downwards
+   * Character moves downwards.
    */
   moveDown() {
     this.y += this.speed;

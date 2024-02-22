@@ -102,7 +102,7 @@ class Endboss extends MovableObject {
   }
 
   /**
-   * Checks whether the character is in the right place in the level and then makes the endboss appear
+   * Checks whether the character is in the right place in the level and then makes the endboss appear.
    */
   spawnEndboss() {
     const intervalId = setInterval(() => {
@@ -124,7 +124,7 @@ class Endboss extends MovableObject {
   }
 
   /**
-   * Moves to the current coordinates of the character
+   * Moves to the current coordinates of the character.
    */
   attackCharacter() {
     setInterval(() => {
@@ -151,35 +151,35 @@ class Endboss extends MovableObject {
   }
 
   /**
-   * Endboss moves to the right
+   * Endboss moves to the right.
    */
   moveRight() {
     this.x += this.speed;
   }
 
   /**
-   * Endboss moves to the left
+   * Endboss moves to the left.
    */
   moveLeft() {
     this.x -= this.speed;
   }
 
   /**
-   * Endboss moves upwards
+   * Endboss moves upwards.
    */
   moveUp() {
     this.y -= this.speed;
   }
 
   /**
-   * Endboss moves downwards
+   * Endboss moves downwards.
    */
   moveDown() {
     this.y += this.speed;
   }
 
   /**
-   * Checks whether the character is to the left of the centre of the object
+   * Checks whether the character is to the left of the centre of the object.
    */
   checkDirectionLeft() {
     if (world.character.x < this.x + (this.width - this.enemyOffsetWidth) / 2) {
@@ -188,7 +188,7 @@ class Endboss extends MovableObject {
   }
 
   /**
-   * Checks whether the character is to the right of the centre of the object
+   * Checks whether the character is to the right of the centre of the object.
    */
   checkDirectionRight() {
     if (world.character.x > this.x + (this.width - this.enemyOffsetWidth) / 2) {
@@ -197,9 +197,9 @@ class Endboss extends MovableObject {
   }
 
   /**
-   * Plays the idle animation of the final boss
+   * Plays the idle animation of the final boss.
    *
-   * @param {number} i - The current index
+   * @param {number} i - The current index.
    */
   endbossIdleAnimation(i) {
     let pathIdle = this.IMAGES_IDLE[i];
@@ -208,9 +208,9 @@ class Endboss extends MovableObject {
   }
 
   /**
-   * Plays the spawn animation of the final boss
+   * Plays the spawn animation of the final boss.
    *
-   * @param {number} i - The current index
+   * @param {number} i - The current index.
    */
   endbossSpawnAnimation(i) {
     if (i >= this.IMAGES_SPAWN.length) {
@@ -223,7 +223,7 @@ class Endboss extends MovableObject {
   }
 
   /**
-   * Executes the attack animation of the final boss
+   * Executes the attack animation of the final boss.
    */
   endbossAttackAnimation() {
     let attackImageIndex = this.currentImage % this.IMAGES_ATTACK.length;
@@ -238,7 +238,7 @@ class Endboss extends MovableObject {
   }
 
   /**
-   * Decreases the percentage of health points (HP) of the end boss and updates its status bar
+   * Decreases the percentage of health points (HP) of the end boss and updates its status bar.
    *
    * @param {Object} enemy - The enemy object that is checked.
    */
@@ -251,9 +251,9 @@ class Endboss extends MovableObject {
   }
 
   /**
-   * Checks if the endboss is dead
+   * Checks if the endboss is dead.
    *
-   * @returns true or false
+   * @returns True or false.
    */
   isDead() {
     if (this.hp == 0) {
@@ -262,9 +262,9 @@ class Endboss extends MovableObject {
   }
 
   /**
-   * Checks if the endboss is idle
+   * Checks if the endboss is idle.
    *
-   * @returns true or false
+   * @returns True or false.
    */
   isIdle() {
     if (this.idle) {
@@ -273,8 +273,9 @@ class Endboss extends MovableObject {
   }
 
   /**
-   * Checks whether the endboss is spawned
-   * @returns true or false
+   * Checks whether the endboss is spawned.
+   *
+   * @returns True or false.
    */
   checkSpawn() {
     if (this.spawn) {

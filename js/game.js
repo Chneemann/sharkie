@@ -4,7 +4,7 @@ let keyboard = new Keyboard();
 let intervalIds = [];
 
 /**
- * Initialises the game
+ * Initialises the game.
  */
 function init() {
   canvas = document.getElementById("canvas");
@@ -25,7 +25,7 @@ function startGame() {
 }
 
 /**
- * Stops all intervals
+ * Stops all intervals.
  */
 function stopAllIntervals() {
   for (let i = 0; i < 200; i++) {
@@ -34,7 +34,7 @@ function stopAllIntervals() {
 }
 
 /**
- * Stop a specific interval
+ * Stop a specific interval.
  */
 function stopInterval(status, id) {
   if (status) {
@@ -45,7 +45,7 @@ function stopInterval(status, id) {
 }
 
 /**
- * Shows or hides the mobile buttons
+ * Shows or hides the mobile buttons.
  */
 function togglePlayButtons() {
   if (detectMobile()) {
@@ -56,9 +56,9 @@ function togglePlayButtons() {
 }
 
 /**
- * Check whether the device is mobile
+ * Check whether the device is mobile.
  *
- * @returns true or false
+ * @returns True or false.
  */
 function detectMobile() {
   const toMatch = [
@@ -74,14 +74,14 @@ function detectMobile() {
 }
 
 /**
- * Show or hide the help menu
+ * Show or hide the help menu.
  */
 function help() {
   document.getElementById("helpscreen").classList.toggle("d-none");
 }
 
 /**
- * Show or hide the help menu
+ * Show or hide the help menu.
  */
 function errorMsgEndboss() {
   document.getElementById("errorMsg").classList.remove("d-none");
@@ -110,9 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /**
- * Ends the game with a win scenario. After a 2-second delay, exits fullscreen mode,
- * plays the winning sound at 30% volume, and updates the DOM to display the winning end screen
- * while hiding the fullscreen button.
+ * Ends the game with a win scenario.
  */
 function gameEndWin() {
   setTimeout(() => {
@@ -128,9 +126,7 @@ function gameEndWin() {
 }
 
 /**
- * Triggers actions when the game is lost. After a delay, it exits full screen mode,
- * plays the loss sound at reduced volume, and updates the DOM to show the end screen
- * specific to a loss scenario.
+ * Triggers actions when the game is lost.
  */
 function gameEndLost() {
   setTimeout(() => {
@@ -144,8 +140,7 @@ function gameEndLost() {
 }
 
 /**
- * Triggers fullscreen mode on the specified HTML element.
- * Supports multiple browser-specific implementations.
+ * Triggers fullscreen mode.
  *
  * @param {Element} element - The DOM element to display in fullscreen mode.
  */
@@ -160,7 +155,7 @@ function enterFullscreen(element) {
 }
 
 /**
- * Exits fullscreen mode for the document.
+ * Exits fullscreen mode.
  */
 function exitFullscreen() {
   if (document.fullscreenElement || document.webkitFullscreenElement) {

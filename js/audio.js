@@ -31,7 +31,7 @@ let allSounds = [
 ];
 
 /**
- * Adjusts the audio volume
+ * Adjusts the audio volume.
  */
 function adjustsAudioVolume() {
   for (let i = 1; i < allSounds.length; i++) {
@@ -43,7 +43,7 @@ function adjustsAudioVolume() {
 }
 
 /**
- * Switches the sound on or off
+ * Switches the sound on or off.
  */
 function toggleMute() {
   this.muted = !this.muted;

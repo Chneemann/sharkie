@@ -21,7 +21,7 @@ class StatusBarCoin extends DrawableObject {
   }
 
   /**
-   * Adds a coin
+   * Adds a coin.
    */
   addCoin() {
     this.percentage++;

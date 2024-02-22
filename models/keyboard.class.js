@@ -58,8 +58,8 @@ class Keyboard {
   /**
    * Registers a 'touchstart' event on a specific button to start a game action.
    *
-   * @param {string} buttonId - The ID of the button
-   * @param {string} actionType - The type of action
+   * @param {string} buttonId - The ID of the button.
+   * @param {string} actionType - The type of action.
    */
   setButtonActionStart(buttonId, actionType) {
     const button = document.getElementById(buttonId);
@@ -86,8 +86,8 @@ class Keyboard {
   /**
    * Registers a 'touchend' event on a specific button to end a game action.
    *
-   * @param {string} buttonId - The ID of the button
-   * @param {string} actionType - The type of action
+   * @param {string} buttonId - The ID of the button.
+   * @param {string} actionType - The type of action.
    */
   setButtonActionEnd(buttonId, actionType) {
     const button = document.getElementById(buttonId);
@@ -106,8 +106,8 @@ class Keyboard {
   /**
    * Checks whether a specific key has been pressed on the keyboard.
    *
-   * @param {string} btn - The key to be checked
-   * @returns {boolean} true or false
+   * @param {string} btn - The key to be checked.
+   * @returns {boolean} True or false.
    */
   btnPressed(btn) {
     return world.keyboard[btn];

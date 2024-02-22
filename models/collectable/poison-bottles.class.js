@@ -26,7 +26,7 @@ class PoisonBottle extends MovableObject {
   }
 
   /**
-   * Controls the animations
+   * Controls the animations.
    */
   animate() {
     setInterval(() => {
