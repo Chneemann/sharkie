@@ -96,7 +96,6 @@ function errorMsgEndboss() {
  * Resets the game by setting a value in the LocalStorage and reloading the page.
  */
 function restartGame() {
-  localStorage.setItem("restartGame", "true");
   location.reload();
 }
 
@@ -107,18 +106,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const images = document.getElementsByTagName("img");
   for (let i = 0; i < images.length; i++) {
     images[i].setAttribute("draggable", false);
-  }
-});
-
-/**
- * Adds an event listener to the window object that triggers when the page is fully loaded.
- * If the `localStorage` item "restartGame" is set to "true", it executes the `startGame` function
- * to restart the game and then removes the "restartGame" item from `localStorage`.
- */
-window.addEventListener("load", () => {
-  if (localStorage.getItem("restartGame") === "true") {
-    startGame();
-    localStorage.removeItem("restartGame");
   }
 });
 

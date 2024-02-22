@@ -62,10 +62,13 @@ class Endboss extends MovableObject {
   ];
 
   constructor() {
-    super().loadImage("");
-    this.x = -2000;
-    this.y = 0;
-    this.spawnEndboss();
+    super();
+    document.addEventListener("DOMContentLoaded", () => {
+      this.loadImage("");
+      this.x = -2000;
+      this.y = 0;
+      this.spawnEndboss();
+    });
   }
 
   /**
