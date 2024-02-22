@@ -39,94 +39,67 @@ class Keyboard {
   }
 
   /**
-   * Initializes event listeners for touchstart and touchend on game control buttons.
-   * It sets the appropriate class properties based on the button pressed, allowing
-   * for game control through touch inputs. It also ensures that default actions are
-   * prevented when the event is cancelable, avoiding unintended behaviors like scrolling.
+   * This method initializes the interactions for mobile inputs.
    */
   btnPressEvents() {
-    const buttons = [
-      {
-        id: "btn-left",
-        action: () => {
-          this.LEFT = true;
-          this.MOVE = true;
-          this.lastInput = "left";
-          this.lastInputX = "left";
-        },
-        actionEnd: () => {
-          this.LEFT = false;
-          this.MOVE = false;
-        },
-      },
-      {
-        id: "btn-right",
-        action: () => {
-          this.RIGHT = true;
-          this.MOVE = true;
-          this.lastInput = "right";
-          this.lastInputX = "right";
-        },
-        actionEnd: () => {
-          this.RIGHT = false;
-          this.MOVE = false;
-        },
-      },
-      {
-        id: "btn-up",
-        action: () => {
-          this.UP = true;
-          this.MOVE = true;
-          this.lastInput = "up";
-          this.lastInputY = "up";
-        },
-        actionEnd: () => {
-          this.UP = false;
-          this.MOVE = false;
-        },
-      },
-      {
-        id: "btn-down",
-        action: () => {
-          this.DOWN = true;
-          this.MOVE = true;
-          this.lastInput = "down";
-          this.lastInputY = "down";
-        },
-        actionEnd: () => {
-          this.DOWN = false;
-          this.MOVE = false;
-        },
-      },
-      {
-        id: "btn-shoot",
-        action: () => {
-          this.SPACE = true;
-        },
-        actionEnd: () => {
-          this.SPACE = false;
-        },
-      },
-    ];
+    this.setButtonActionStart("btn-up", "UP");
+    this.setButtonActionStart("btn-down", "DOWN");
+    this.setButtonActionStart("btn-right", "RIGHT");
+    this.setButtonActionStart("btn-left", "LEFT");
+    this.setButtonActionStart("btn-shoot", "SPACE");
 
-    buttons.forEach(({ id, action, actionEnd }) => {
-      const button = document.getElementById(id);
+    this.setButtonActionEnd("btn-up", "UP");
+    this.setButtonActionEnd("btn-down", "DOWN");
+    this.setButtonActionEnd("btn-right", "RIGHT");
+    this.setButtonActionEnd("btn-left", "LEFT");
+    this.setButtonActionEnd("btn-shoot", "SPACE");
+  }
 
-      button.addEventListener("touchstart", (e) => {
-        if (e.cancelable) {
-          e.preventDefault();
-        }
-        action();
-        this.lastInputDate = new Date().getTime();
-      });
+  /**
+   * Registers a 'touchstart' event on a specific button to start a game action.
+   *
+   * @param {string} buttonId - The ID of the button
+   * @param {string} actionType - The type of action
+   */
+  setButtonActionStart(buttonId, actionType) {
+    const button = document.getElementById(buttonId);
+    button.addEventListener("touchstart", (e) => {
+      if (e.cancelable) {
+        e.preventDefault();
+      }
+      this[actionType] = true;
+      this.MOVE = actionType !== "SPACE";
+      this.lastInput =
+        actionType === "SPACE" ? "space" : actionType.toLowerCase();
+      this.lastInputX =
+        actionType === "RIGHT" || actionType === "LEFT"
+          ? actionType.toLowerCase()
+          : this.lastInputX;
+      this.lastInputY =
+        actionType === "UP" || actionType === "DOWN"
+          ? actionType.toLowerCase()
+          : this.lastInputY;
+      this.lastInputDate = new Date().getTime();
+    });
+  }
 
-      button.addEventListener("touchend", (e) => {
-        if (e.cancelable) {
-          e.preventDefault();
-        }
-        actionEnd();
-        this.lastInputDate = new Date().getTime();
-      });
+  /**
+   * Registers a 'touchend' event on a specific button to end a game action.
+   *
+   * @param {string} buttonId - The ID of the button
+   * @param {string} actionType - The type of action
+   */
+  setButtonActionEnd(buttonId, actionType) {
+    const button = document.getElementById(buttonId);
+    button.addEventListener("touchend", (e) => {
+      if (e.cancelable) {
+        e.preventDefault();
+      }
+      this[actionType] = false;
+      if (!this.UP && !this.DOWN && !this.LEFT && !this.RIGHT) {
+        this.MOVE = false;
+      }
+      this.lastInputDate = new Date().getTime();
     });
   }
 
