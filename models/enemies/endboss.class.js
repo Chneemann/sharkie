@@ -66,7 +66,6 @@ class Endboss extends MovableObject {
     this.loadImage("");
     this.x = -2000;
     this.y = 0;
-    this.spawnEndboss();
   }
 
   /**

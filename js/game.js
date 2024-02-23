@@ -18,11 +18,18 @@ function init() {
  * and playing the background sound on a loop with reduced volume.
  */
 function startGame() {
-  world.level.animateBackground();
   document.getElementById("startscreen").classList.add("d-none");
   document.getElementById("fullscreen").classList.remove("d-none");
   soundBackground.play();
   soundBackground.loop = true;
+  startIntervals();
+}
+
+function startIntervals() {
+  world.update();
+  world.level.animateBackground();
+  world.character.animate();
+  world.endboss.spawnEndboss();
 }
 
 /**
