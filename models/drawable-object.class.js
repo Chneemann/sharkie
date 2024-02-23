@@ -43,6 +43,7 @@ class DrawableObject {
   /**
    * Determines the index of the image based on the current percentage.
    *
+   * @param {number} percentage - The percentage that represents the state or phase of a process.
    * @returns The image index that corresponds to the current percentage.
    */
   resolveImageIndex(percentage) {
