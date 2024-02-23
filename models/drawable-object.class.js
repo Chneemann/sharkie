@@ -47,16 +47,18 @@ class DrawableObject {
    * @returns The image index that corresponds to the current percentage.
    */
   resolveImageIndex(percentage) {
-    if (percentage == 100) {
+    if (percentage <= 100 && percentage >= 81) {
       return 5;
-    } else if (percentage >= 80) {
+    } else if (percentage <= 80 && percentage >= 61) {
       return 4;
-    } else if (percentage >= 60) {
+    } else if (percentage <= 60 && percentage >= 41) {
       return 3;
-    } else if (percentage >= 40) {
+    } else if (percentage <= 40 && percentage >= 21) {
       return 2;
-    } else if (percentage >= 20) {
+    } else if (percentage <= 20 && percentage >= 1) {
       return 1;
+    } else if (percentage == 0) {
+      return 0;
     } else {
       return 0;
     }
