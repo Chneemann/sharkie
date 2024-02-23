@@ -25,7 +25,8 @@ class StatusBarCoin extends DrawableObject {
    */
   addCoin() {
     this.percentage++;
-    let path = this.IMAGES_COIN[this.resolveImageIndex()];
+    let new_percentage = this.percentage * 10;
+    let path = this.IMAGES_COIN[this.resolveImageIndex(new_percentage)];
     this.img = this.imageCache[path];
   }
 }

@@ -22,11 +22,11 @@ class StatusBarHp extends DrawableObject {
 
   /**
    * Updates the image based on the new percentage.
-   * @param {number} percentage - The new percentage to be set.
+   * @param {number} percentage - The new percentage to be set
    */
   setPercentage(percentage) {
     this.percentage = percentage;
-    let path = this.IMAGES_HP[this.resolveImageIndex()];
+    let path = this.IMAGES_HP[this.resolveImageIndex(this.percentage)];
     this.img = this.imageCache[path];
   }
 }

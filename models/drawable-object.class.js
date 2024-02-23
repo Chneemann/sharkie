@@ -45,36 +45,16 @@ class DrawableObject {
    *
    * @returns The image index that corresponds to the current percentage.
    */
-  resolveImageIndex() {
-    if (
-      this.percentage == 100 ||
-      this.percentage == 10 ||
-      this.percentage == 5
-    ) {
+  resolveImageIndex(percentage) {
+    if (percentage == 100) {
       return 5;
-    } else if (
-      this.percentage >= 80 ||
-      this.percentage >= 8 ||
-      this.percentage == 4
-    ) {
+    } else if (percentage >= 80) {
       return 4;
-    } else if (
-      this.percentage >= 60 ||
-      this.percentage >= 6 ||
-      this.percentage == 3
-    ) {
+    } else if (percentage >= 60) {
       return 3;
-    } else if (
-      this.percentage >= 40 ||
-      this.percentage >= 4 ||
-      this.percentage == 2
-    ) {
+    } else if (percentage >= 40) {
       return 2;
-    } else if (
-      this.percentage >= 20 ||
-      this.percentage >= 2 ||
-      this.percentage == 1
-    ) {
+    } else if (percentage >= 20) {
       return 1;
     } else {
       return 0;

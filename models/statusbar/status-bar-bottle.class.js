@@ -25,7 +25,9 @@ class StatusBarPoisonBottle extends DrawableObject {
    */
   addPoisonBottle() {
     this.percentage++;
-    let path = this.IMAGES_POISON_BOTTLES[this.resolveImageIndex()];
+    let new_percentage = this.percentage * 20;
+    let path =
+      this.IMAGES_POISON_BOTTLES[this.resolveImageIndex(new_percentage)];
     this.img = this.imageCache[path];
   }
 
@@ -34,7 +36,9 @@ class StatusBarPoisonBottle extends DrawableObject {
    */
   removePoisonBottle() {
     this.percentage--;
-    let path = this.IMAGES_POISON_BOTTLES[this.resolveImageIndex()];
+    let new_percentage = this.percentage * 20;
+    let path =
+      this.IMAGES_POISON_BOTTLES[this.resolveImageIndex(new_percentage)];
     this.img = this.imageCache[path];
   }
 }

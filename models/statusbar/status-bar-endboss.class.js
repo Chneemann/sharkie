@@ -26,7 +26,8 @@ class StatusBarEndboss extends DrawableObject {
    */
   setPercentage(percentage) {
     this.percentage = percentage;
-    let path = this.IMAGES_HP[this.resolveImageIndex()];
+    let new_percentage = this.percentage * 20;
+    let path = this.IMAGES_HP[this.resolveImageIndex(new_percentage)];
     this.img = this.imageCache[path];
   }
 }
