@@ -31,6 +31,8 @@ const level1CollectableObjects = [
   new PoisonBottle(1680, 470),
   new PoisonBottle(2060, 480),
   new PoisonBottle(2600, 455),
+  new PoisonBottle(3000, 430),
+  new PoisonBottle(3400, 470),
   new Heart(1950, 310),
   new Heart(3100, 70),
   new Heart(3500, 370),
