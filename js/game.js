@@ -14,8 +14,7 @@ function init() {
 }
 
 /**
- * Initiates the game by hiding the start screen, displaying the full screen button,
- * and playing the background sound on a loop with reduced volume.
+ * Starts the game.
  */
 function startGame() {
   document.getElementById("startscreen").classList.add("d-none");
@@ -25,6 +24,9 @@ function startGame() {
   startIntervals();
 }
 
+/**
+ * Starts all important intervals.
+ */
 function startIntervals() {
   world.update();
   world.level.animateBackground();
