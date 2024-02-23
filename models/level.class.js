@@ -26,7 +26,6 @@ class Level {
     this.levelEnd_down = levelSize[1];
     this.levelEnd_left = levelSize[2];
     this.levelEnd_right = levelSize[3];
-    this.animateBackground();
   }
 
   /**
