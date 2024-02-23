@@ -115,22 +115,15 @@ class World {
   }
 
   /**
-   * Paints the objects on the canvas
+   * Paints all the objects on the canvas.
    */
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.ctx.translate(this.camera_x, 0);
-    this.addObjectsToMap(this.level.backgroundObjects);
-    this.addObjectsToMap(this.level.barrier);
-    this.addObjectsToMap(this.level.objects);
-    this.addObjectsToMap(this.level.enemies);
-    this.addObjectsToMap(this.level.endboss);
-    this.addObjectsToMap(this.allAttackBubbles);
+    this.drawObjectsToMap();
     this.addToMap(this.character);
     this.ctx.translate(-this.camera_x, 0);
-    this.addToMap(this.statusBarHp);
-    this.addToMap(this.statusBarCoin);
-    this.addToMap(this.statusBarPoisonBottle);
+    this.drawToMap();
     if (this.endboss.checkSpawn()) {
       this.addToMap(this.statusBarEndboss);
       this.addTextToMap(
@@ -140,6 +133,40 @@ class World {
         73
       );
     }
+    this.drawTextToMap();
+    this.ctx.translate(this.camera_x, 0);
+    this.ctx.translate(-this.camera_x, 0);
+    let self = this;
+    requestAnimationFrame(function () {
+      self.draw();
+    });
+  }
+
+  /**
+   * Paints the objects on the canvas.
+   */
+  drawObjectsToMap() {
+    this.addObjectsToMap(this.level.backgroundObjects);
+    this.addObjectsToMap(this.level.barrier);
+    this.addObjectsToMap(this.level.objects);
+    this.addObjectsToMap(this.level.enemies);
+    this.addObjectsToMap(this.level.endboss);
+    this.addObjectsToMap(this.allAttackBubbles);
+  }
+
+  /**
+   * Paints the objects on the canvas.
+   */
+  drawToMap() {
+    this.addToMap(this.statusBarHp);
+    this.addToMap(this.statusBarCoin);
+    this.addToMap(this.statusBarPoisonBottle);
+  }
+
+  /**
+   * Paints the objects on the canvas.
+   */
+  drawTextToMap() {
     this.addTextToMap(this.character.hp + "%", "20px", 190, 47);
     this.addTextToMap(this.statusBarCoin.percentage + "/10", "20px", 195, 97);
     this.addTextToMap(
@@ -148,12 +175,6 @@ class World {
       200,
       147
     );
-    this.ctx.translate(this.camera_x, 0);
-    this.ctx.translate(-this.camera_x, 0);
-    let self = this;
-    requestAnimationFrame(function () {
-      self.draw();
-    });
   }
 
   /**
