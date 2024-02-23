@@ -147,28 +147,44 @@ class AttackBubble extends MovableObject {
       if (world.allAttackBubbles[i].isColliding(enemy)) {
         soundAttackBubbleHit.play();
         enemy.objectCollected(world.allAttackBubbles[i]);
-        if (
-          world.allAttackBubbles[i].poisonedBubble &&
-          enemy == world.endboss
-        ) {
-          enemy.hp--;
-          world.endboss.checkHp(enemy);
-        } else if (
-          !world.allAttackBubbles[i].poisonedBubble &&
-          enemy == world.endboss
-        ) {
-          errorMsgEndboss();
-        } else if (enemy != world.endboss) {
-          enemy.hp--;
-        }
-        world.allAttackBubbles[i].intervalClearStatus = true;
-        if (enemy.hp == 0) {
-          enemy.dead = true;
-          setTimeout(() => {
-            enemy.intervalClearStatus = true;
-          }, 3000);
-        }
+        this.isItEndboss(enemy, i);
+        this.isEnemyDead(enemy);
       }
+    }
+  }
+
+  /**
+   * Checks whether the attack hits the end boss.
+   *
+   * @param {Object} enemy - The enemy object that is being attacked.
+   * @param {number} i - The index of the attack bubble in the list of all attack bubbles.
+   */
+  isItEndboss(enemy, i) {
+    if (world.allAttackBubbles[i].poisonedBubble && enemy == world.endboss) {
+      enemy.hp--;
+      world.endboss.checkHp(enemy);
+    } else if (
+      !world.allAttackBubbles[i].poisonedBubble &&
+      enemy == world.endboss
+    ) {
+      errorMsgEndboss();
+    } else if (enemy != world.endboss) {
+      enemy.hp--;
+    }
+    world.allAttackBubbles[i].intervalClearStatus = true;
+  }
+
+  /**
+   * Checks whether the enemy is dead (i.e. has no more HP)
+   *
+   * @param {Object} enemy - The enemy object whose status is checked.
+   */
+  isEnemyDead(enemy) {
+    if (enemy.hp == 0) {
+      enemy.dead = true;
+      setTimeout(() => {
+        enemy.intervalClearStatus = true;
+      }, 3000);
     }
   }
 

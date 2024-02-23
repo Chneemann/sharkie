@@ -170,41 +170,11 @@ class Character extends MovableObject {
    */
   moveCharacter() {
     setInterval(() => {
-      if (
-        keyboard.btnPressed("RIGHT") &&
-        world.level.isWorldEnd("right") &&
-        !this.isDead()
-      ) {
-        this.moveRight();
-      }
-      if (
-        keyboard.btnPressed("LEFT") &&
-        world.level.isWorldEnd("left") &&
-        !this.isDead()
-      ) {
-        this.moveLeft();
-      }
-      if (
-        keyboard.btnPressed("UP") &&
-        world.level.isWorldEnd("up") &&
-        !this.isDead()
-      ) {
-        this.moveUp();
-      }
-      if (
-        keyboard.btnPressed("DOWN") &&
-        world.level.isWorldEnd("down") &&
-        !this.isDead()
-      ) {
-        this.moveDown();
-      }
-      if (
-        keyboard.btnPressed("SPACE") &&
-        world.attackBubble.canCreateNewAttackBubble() &&
-        !this.isDead()
-      ) {
-        this.lastAttack = new Date().getTime();
-      }
+      this.moveRight();
+      this.moveLeft();
+      this.moveUp();
+      this.moveDown();
+      this.attack();
       this.adjustCameraPosition();
     }, 1000 / 60);
   }
@@ -301,33 +271,70 @@ class Character extends MovableObject {
    * Character moves to the right.
    */
   moveRight() {
-    this.x += this.speed;
-    this.otherDirection = false;
-    soundCharacterMove.play();
+    if (
+      keyboard.btnPressed("RIGHT") &&
+      world.level.isWorldEnd("right") &&
+      !this.isDead()
+    ) {
+      this.x += this.speed;
+      this.otherDirection = false;
+      soundCharacterMove.play();
+    }
   }
 
   /**
    * Character moves to the left.
    */
   moveLeft() {
-    this.x -= this.speed;
-    this.otherDirection = true;
-    soundCharacterMove.play();
+    if (
+      keyboard.btnPressed("LEFT") &&
+      world.level.isWorldEnd("left") &&
+      !this.isDead()
+    ) {
+      this.x -= this.speed;
+      this.otherDirection = true;
+      soundCharacterMove.play();
+    }
   }
 
   /**
    * Character moves upwards.
    */
   moveUp() {
-    this.y -= this.speed;
-    soundCharacterMove.play();
+    if (
+      keyboard.btnPressed("UP") &&
+      world.level.isWorldEnd("up") &&
+      !this.isDead()
+    ) {
+      this.y -= this.speed;
+      soundCharacterMove.play();
+    }
   }
 
   /**
    * Character moves downwards.
    */
   moveDown() {
-    this.y += this.speed;
-    soundCharacterMove.play();
+    if (
+      keyboard.btnPressed("DOWN") &&
+      world.level.isWorldEnd("down") &&
+      !this.isDead()
+    ) {
+      this.y += this.speed;
+      soundCharacterMove.play();
+    }
+  }
+
+  /**
+   * Character attacks.
+   */
+  attack() {
+    if (
+      keyboard.btnPressed("SPACE") &&
+      world.attackBubble.canCreateNewAttackBubble() &&
+      !this.isDead()
+    ) {
+      this.lastAttack = new Date().getTime();
+    }
   }
 }
