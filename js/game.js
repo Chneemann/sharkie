@@ -11,9 +11,15 @@ function init() {
   world = new World(canvas, keyboard);
   togglePlayButtons();
   adjustsAudioVolume();
+  btnLoader();
+}
+
+function btnLoader() {
   setTimeout(function () {
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("loadingText").style.display = "none";
     document.getElementById("startButton").style.display = "block";
-  }, 1500);
+  }, 2000);
 }
 
 /**
