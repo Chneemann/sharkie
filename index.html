@@ -28,13 +28,6 @@
     <script src="./levels/level1.js"></script>
     <script src="./js/audio.js"></script>
     <script src="./js/game.js"></script>
-    <script
-      id="Cookiebot"
-      src="https://consent.cookiebot.com/uc.js"
-      data-cbid="87562f11-79eb-4942-b47a-f0a5eefc0e90"
-      data-blockingmode="auto"
-      type="text/javascript"
-    ></script>
   </head>
   <body onload="init()">
     <h1>Sharkie</h1>
@@ -96,7 +89,11 @@
       <div id="startscreen" class="startscreen">
         <img src="img/3. Background/Mesa de trabajo 1.png" alt="" />
         <img src="img/6.Botones/Instructions 2.png" alt="" />
-        <button onclick="startGame()"></button>
+        <button
+          id="startButton"
+          style="display: none"
+          onclick="startGame()"
+        ></button>
       </div>
       <div id="endscreen" class="d-none">
         <div id="endscreen-win" class="endscreen d-none">

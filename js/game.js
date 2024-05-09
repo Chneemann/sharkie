@@ -11,6 +11,9 @@ function init() {
   world = new World(canvas, keyboard);
   togglePlayButtons();
   adjustsAudioVolume();
+  setTimeout(function () {
+    document.getElementById("startButton").style.display = "block";
+  }, 1500);
 }
 
 /**
