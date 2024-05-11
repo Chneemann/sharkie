@@ -9,7 +9,11 @@ body {
   align-items: center;
   font-family: "water-galon", Arial, Helvetica, sans-serif;
   background: url(./img/background.webp) no-repeat center center fixed;
+  background-repeat: no-repeat;
   background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 h1 {
