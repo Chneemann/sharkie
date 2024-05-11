@@ -126,7 +126,7 @@ class World {
     if (this.endboss.checkSpawn()) {
       this.addToMap(this.statusBarEndboss);
       this.addTextToMap(
-        this.statusBarEndboss.percentage + "/10",
+        this.statusBarEndboss.percentage + "/5",
         "20px",
         820,
         73
