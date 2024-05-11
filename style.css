@@ -50,9 +50,9 @@ h1 {
 /*------------- LOADER -------------*/
 
 .loader {
-  position: fixed;
-  top: 200px;
-  right: 600px;
+  position: absolute;
+  top: 70px;
+  right: 250px;
   border: 16px solid #f3f3f3;
   border-top: 16px solid #3498db;
   border-radius: 50%;
@@ -64,9 +64,9 @@ h1 {
 }
 
 .loading-text {
-  position: fixed;
-  top: 300px;
-  right: 595px;
+  position: absolute;
+  top: 165px;
+  right: 245px;
   text-align: center;
   margin-top: 10px;
   font-size: 18px;
